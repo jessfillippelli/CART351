@@ -70,3 +70,24 @@ footer {
     background: powderblue;
     padding: 5px;
 }
+
+hr {
+	color: #ffffff;
+	width: 900px;
+	height: 35px
+
+}
+
+ul li {
+
+    margin: 10px;
+}
+
+a {
+    color: hotpink;
+		font-size: 20px;
+}
+
+li {
+	font-size: 20px;
+}
