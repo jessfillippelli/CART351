@@ -54,3 +54,10 @@ footer {
 	padding-bottom: 2%;
 
 }
+
+.content {
+    max-width: 900px;
+    margin: auto;
+    background: aliceblue;
+    padding: 5px;
+}
