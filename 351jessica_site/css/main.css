@@ -16,6 +16,10 @@ h3{
   text-align: center;
 }
 
+h4{
+	text-align: center;
+}
+
 /* navigation */
 /* Add a black background color to the top navigation */
 .topnav {
