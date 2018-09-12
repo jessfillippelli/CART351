@@ -35,14 +35,23 @@
   let handleClick = function (event){
     // do something!
     console.log("box c was clicked");
+    let p = document.getElementById("displayText");
+    p.innerHTML= "HELLO C";
+
+
   };
   let handleClickD = function (event){
     // do something!
     console.log("box d was clicked");
+
+        let p = document.getElementById("displayText");
+        p.innerHTML= "HELLO D";
   };
   let handleClickE = function (event){
     // do something!
     console.log("box e was clicked");
+    let p = document.getElementById("displayText");
+    p.innerHTML= "HELLO E";
   };
     let cBox = document.getElementById('c');
     cBox.addEventListener('click', handleClick);
@@ -53,6 +62,8 @@
     let eBox = document.getElementById('e');
     eBox.addEventListener('click', handleClickE);
   }
+
+
   </script>
 
 
@@ -63,7 +74,7 @@
   <div id = "d" class = "box"></div>
   <div id = "e" class = "box"></div>
   <br />
-  <p style = "display:none;" id = "displayText" class = "para"></p>
+  <p style = "display:inline-block;" id = "displayText" class = "para"></p>
 </div>
 
 </body>
