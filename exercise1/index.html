@@ -36,11 +36,22 @@
     // do something!
     console.log("box c was clicked");
   };
+  let handleClickD = function (event){
+    // do something!
+    console.log("box d was clicked");
+  };
+  let handleClickE = function (event){
+    // do something!
+    console.log("box e was clicked");
+  };
     let cBox = document.getElementById('c');
     cBox.addEventListener('click', handleClick);
 
     let dBox = document.getElementById('d');
-    dBox.addEventListener('click', handleClick);
+    dBox.addEventListener('click', handleClickD);
+
+    let eBox = document.getElementById('e');
+    eBox.addEventListener('click', handleClickE);
   }
   </script>
 
