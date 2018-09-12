@@ -31,19 +31,14 @@
   }
   </style>
   <script>
-
-
   window.onload = function(){
-    let handleClick = function (event){
-      this.style.background = "#800000";
-    };
-           let cBox = document.getElementById('c');
-           cBox.addEventListener('click', handleClick);
-           dBox.addEventListener('click', handleClick);
-           eBox.addEventListener('click', handleClick);
-
+  let handleClick = function (event){
+    // do something!
+    console.log("box c was clicked");
+  };
+    let cBox = document.getElementById('c');
+    cBox.addEventListener('click', handleClick);
   }
-
   </script>
 
 
