@@ -84,13 +84,16 @@ hr {
 ul li {
 
     margin: 10px;
+		text-decoration: none
 }
 
 a {
     color: hotpink;
 		font-size: 20px;
+		text-decoration: none
 }
 
 li {
 	font-size: 20px;
+	text-decoration: none
 }
