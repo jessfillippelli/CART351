@@ -22,6 +22,22 @@ let canvas = document.getElementById('testCanvas');
 let canvasContext = canvas.getContext('2d');
 
   }//end window onload
+
+
+
+
+
+// NEED TO USE OUR "graphics context" for drawing::
+canvasContext.fillStyle = "#8ED6FF"; // change the color we are using
+canvasContext.fill(); // set the fill
+canvasContext.fillRect(20,20,50,50); //draw a filled rect
+canvasContext.clearRect(35,35,20,20); //cut a square out
+canvasContext.strokeStyle = "#8ED6FF"; // change the color we are using
+canvasContext.strokeRect(20,100,50,50); //draw a stroked rect
+  }//end window onload
+
+
+
   </script>
 </head>
 <body>
