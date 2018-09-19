@@ -31,6 +31,7 @@ let endAngle = Math.PI * 2
 
 
 let ellipse1 = new myBounceCircle(canvas.width/2,canvas.height/2,30,"#4d1919");
+let rect1 = new myRect(200,150,50,500);
 
 requestAnimationFrame(runAni);
 
@@ -41,6 +42,7 @@ function runAni(){
   canvasContext.clearRect(0, 0, canvas.width, canvas.height);
   ellipse1.update();
   ellipse1.render();
+  rect1.render();
 
 /* DRAW OTHER OBJECTS*/
 canvasContext.fillStyle = "#4d1919"; // change the color we are using
@@ -57,8 +59,8 @@ canvasContext.closePath();
 
 
 //rect
-canvasContext.fill();
-canvasContext.strokeRect(200,150,50,500);
+//canvasContext.fill();
+//canvasContext.strokeRect(200,150,50,500);
 
 
 
@@ -68,6 +70,29 @@ canvasContext.strokeRect(200,150,50,500);
   // recursive call ...
   requestAnimationFrame(runAni);
 }
+
+
+function myRect(x,y,w,h){
+  //member variables
+  this.xPos = x;
+  this.yPos = y;
+  this.width = w;
+  this.height = h;
+
+  this.render =function(){
+    canvasContext.fill();
+    canvasContext.strokeRect(this.xPos,this.yPos,this.width,this.height);
+  }
+
+  this.isPressed = function(event){
+    if(event.clientX>this.xPos  && event.clientX<this.xPos+ this.width &&
+    event.clientY>this.yPos  && event.clientY<this.yPos+ this.height )
+    {
+      console.log("in box");
+    }
+  }
+}
+
 function myBounceCircle(x,y,r,c){
   //member variables
   this.xPos = x;
@@ -103,13 +128,14 @@ function myBounceCircle(x,y,r,c){
 
   let handleClick = function (event){
     // do something!
-    console.log("sup, you click the rect");
+    console.log("sup, you click the canvas");
+    rect1.isPressed(event);
 
 };
 
 //WHEN YOU CLICKED ON THE SQUARES
-    let  = document.getElementById('c');
-    cBox.addEventListener('click', handleClick);
+
+    canvas.addEventListener('click', handleClick);
 
 
 
