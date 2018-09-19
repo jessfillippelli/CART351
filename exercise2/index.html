@@ -20,13 +20,26 @@
 // step 1 access the canvas element && the graphics context....
 let canvas = document.getElementById('testCanvas');
 let canvasContext = canvas.getContext('2d');
-
 let xPos = canvas.width/2;
 let yPos = canvas.height/2;
 let radius  = 25;
 let startAngle = 0;
 let endAngle = Math.PI * 2
 
+
+let ellipse1 = new myBounceCircle(canvas.width/2,canvas.height/2,30,"#4d1919");
+
+requestAnimationFrame(runAni);
+
+
+function runAni(){
+  //need to reset the background :)
+  // clear the canvas ...
+  canvasContext.clearRect(0, 0, canvas.width, canvas.height);
+  ellipse1.update();
+  ellipse1.render();
+
+/* DRAW OTHER OBJECTS*/
 canvasContext.fillStyle = "#4d1919"; // change the color we are using
 canvasContext.strokeStyle = "#4d1919"; // change the color we are using
 canvasContext.beginPath();
@@ -37,6 +50,61 @@ canvasContext.lineWidth=5; //change stroke weight
 canvasContext.stroke(); // set the outline
 
 canvasContext.closePath();
+
+
+
+//rect
+canvasContext.fill();
+canvasContext.strokeRect(200,150,50,500);
+
+
+
+
+
+
+  // recursive call ...
+  requestAnimationFrame(runAni);
+}
+function myBounceCircle(x,y,r,c){
+  //member variables
+  this.xPos = x;
+  this.yPos = y;
+  this.radius = r;
+  this.ellipseColor = c;
+
+  // new for updating
+  this.xSpeed = 1;
+  this.ySpeed =4;
+
+//member function
+  this.render =function(){
+      canvasContext.fillStyle = this.ellipseColor;// change the color we are using
+      canvasContext.beginPath();
+      canvasContext.arc(this.xPos,this.yPos,this.radius,0, Math.PI * 2, true);
+      canvasContext.fill(); // set the fill
+      canvasContext.closePath(); //close a path ...
+    }
+  //member function for updating
+  this.update = function(){
+       if(this.xPos<0 || this.xPos>canvas.width){
+         this.xSpeed*=-1;
+       }
+       if(this.yPos<0 || this.yPos>canvas.height){
+         this.ySpeed*=-1;
+       }
+       this.xPos+=this.xSpeed;
+       this.yPos+=this.ySpeed;
+     }
+  }
+
+
+
+
+
+
+
+
+
 
   }//end window onload
 
