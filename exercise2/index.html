@@ -8,7 +8,7 @@
   }
   canvas
   {
-    background:light-blue;
+    background:  #12363b;
     margin:0;
     padding:0;
   }
@@ -21,27 +21,33 @@
 let canvas = document.getElementById('testCanvas');
 let canvasContext = canvas.getContext('2d');
 
-  }//end window onload
+let xPos = canvas.width/2;
+let yPos = canvas.height/2;
+let radius  = 25;
+let startAngle = 0;
+let endAngle = Math.PI * 2
 
-
-
-
-
-// NEED TO USE OUR "graphics context" for drawing::
-canvasContext.fillStyle = "#8ED6FF"; // change the color we are using
+canvasContext.fillStyle = "#4d1919"; // change the color we are using
+canvasContext.strokeStyle = "#4d1919"; // change the color we are using
+canvasContext.beginPath();
+// arc (x,y,radius, startAngle,endAngle,isCounterClockwise)
+canvasContext.arc(xPos,yPos,radius,startAngle,endAngle, true);
 canvasContext.fill(); // set the fill
-canvasContext.fillRect(20,20,50,50); //draw a filled rect
-canvasContext.clearRect(35,35,20,20); //cut a square out
-canvasContext.strokeStyle = "#8ED6FF"; // change the color we are using
-canvasContext.strokeRect(20,100,50,50); //draw a stroked rect
+canvasContext.lineWidth=5; //change stroke weight
+canvasContext.stroke(); // set the outline
+
+canvasContext.closePath();
+
   }//end window onload
+
+
 
 
 
   </script>
 </head>
 <body>
-<canvas id="testCanvas" width="600" height="600">
+<canvas id="testCanvas" width="750" height="750">
 
 </canvas>
 </body>
