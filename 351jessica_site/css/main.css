@@ -1,8 +1,9 @@
 
 body {
 	background-color: white;
+	background-image: url("f.png");
   background-repeat: no-repeat;
-  background-position: left bottom;
+  background-position: right bottom;
   margin-right: 5px;
   background-attachment: fixed;
 }
