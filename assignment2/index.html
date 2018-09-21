@@ -4,8 +4,15 @@
 
 <style>
 body{
-  margin:0;
-  padding:0;
+  margin-top: 100;
+  margin-bottom: 100;
+  margin-right: 100;
+  margin-left: 200;
+  padding-left: 500;
+  padding-right: 100;
+  padding-top: 100;
+  padding-bottom: 100;
+
 }
 canvas
 {
@@ -13,30 +20,28 @@ canvas
   margin:0;
   padding:0;
 }
+
+
+
+
 </style>
+<script>
+
+//only run this once the window loads
+window.onload = function(){
+// step 1 access the canvas element && the graphics context....
+let canvas = document.getElementById('testCanvas');
+let canvasContext = canvas.getContext('2d');
+
+}//end window onload
+</script>
+<body>
+<canvas id="testCanvas" width="500" height="500">
 
 
+</canvas>
+<h2> hi </h2>
+</body>
 </head>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 </html>
