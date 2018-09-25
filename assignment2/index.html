@@ -1,57 +1,100 @@
 <html>
 <head>
-<title> Jessica's Assignment II </title>
-
-<style>
-body{
-  margin-top: 100;
-  margin-bottom: 100;
-  margin-right: 100;
-  margin-left: 200;
-  padding-left: 500;
-  padding-right: 100;
-  padding-top: 100;
-  padding-bottom: 100;
-
-}
-canvas
-{
-  background:#99ceff;
-  margin:0;
-  padding:0;
-}
-
-div {height:50px;padding:16px;width:100%;}
-
-
-
-</style>
-<script>
-
-//only run this once the window loads
-window.onload = function(){
+  <title> Jessica ASSIGNMENT 2 </title>
+  <style>
+  body{
+    margin-top: 100;
+    margin-bottom: 100;
+    margin-right: 100;
+    margin-left: 200;
+    padding-left: 500;
+    padding-right: 110;
+    padding-top: 100;
+    padding-bottom: 100;
+  }
+  canvas{
+    background:#99ceff;
+    margin:0;
+    padding:0;
+  }
+  </style>
+  <script>
+  /*** THIS EX SHOWS THE BASIC SETUP ****/
+  //only run this once the window loads
+  window.onload = function(){
 // step 1 access the canvas element && the graphics context....
 let canvas = document.getElementById('testCanvas');
 let canvasContext = canvas.getContext('2d');
 
+// max number ellipses
+const MAX_ELLIPSES =30;
+//array to hold objects
+let myEllipses = [];
+//make some possible colors
+let colors = ["#d9b3ff","#ffb3d9","#ffb3b3","#ffff80","#b3c6ff","#ccffb3","#ffe0b3"];
+
+//fill the array with objects
+for (let i =0; i< MAX_ELLIPSES;i++){
+// have different parameters for each ellipse object
+  myEllipses.push(new myRunningEllipse(i,i,10,colors[i%colors.length],(i%5)+1,(i%6)+2));
+}
+
+requestAnimationFrame(runAni);
+
+// this is our callback function (to simulate a loop ... )
+function runAni(){
+  //need to reset the background :)
+  // clear the canvas ...
+  canvasContext.clearRect(0, 0, canvas.width, canvas.height);
+
+  // go through each object and perform required ops
+  for (let i =0; i< MAX_ELLIPSES;i++){
+    myEllipses[i].update();
+    myEllipses[i].render();
+
+  }
+  // recursive call ...
+  requestAnimationFrame(runAni);
+}
+
+
+function myRunningEllipse(x,y,r,c,xSpeed,ySpeed){
+  //member variables
+  this.xPos = x;
+  this.yPos = y;
+  this.radius = r;
+  this.ellipseColor = c;
+
+  // new for updating
+  this.xSpeed = xSpeed;
+  this.ySpeed =ySpeed;
+
+//member function
+  this.render =function(){
+      canvasContext.fillStyle = this.ellipseColor;// change the color we are using
+      canvasContext.beginPath();
+      canvasContext.arc(this.xPos,this.yPos,this.radius,0, Math.PI * 2, true);
+      canvasContext.fill(); // set the fill
+      canvasContext.closePath(); //close a path ...
+    }
+  //member function for updating
+  this.update = function(){
+       if(this.xPos<0 || this.xPos>canvas.width){
+         this.xSpeed*=-1;
+       }
+       if(this.yPos<0 || this.yPos>canvas.height){
+         this.ySpeed*=-1;
+       }
+       this.xPos+=this.xSpeed;
+       this.yPos+=this.ySpeed;
+     }
+  } //end myRunningEllipse
 }//end window onload
-</script>
+  </script>
+</head>
 <body>
-
-<h2> hi </h2>
-<div style="background-color:red">
-<h1 style="color:white">Heading</h1>
-</div>
-
-
 <canvas id="testCanvas" width="500" height="500">
 
-
 </canvas>
-
-
-
 </body>
-</head>
-
 </html>
