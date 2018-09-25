@@ -17,6 +17,8 @@
     margin:0;
     padding:0;
   }
+
+
   </style>
   <script>
   /*** THIS EX SHOWS THE BASIC SETUP ****/
@@ -27,16 +29,23 @@ let canvas = document.getElementById('testCanvas');
 let canvasContext = canvas.getContext('2d');
 
 // max number ellipses
-const MAX_ELLIPSES =30;
+const MAX_ELLIPSES =10;
+const MAX_RECT = 10;
 //array to hold objects
 let myEllipses = [];
+let myRect = [];
 //make some possible colors
 let colors = ["#d9b3ff","#ffb3d9","#ffb3b3","#ffff80","#b3c6ff","#ccffb3","#ffe0b3"];
+//let colors = ["#d9b3ff","#ffb3d9","#ffb3b3","#ffff80","#b3c6ff","#ccffb3","#ffe0b3"];
 
 //fill the array with objects
 for (let i =0; i< MAX_ELLIPSES;i++){
 // have different parameters for each ellipse object
   myEllipses.push(new myRunningEllipse(i,i,10,colors[i%colors.length],(i%5)+1,(i%6)+2));
+}
+for (let i =0; i< MAX_RECT;i++){
+// have different parameters for each ellipse object
+  myRect.push(new myRunningRect(i,i,10,colors[i%colors.length],(i%5)+1,(i%6)+2));
 }
 
 requestAnimationFrame(runAni);
@@ -53,11 +62,17 @@ function runAni(){
     myEllipses[i].render();
 
   }
+
+  for (let i =0; i< MAX_RECT;i++){
+    myRect[i].update();
+    myRect[i].render();
+
+  }
   // recursive call ...
   requestAnimationFrame(runAni);
 }
 
-
+//function myRunningRect()
 function myRunningEllipse(x,y,r,c,xSpeed,ySpeed){
   //member variables
   this.xPos = x;
@@ -88,11 +103,42 @@ function myRunningEllipse(x,y,r,c,xSpeed,ySpeed){
        this.xPos+=this.xSpeed;
        this.yPos+=this.ySpeed;
      }
-  } //end myRunningEllipse
-}//end window onload
+  } // end of circle
+
+  function Rect(x, y, w, h, xSpeed,ySpeed) {
+      this.x = x;
+      this.y = y;
+      this.w = w;
+      this.h = h;
+      this.rectColor  = c;
+
+      this.xSpeed = xSpeed;
+      this.ySpeed =ySpeed;
+
+      this.render = function(){
+          canvasContext.fillStyle = this.rectColor;// change the color we are using
+          canvasContext.beginPath();
+          canvasContext.fill(); // set the fill
+          canvasContext.closePath(); //close a path ...
+        }
+
+        this.update = function(){
+             if(this.xPos<0 || this.xPos>canvas.width){
+               this.xSpeed*=-1;
+             }
+             if(this.yPos<0 || this.yPos>canvas.height){
+               this.ySpeed*=-1;
+             }
+             this.xPos+=this.xSpeed;
+             this.yPos+=this.ySpeed;
+           }
+    }
+
+} //end window onload - EVERYTHING HAS TO BE INSIDE OF HERE
   </script>
 </head>
 <body>
+  <h2> ASSIGNMENT 2 - Will come up with a cooler name later </h2>
 <canvas id="testCanvas" width="500" height="500">
 
 </canvas>
