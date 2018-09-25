@@ -35,7 +35,7 @@ for (let i =0; i< MAX_ELLIPSES;i++){
 }
 for (let i =0; i< MAX_RECT;i++){
 // have different parameters for each rect object
-  myRect.push(new myRunningRect(i,i,10,colors[i%colors.length],(i%5)+1,(i%6)+2));
+  myRect.push(new myRunningRect(i+100,i+150,10,10,colors[i%colors.length],(i%5)+1,(i%6)+2));
 }
 
 requestAnimationFrame(runAni);
@@ -96,7 +96,7 @@ function myRunningEllipse(x,y,r,c,xSpeed,ySpeed){
   } // end of circle
 
 //start of rect
-  function Rect(x, y, w, h, xSpeed,ySpeed) {
+  function myRunningRect(x, y, w, h, c, xSpeed,ySpeed) {
       this.x = x;
       this.y = y;
       this.w = w;
@@ -108,20 +108,21 @@ function myRunningEllipse(x,y,r,c,xSpeed,ySpeed){
 
       this.render = function(){
           canvasContext.fillStyle = this.rectColor;// change the color we are using
-          canvasContext.beginPath();
+          /*canvasContext.beginPath();
           canvasContext.fill(); // set the fill
-          canvasContext.closePath(); //close a path ...
+          canvasContext.closePath(); //close a path ...*/
+          canvasContext.fillRect(this.x,this.y,this.w, this.h);
         }
 
         this.update = function(){
-             if(this.xPos<0 || this.xPos>canvas.width){
+             if(this.x<0 || this.x>canvas.width){
                this.xSpeed*=-1;
              }
-             if(this.yPos<0 || this.yPos>canvas.height){
+             if(this.y<0 || this.y>canvas.height){
                this.ySpeed*=-1;
              }
-             this.xPos+=this.xSpeed;
-             this.yPos+=this.ySpeed;
+             this.x+=this.xSpeed;
+             this.y+=this.ySpeed;
            }
     }
 
