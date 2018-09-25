@@ -3,14 +3,8 @@
   <title> Jessica ASSIGNMENT 2 </title>
   <style>
   body{
-    margin-top: 100;
-    margin-bottom: 100;
-    margin-right: 100;
-    margin-left: 200;
-    padding-left: 500;
-    padding-right: 110;
-    padding-top: 100;
-    padding-bottom: 100;
+  margin: 0;
+  padding: 0;
   }
   canvas{
     background:#99ceff;
@@ -44,7 +38,7 @@ for (let i =0; i< MAX_ELLIPSES;i++){
   myEllipses.push(new myRunningEllipse(i,i,10,colors[i%colors.length],(i%5)+1,(i%6)+2));
 }
 for (let i =0; i< MAX_RECT;i++){
-// have different parameters for each ellipse object
+// have different parameters for each rect object
   myRect.push(new myRunningRect(i,i,10,colors[i%colors.length],(i%5)+1,(i%6)+2));
 }
 
@@ -105,6 +99,7 @@ function myRunningEllipse(x,y,r,c,xSpeed,ySpeed){
      }
   } // end of circle
 
+//start of rect
   function Rect(x, y, w, h, xSpeed,ySpeed) {
       this.x = x;
       this.y = y;
