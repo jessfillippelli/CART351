@@ -31,11 +31,11 @@ let colors = ["#d9b3ff","#ffb3d9","#ffb3b3","#ffff80","#b3c6ff","#ccffb3","#ffe0
 //fill the array with objects
 for (let i =0; i< MAX_ELLIPSES;i++){
 // have different parameters for each ellipse object
-  myEllipses.push(new myRunningEllipse(i,i,10,colors[i%colors.length],(i%5)+1,(i%6)+2));
+  myEllipses.push(new myRunningEllipse(i,i,10,colors[i%colors.length],(i%3)+9,(i%8)+7));
 }
 for (let i =0; i< MAX_RECT;i++){
 // have different parameters for each rect object
-  myRect.push(new myRunningRect(i+100,i+150,30,30,colors[i%colors.length],(i%5)+1,(i%6)+2));
+  myRect.push(new myRunningRect(i+100,i+150,30,30,colors[i%colors.length],(i%5)+1,(i%2)+5));
 }
 
 requestAnimationFrame(runAni);
