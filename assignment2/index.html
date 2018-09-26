@@ -11,42 +11,45 @@
   </body>
 
   <script>
-  /*** THIS EX SHOWS THE BASIC SETUP ****/
-  //only run this once the window loads
+
+
   window.onload = function(){
 // step 1 access the canvas element && the graphics context....
 let canvas = document.getElementById('testCanvas');
 let canvasContext = canvas.getContext('2d');
 
-// max number ellipses
+
 const MAX_ELLIPSES =10;
 const MAX_RECT = 10;
-//array to hold objects
+
+//array
 let myEllipses = [];
 let myRect = [];
-//make some possible colors
+
+//colors
 let colors = ["#d9b3ff","#ffb3d9","#ffb3b3","#ffff80","#b3c6ff","#ccffb3","#ffe0b3"];
-//let colors = ["#d9b3ff","#ffb3d9","#ffb3b3","#ffff80","#b3c6ff","#ccffb3","#ffe0b3"];
+
 
 //fill the array with objects
 for (let i =0; i< MAX_ELLIPSES;i++){
-// i = x-axis, i = y-axis 15 = size of ball, color , (i%3)+9, (i%8)+7 = speed of ball
-  myEllipses.push(new myRunningEllipse(i,i,15,colors[i%colors.length],(i%3)+9,(i%8)+7));
+
+// A REMINDER - i = x-axis, i = y-axis 15 = size of ball, color , (i%3)+9, (i%8)+7 = speed of ball
+  myEllipses.push(new myRunningEllipse(i,i,15,colors[i%colors.length],(i%3)+7,(i%4)+5));
 }
 for (let i =0; i< MAX_RECT;i++){
-//  i+100 = x-axis, i+100 = y-axis 30,30 = w &h of rect, color , (i%5)+1,(i%2)+5) = speed of rect
-  myRect.push(new myRunningRect(i+100,i+150,30,30,colors[i%colors.length],(i%5)+1,(i%2)+5));
+// A REMINDER - i+100 = x-axis, i+100 = y-axis 30,30 = w &h of rect, color , (i%5)+1,(i%2)+5) = speed of rect
+  myRect.push(new myRunningRect(i+100,i+150,30,30,colors[i%colors.length],(i%3)+2,(i%4)+1));
 }
 
 requestAnimationFrame(runAni);
 
 // this is our callback function (to simulate a loop ... )
 function runAni(){
-  //need to reset the background :)
+
   // clear the canvas ...
   canvasContext.clearRect(0, 0, canvas.width, canvas.height);
 
-  // go through each object and perform required ops
+
   for (let i =0; i< MAX_ELLIPSES;i++){
     myEllipses[i].update();
     myEllipses[i].render();
@@ -93,9 +96,9 @@ function myRunningEllipse(x,y,r,c,xSpeed,ySpeed){
        this.xPos+=this.xSpeed;
        this.yPos+=this.ySpeed;
      }
-  } // end of circle
+  } // end of circle FUNCTION
 
-//start of rect
+//start of rect FUNCTION
   function myRunningRect(x, y, w, h, c, xSpeed,ySpeed) {
       this.x = x;
       this.y = y;
@@ -107,10 +110,7 @@ function myRunningEllipse(x,y,r,c,xSpeed,ySpeed){
       this.ySpeed =ySpeed;
 
       this.render = function(){
-          canvasContext.fillStyle = this.rectColor;// change the color we are using
-          /*canvasContext.beginPath();
-          canvasContext.fill(); // set the fill
-          canvasContext.closePath(); //close a path ...*/
+          canvasContext.fillStyle = this.rectColor;
           canvasContext.fillRect(this.x,this.y,this.w, this.h);
         }
 
@@ -124,7 +124,7 @@ function myRunningEllipse(x,y,r,c,xSpeed,ySpeed){
              this.x+=this.xSpeed;
              this.y+=this.ySpeed;
            }
-    }
+    } //END OF RECT FUNCTION
 
 } //end window onload - EVERYTHING HAS TO BE INSIDE OF HERE
   </script>
