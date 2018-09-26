@@ -22,11 +22,18 @@ let canvasContext = canvas.getContext('2d');
 const MAX_ELLIPSES =10;
 const MAX_RECT = 10;
 
+//event listerer
+canvas.addEventListener("mousedown",function(event){
+  console.log("canvas mouse clicked"); //part ONE
+  for(let i=0; i<MAX_RECT; i++){
+    //shapeList[i].hitTest(event); //knows that a shape was clicked
+  }
+
+});
+
 //array
 let myEllipses = [];
 let myRect = [];
-
-//colors
 let colors = ["#d9b3ff","#ffb3d9","#ffb3b3","#ffff80","#b3c6ff","#ccffb3","#ffe0b3"];
 
 
@@ -65,7 +72,7 @@ function runAni(){
   requestAnimationFrame(runAni);
 }
 
-//function myRunningRect()
+//start of circle function 
 function myRunningEllipse(x,y,r,c,xSpeed,ySpeed){
   //member variables
   this.xPos = x;
