@@ -14,19 +14,23 @@
 
 
   window.onload = function(){
-// step 1 access the canvas element && the graphics context....
+
 let canvas = document.getElementById('testCanvas');
 let canvasContext = canvas.getContext('2d');
-
-
 const MAX_ELLIPSES =10;
 const MAX_RECT = 10;
 
 //event listerer
 canvas.addEventListener("mousedown",function(event){
   console.log("canvas mouse clicked"); //part ONE
+
+
+});
+
+canvas.addEventListener("mousemove",function(event){
+  console.log("mouse was moved"); 
   for(let i=0; i<MAX_RECT; i++){
-    //shapeList[i].hitTest(event); //knows that a shape was clicked
+    shapeList[i].hitTestOver(event); //knows that a shape was clicked
   }
 
 });
@@ -37,12 +41,13 @@ let myRect = [];
 let colors = ["#d9b3ff","#ffb3d9","#ffb3b3","#ffff80","#b3c6ff","#ccffb3","#ffe0b3"];
 
 
-//fill the array with objects
+//start of arrays
 for (let i =0; i< MAX_ELLIPSES;i++){
 
 // A REMINDER - i = x-axis, i = y-axis 15 = size of ball, color , (i%3)+9, (i%8)+7 = speed of ball
   myEllipses.push(new myRunningEllipse(i,i,15,colors[i%colors.length],(i%3)+7,(i%4)+5));
 }
+
 for (let i =0; i< MAX_RECT;i++){
 // A REMINDER - i+100 = x-axis, i+100 = y-axis 30,30 = w &h of rect, color , (i%5)+1,(i%2)+5) = speed of rect
   myRect.push(new myRunningRect(i+100,i+150,30,30,colors[i%colors.length],(i%3)+2,(i%4)+1));
@@ -51,9 +56,9 @@ for (let i =0; i< MAX_RECT;i++){
 requestAnimationFrame(runAni);
 
 // this is our callback function (to simulate a loop ... )
-function runAni(){
+function run(){
 
-  // clear the canvas ...
+
   canvasContext.clearRect(0, 0, canvas.width, canvas.height);
 
 
@@ -72,7 +77,7 @@ function runAni(){
   requestAnimationFrame(runAni);
 }
 
-//start of circle function 
+//start of circle function
 function myRunningEllipse(x,y,r,c,xSpeed,ySpeed){
   //member variables
   this.xPos = x;
@@ -112,6 +117,7 @@ function myRunningEllipse(x,y,r,c,xSpeed,ySpeed){
       this.w = w;
       this.h = h;
       this.rectColor  = c;
+      this.eID = eid;
 
       this.xSpeed = xSpeed;
       this.ySpeed =ySpeed;
@@ -131,6 +137,23 @@ function myRunningEllipse(x,y,r,c,xSpeed,ySpeed){
              this.x+=this.xSpeed;
              this.y+=this.ySpeed;
            }
+
+
+           // FADE
+               this.hitTestOver = function(event){
+
+                 if(Math.sqrt(Math.pow((event.clientX-this.x),2)+Math.pow((event.clientY-this.y),2))<this.w/2){
+                   console.log("rect over::: " + this.eID);
+                   //this.a -=0.01;
+                   this.isOver=true;
+                 }
+                 else{
+                   this.isOver
+                 }
+
+
+                 }
+
     } //END OF RECT FUNCTION
 
 } //end window onload - EVERYTHING HAS TO BE INSIDE OF HERE
