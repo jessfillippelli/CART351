@@ -41,7 +41,7 @@ canvas.addEventListener("mousemove",function(event){
 //array
 let myEllipses = [];
 let myRect = [];
-//let colors = ["#d9b3ff","#ffb3d9","#ffb3b3","#ffff80","#7300e6","#ccffb3","#ffe0b3"];
+
 let colors = [];
 colors.push(new colorObject(217,179,255)); //purple
 colors.push(new colorObject(255,179,217)); //pink
@@ -56,6 +56,8 @@ colors.push(new colorObject(247,187,204)); //light pink
 
 
 
+
+
 function colorObject(r,g,b){
   this.r =r;
   this.g =g;
@@ -63,6 +65,7 @@ function colorObject(r,g,b){
   this.a =1.0;
 
 }
+
 
 //start of arrays
 for (let i =0; i< MAX_ELLIPSES;i++){
@@ -73,7 +76,8 @@ for (let i =0; i< MAX_ELLIPSES;i++){
 
 for (let i =0; i< MAX_RECT;i++){
 // A REMINDER - i+100 = x-axis, i+100 = y-axis 30,30 = w &h of rect, color , (i%5)+1,(i%2)+5) = speed of rect
-  myRect.push(new myRunningRect(i+100,i+150,30,30,colors[i%colors.length],(i%3)+2,(i%4)+1,i));
+  myRect.push(new myRunningRect(i,i,30,30,colors[i%colors.length],(i%3)+2,(i%4)+1,i));
+
 }
 
 requestAnimationFrame(runAni);
@@ -106,7 +110,12 @@ function myRunningEllipse(x,y,r,c,xSpeed,ySpeed){
   this.xPos = x;
   this.yPos = y;
   this.radius = r;
-  this.ellipseColor = c;
+
+//color for ball
+  this.r =c.r;
+  this.g =c.g;
+  this.b=c.b;
+  this.a=c.a;
 
   // new for updating
   this.xSpeed = xSpeed;
@@ -114,6 +123,7 @@ function myRunningEllipse(x,y,r,c,xSpeed,ySpeed){
 
 //member function
   this.render =function(){
+    this.ellipseColor= "rgba("+this.r+","+this.g+","+this.b+","+this.a+")";
       canvasContext.fillStyle = this.ellipseColor;// change the color we are using
       canvasContext.beginPath();
       canvasContext.arc(this.xPos,this.yPos,this.radius,0, Math.PI * 2, true);
@@ -139,18 +149,28 @@ function myRunningEllipse(x,y,r,c,xSpeed,ySpeed){
       this.y = y;
       this.w = w;
       this.h = h;
-    //  this.rectColor  = c;
+      this.isOver=false;
+
       this.eID = eid;
+
+      //color of rect
       this.r =c.r;
       this.g =c.g;
       this.b=c.b;
       this.a=c.a;
-      //this.a=a;
+
 
       this.xSpeed = xSpeed;
       this.ySpeed =ySpeed;
 
       this.render = function(){
+         if(this.isOver ===true){
+           console.log(this.a);
+           this.a = this.a - 0.1;
+         }
+
+
+
           this.rectColor= "rgba("+this.r+","+this.g+","+this.b+","+this.a+")";
           canvasContext.fillStyle = this.rectColor;
           canvasContext.fillRect(this.x,this.y,this.w, this.h);
@@ -171,7 +191,7 @@ function myRunningEllipse(x,y,r,c,xSpeed,ySpeed){
 //event listerner
            this.hitTest = function(event){
              if(Math.sqrt(Math.pow((event.clientX-this.x),2)+Math.pow((event.clientY-this.y),2))<this.w/2){
-               console.log("rect Pressed::: " + this.eID);
+               //console.log("rect Pressed::: " + this.eID);
                this.isPressed = !this.Pressed;
 
              }
@@ -180,7 +200,13 @@ function myRunningEllipse(x,y,r,c,xSpeed,ySpeed){
            // FADE
                this.hitTestOver = function(event){
 
-                 if(Math.sqrt(Math.pow((event.clientX-this.x),2)+Math.pow((event.clientY-this.y),2))<this.w/2){
+                //need 3 lines of code becasue the canava was not at (0,0)
+                 let c = canvas.getBoundingClientRect();
+                 let mouseY = event.clientY -c.top;
+                 let mouseX = event.clientX -c.left;
+
+                 //console.log(Math.sqrt(Math.pow((event.clientX-this.x),2)+Math.pow((event.clientY-this.y),2)));
+                 if(Math.sqrt(Math.pow((mouseX-this.x),2)+Math.pow((mouseY-this.y),2))<this.w/2){
                    console.log("rect over::: " + this.eID);
                    //this.a -=0.01;
                    this.isOver=true;
