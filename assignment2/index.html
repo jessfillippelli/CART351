@@ -28,7 +28,7 @@ canvas.addEventListener("mousedown",function(event){
 });
 
 canvas.addEventListener("mousemove",function(event){
-  console.log("mouse was moved"); 
+  console.log("mouse was moved"); //part ONE
   for(let i=0; i<MAX_RECT; i++){
     shapeList[i].hitTestOver(event); //knows that a shape was clicked
   }
@@ -56,7 +56,7 @@ for (let i =0; i< MAX_RECT;i++){
 requestAnimationFrame(runAni);
 
 // this is our callback function (to simulate a loop ... )
-function run(){
+function runAni){
 
 
   canvasContext.clearRect(0, 0, canvas.width, canvas.height);
@@ -138,6 +138,14 @@ function myRunningEllipse(x,y,r,c,xSpeed,ySpeed){
              this.y+=this.ySpeed;
            }
 
+//event listerner
+           this.hitTest = function(event){
+             if(Math.sqrt(Math.pow((event.clientX-this.x),2)+Math.pow((event.clientY-this.y),2))<this.w/2){
+               console.log("rect Pressed::: " + this.eID);
+               this.isPressed = !this.Pressed;
+
+             }
+           }
 
            // FADE
                this.hitTestOver = function(event){
