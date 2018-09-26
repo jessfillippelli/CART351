@@ -5,7 +5,9 @@
   </head>
   <body>
     <h2> ASSIGNMENT 2 - Will come up with a cooler name later </h2>
-  <canvas id="testCanvas" width="500" height="500">
+    
+<button class="button">Styled Button</button>
+  <canvas id="testCanvas" width="1000" height="1000">
 
   </canvas>
   </body>
@@ -23,7 +25,8 @@ const MAX_RECT = 10;
 //event listerer
 canvas.addEventListener("mousedown",function(event){
   console.log("canvas mouse clicked"); //part ONE
-
+  for(let i=0; i<MAX_RECT; i++){
+    shapeList[i].hitTest(event);
 
 });
 
