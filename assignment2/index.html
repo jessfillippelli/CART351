@@ -41,8 +41,28 @@ canvas.addEventListener("mousemove",function(event){
 //array
 let myEllipses = [];
 let myRect = [];
-let colors = ["#d9b3ff","#ffb3d9","#ffb3b3","#ffff80","#7300e6","#ccffb3","#ffe0b3"];
+//let colors = ["#d9b3ff","#ffb3d9","#ffb3b3","#ffff80","#7300e6","#ccffb3","#ffe0b3"];
+let colors = [];
+colors.push(new colorObject(217,179,255)); //purple
+colors.push(new colorObject(255,179,217)); //pink
+colors.push(new colorObject(100,100,128)); //yellow
+colors.push(new colorObject(204,255,179)); //green
+colors.push(new colorObject(255,224,179)); //orange
+colors.push(new colorObject(179,198,255)); //blue
+colors.push(new colorObject(255,179,179)); //red
+colors.push(new colorObject(255,179,247)); //mangatia
+colors.push(new colorObject(185,249,203)); //lime green
+colors.push(new colorObject(247,187,204)); //light pink
 
+
+
+function colorObject(r,g,b){
+  this.r =r;
+  this.g =g;
+  this.b = b;
+  this.a =1.0;
+
+}
 
 //start of arrays
 for (let i =0; i< MAX_ELLIPSES;i++){
@@ -119,15 +139,22 @@ function myRunningEllipse(x,y,r,c,xSpeed,ySpeed){
       this.y = y;
       this.w = w;
       this.h = h;
-      this.rectColor  = c;
+    //  this.rectColor  = c;
       this.eID = eid;
+      this.r =c.r;
+      this.g =c.g;
+      this.b=c.b;
+      this.a=c.a;
+      //this.a=a;
 
       this.xSpeed = xSpeed;
       this.ySpeed =ySpeed;
 
       this.render = function(){
+          this.rectColor= "rgba("+this.r+","+this.g+","+this.b+","+this.a+")";
           canvasContext.fillStyle = this.rectColor;
           canvasContext.fillRect(this.x,this.y,this.w, this.h);
+
         }
 
         this.update = function(){
