@@ -5,7 +5,7 @@
   </head>
   <body>
     <h2> ASSIGNMENT 2 - Will come up with a cooler name later </h2>
-    
+
 <button class="button">Styled Button</button>
   <canvas id="testCanvas" width="1000" height="1000">
 
@@ -26,14 +26,14 @@ const MAX_RECT = 10;
 canvas.addEventListener("mousedown",function(event){
   console.log("canvas mouse clicked"); //part ONE
   for(let i=0; i<MAX_RECT; i++){
-    shapeList[i].hitTest(event);
-
+    myRect[i].hitTest(event);
+}
 });
 
 canvas.addEventListener("mousemove",function(event){
   console.log("mouse was moved"); //part ONE
   for(let i=0; i<MAX_RECT; i++){
-    shapeList[i].hitTestOver(event); //knows that a shape was clicked
+    myRect[i].hitTestOver(event); //knows that a shape was clicked
   }
 
 });
@@ -41,7 +41,7 @@ canvas.addEventListener("mousemove",function(event){
 //array
 let myEllipses = [];
 let myRect = [];
-let colors = ["#d9b3ff","#ffb3d9","#ffb3b3","#ffff80","#b3c6ff","#ccffb3","#ffe0b3"];
+let colors = ["#d9b3ff","#ffb3d9","#ffb3b3","#ffff80","#7300e6","#ccffb3","#ffe0b3"];
 
 
 //start of arrays
@@ -53,13 +53,13 @@ for (let i =0; i< MAX_ELLIPSES;i++){
 
 for (let i =0; i< MAX_RECT;i++){
 // A REMINDER - i+100 = x-axis, i+100 = y-axis 30,30 = w &h of rect, color , (i%5)+1,(i%2)+5) = speed of rect
-  myRect.push(new myRunningRect(i+100,i+150,30,30,colors[i%colors.length],(i%3)+2,(i%4)+1));
+  myRect.push(new myRunningRect(i+100,i+150,30,30,colors[i%colors.length],(i%3)+2,(i%4)+1,i));
 }
 
 requestAnimationFrame(runAni);
 
 // this is our callback function (to simulate a loop ... )
-function runAni){
+function runAni(){
 
 
   canvasContext.clearRect(0, 0, canvas.width, canvas.height);
@@ -114,7 +114,7 @@ function myRunningEllipse(x,y,r,c,xSpeed,ySpeed){
   } // end of circle FUNCTION
 
 //start of rect FUNCTION
-  function myRunningRect(x, y, w, h, c, xSpeed,ySpeed) {
+  function myRunningRect(x, y, w, h, c, xSpeed,ySpeed,eid) {
       this.x = x;
       this.y = y;
       this.w = w;
@@ -159,7 +159,7 @@ function myRunningEllipse(x,y,r,c,xSpeed,ySpeed){
                    this.isOver=true;
                  }
                  else{
-                   this.isOver
+                   this.isOver = false;
                  }
 
 
