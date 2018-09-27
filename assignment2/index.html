@@ -142,6 +142,14 @@ function myRunningEllipse(x,y,r,c,xSpeed,ySpeed){
   this.xSpeed = xSpeed;
   this.ySpeed =ySpeed;
 
+  this.render = function(){
+     if(this.isOver ===true){
+       console.log(this.a);
+       this.a = this.a - 0.1;
+     }
+
+
+
 //member function
   this.render =function(){
     this.ellipseColor= "rgba("+this.r+","+this.g+","+this.b+","+this.a+")";
