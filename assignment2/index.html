@@ -6,7 +6,11 @@
   <body>
     <h2> ASSIGNMENT 2 - Will come up with a cooler name later </h2>
 
-<button class="button">Styled Button</button>
+<button class="button" id="GameButton"> Restart Game? </button>
+
+
+let button
+function button
 
   <canvas id="testCanvas" width="1000" height="1000">
 
@@ -20,44 +24,34 @@
 
 let canvas = document.getElementById('testCanvas');
 let canvasContext = canvas.getContext('2d');
-const MAX_ELLIPSES =10;
-const MAX_RECT = 10;
+const MAX_ELLIPSES =1;
+const MAX_RECT = 1;
 
+
+let button = document.getElementById("GameButton");
+button.addEventListener("mousedown", resetGame);
 //event listerer for rect
 canvas.addEventListener("mousedown",function(event){
-  console.log("canvas mouse clicked"); //part ONE
+  //console.log("canvas mouse clicked"); //part ONE
+
   for(let i=0; i<MAX_RECT; i++){
     myRect[i].hitTest(event);
 }
-});
-
-canvas.addEventListener("mousemove",function(event){
-  console.log("mouse was moved"); //part ONE
-  for(let i=0; i<MAX_RECT; i++){
-    myRect[i].hitTestOver(event); //knows that a shape was clicked
-  }
-
-});
-
-
-
-//event listerer for ball
-canvas.addEventListener("mousedown",function(event){
-  console.log("canvas mouse clicked(BALL)"); //part ONE
-  for(let i=0; i<MAX_ELLIPSES; i++){
-    myEllipses[i].hitTest(event);
+for(let i=0; i<MAX_ELLIPSES; i++){
+  myEllipses[i].hitTest(event);
 }
 });
 
 canvas.addEventListener("mousemove",function(event){
+  //console.log("mouse was moved"); //part ONE
+  for(let i=0; i<MAX_RECT; i++){
+  myRect[i].hitTestOver(event); //knows that a shape was clicked
+  }
   console.log("mouse was moved"); //part ONE
   for(let i=0; i<MAX_ELLIPSES; i++){
     myEllipses[i].hitTestOver(event); //knows that a shape was clicked
   }
-
 });
-
-
 
 //array
 let myEllipses = [];
@@ -75,7 +69,7 @@ colors.push(new colorObject(255,179,247)); //mangatia
 colors.push(new colorObject(185,249,203)); //lime green
 colors.push(new colorObject(247,187,204)); //light pink
 
-
+resetGame();
 
 
 
@@ -88,16 +82,23 @@ function colorObject(r,g,b){
 }
 
 
-//start of arrays
-for (let i =0; i< MAX_ELLIPSES;i++){
 
-// A REMINDER - i = x-axis, i = y-axis 15 = size of ball, color , (i%3)+9, (i%8)+7 = speed of ball
-  myEllipses.push(new myRunningEllipse(i,i,27,colors[i%colors.length],(i%3)+7,(i%4)+5));
-}
 
-for (let i =0; i< MAX_RECT;i++){
-// A REMINDER - i+100 = x-axis, i+100 = y-axis 30,30 = w &h of rect, color , (i%5)+1,(i%2)+5) = speed of rect
-  myRect.push(new myRunningRect(i,i,60,60,colors[i%colors.length],(i%3)+2,(i%4)+1,i));
+function resetGame(){
+   myEllipses = [];
+  myRect = [];
+  //start of arrays
+  for (let i =0; i< MAX_ELLIPSES;i++){
+
+  // A REMINDER - i = x-axis, i = y-axis 15 = size of ball, color , (i%3)+9, (i%8)+7 = speed of ball
+    myEllipses.push(new myRunningEllipse(i,i,27,colors[i%colors.length],(i%3)+7,(i%4)+5));
+  }
+
+  for (let i =0; i< MAX_RECT;i++){
+  // A REMINDER - i+100 = x-axis, i+100 = y-axis 30,30 = w &h of rect, color , (i%5)+1,(i%2)+5) = speed of rect
+    myRect.push(new myRunningRect(i,i,60,60,colors[i%colors.length],(i%3)+2,(i%4)+1,i));
+
+  }
 
 }
 
@@ -145,16 +146,17 @@ function myRunningEllipse(x,y,r,c,xSpeed,ySpeed, eid){
   this.xSpeed = xSpeed;
   this.ySpeed =ySpeed;
 
-  this.render = function(){
-     if(this.isOver ===true){
-       console.log(this.a);
-       this.a = this.a - 0.1;
-     }
+
 
 
 
 //member function
   this.render =function(){
+    if(this.isOver ===true){
+      console.log(this.a);
+      this.a = 0;
+    }
+
     this.ellipseColor= "rgba("+this.r+","+this.g+","+this.b+","+this.a+")";
       canvasContext.fillStyle = this.ellipseColor;// change the color we are using
       canvasContext.beginPath();
@@ -176,7 +178,7 @@ function myRunningEllipse(x,y,r,c,xSpeed,ySpeed, eid){
 
      //event listerner
                 this.hitTest = function(event){
-                  if(Math.sqrt(Math.pow((event.clientX-this.x),2)+Math.pow((event.clientY-this.y),2))<this.w/2){
+                  if(Math.sqrt(Math.pow((event.clientX-this.xPos),2)+Math.pow((event.clientY-this.yPos),2))<this.radius){
                     //console.log("rect Pressed::: " + this.eID);
                     this.isPressed = !this.Pressed;
 
@@ -192,8 +194,8 @@ function myRunningEllipse(x,y,r,c,xSpeed,ySpeed, eid){
                       let mouseX = event.clientX -c.left;
 
                       //console.log(Math.sqrt(Math.pow((event.clientX-this.x),2)+Math.pow((event.clientY-this.y),2)));
-                      if(Math.sqrt(Math.pow((mouseX-this.x),2)+Math.pow((mouseY-this.y),2))<this.w/2){
-                        console.log("rect over::: " + this.eID);
+                      if(Math.sqrt(Math.pow((mouseX-this.xPos),2)+Math.pow((mouseY-this.yPos),2))<this.radius){
+                        console.log("ball over::: " + this.eID);
                         //this.a -=0.01;
                         this.isOver=true;
                       }
