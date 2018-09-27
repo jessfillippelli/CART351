@@ -7,6 +7,7 @@
     <h2> ASSIGNMENT 2 - Will come up with a cooler name later </h2>
 
 <button class="button">Styled Button</button>
+
   <canvas id="testCanvas" width="1000" height="1000">
 
   </canvas>
@@ -22,7 +23,7 @@ let canvasContext = canvas.getContext('2d');
 const MAX_ELLIPSES =10;
 const MAX_RECT = 10;
 
-//event listerer
+//event listerer for rect
 canvas.addEventListener("mousedown",function(event){
   console.log("canvas mouse clicked"); //part ONE
   for(let i=0; i<MAX_RECT; i++){
@@ -37,6 +38,26 @@ canvas.addEventListener("mousemove",function(event){
   }
 
 });
+
+
+
+//event listerer for ball
+canvas.addEventListener("mousedown",function(event){
+  console.log("canvas mouse clicked(BALL)"); //part ONE
+  for(let i=0; i<MAX_ELLIPSES; i++){
+    myEllipses[i].hitTest(event);
+}
+});
+
+canvas.addEventListener("mousemove",function(event){
+  console.log("mouse was moved"); //part ONE
+  for(let i=0; i<MAX_ELLIPSES; i++){
+    myEllipses[i].hitTestOver(event); //knows that a shape was clicked
+  }
+
+});
+
+
 
 //array
 let myEllipses = [];
@@ -141,6 +162,36 @@ function myRunningEllipse(x,y,r,c,xSpeed,ySpeed){
        this.xPos+=this.xSpeed;
        this.yPos+=this.ySpeed;
      }
+
+     //event listerner
+                this.hitTest = function(event){
+                  if(Math.sqrt(Math.pow((event.clientX-this.x),2)+Math.pow((event.clientY-this.y),2))<this.w/2){
+                    //console.log("rect Pressed::: " + this.eID);
+                    this.isPressed = !this.Pressed;
+
+                  }
+                }
+
+                // FADE
+                    this.hitTestOver = function(event){
+
+                     //need 3 lines of code becasue the canava was not at (0,0)
+                      let c = canvas.getBoundingClientRect();
+                      let mouseY = event.clientY -c.top;
+                      let mouseX = event.clientX -c.left;
+
+                      //console.log(Math.sqrt(Math.pow((event.clientX-this.x),2)+Math.pow((event.clientY-this.y),2)));
+                      if(Math.sqrt(Math.pow((mouseX-this.x),2)+Math.pow((mouseY-this.y),2))<this.w/2){
+                        console.log("rect over::: " + this.eID);
+                        //this.a -=0.01;
+                        this.isOver=true;
+                      }
+                      else{
+                        this.isOver = false;
+                      }
+        } //end of FADE
+
+
   } // end of circle FUNCTION
 
 //start of rect FUNCTION
@@ -214,9 +265,7 @@ function myRunningEllipse(x,y,r,c,xSpeed,ySpeed){
                  else{
                    this.isOver = false;
                  }
-
-
-                 }
+   } //end of FADE
 
     } //END OF RECT FUNCTION
 } //end window onload - EVERYTHING HAS TO BE INSIDE OF HERE
