@@ -71,12 +71,12 @@ function colorObject(r,g,b){
 for (let i =0; i< MAX_ELLIPSES;i++){
 
 // A REMINDER - i = x-axis, i = y-axis 15 = size of ball, color , (i%3)+9, (i%8)+7 = speed of ball
-  myEllipses.push(new myRunningEllipse(i,i,15,colors[i%colors.length],(i%3)+7,(i%4)+5));
+  myEllipses.push(new myRunningEllipse(i,i,27,colors[i%colors.length],(i%3)+7,(i%4)+5));
 }
 
 for (let i =0; i< MAX_RECT;i++){
 // A REMINDER - i+100 = x-axis, i+100 = y-axis 30,30 = w &h of rect, color , (i%5)+1,(i%2)+5) = speed of rect
-  myRect.push(new myRunningRect(i,i,30,30,colors[i%colors.length],(i%3)+2,(i%4)+1,i));
+  myRect.push(new myRunningRect(i,i,60,60,colors[i%colors.length],(i%3)+2,(i%4)+1,i));
 
 }
 
