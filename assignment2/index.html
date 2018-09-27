@@ -126,7 +126,7 @@ function runAni(){
 }
 
 //start of circle function
-function myRunningEllipse(x,y,r,c,xSpeed,ySpeed){
+function myRunningEllipse(x,y,r,c,xSpeed,ySpeed, eid){
   //member variables
   this.xPos = x;
   this.yPos = y;
@@ -137,6 +137,9 @@ function myRunningEllipse(x,y,r,c,xSpeed,ySpeed){
   this.g =c.g;
   this.b=c.b;
   this.a=c.a;
+  this.isOver=false;
+
+  this.eID = eid;
 
   // new for updating
   this.xSpeed = xSpeed;
