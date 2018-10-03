@@ -25,6 +25,7 @@ let canvasContext = canvas.getContext('2d');
 const MAX_ELLIPSES =10;
 const MAX_RECT = 10;
 let myScore();
+//let myScorestart();
 let gameover();
 //let startGame();
 
@@ -105,10 +106,11 @@ function resetGame(){ //start of reset game
 
 
 function myscore() { //start of startGame
-  //myGamePiece = new component(30, 30, "red", 10, 160);
+  myGamePiece = new component(30, 30, "red", 10, 160);
   myScore = new component("30px", "Consolas", "black", 280, 40, "text");
   myScore.text="SCORE: " ;
-  startGame();
+  //startGame();
+  myScore.start();
 } //end of start game
 
 
