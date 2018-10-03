@@ -24,9 +24,9 @@ let canvas = document.getElementById('testCanvas');
 let canvasContext = canvas.getContext('2d');
 const MAX_ELLIPSES =10;
 const MAX_RECT = 10;
-let myScore;
-let gameover;
-//let startGame;
+let myScore();
+let gameover();
+//let startGame();
 
 
 let button = document.getElementById("GameButton");
@@ -108,7 +108,7 @@ function myscore() { //start of startGame
   //myGamePiece = new component(30, 30, "red", 10, 160);
   myScore = new component("30px", "Consolas", "black", 280, 40, "text");
   myScore.text="SCORE: " ;
-  //startGame();
+  startGame();
 } //end of start game
 
 
@@ -117,6 +117,7 @@ function gameover() { //start of game over function
 //when all shapes have been clicked
 myEllipses = [];
 myRect = [];
+let c = canvas.getBoundingClientRect();
 for (let i =0; i< MAX_ELLIPSES;i++) {
   myEllipses.push(new myRunningEllipse(i,i,27,colors[i%colors.length],(i%3)+7,(i%4)+5));
 }
@@ -126,7 +127,7 @@ for (let i =0; i< MAX_RECT;i++){
   myRect.push(new myRunningRect(i,i,60,60,colors[i%colors.length],(i%3)+2,(i%4)+1,i));
 
 }
-if myRunningEllipse() && myRunningRect() =
+if myRunningEllipse() && myRunningRect() = true; // if ture that game is over
 gameover.text="YOU WON;" ;
 
 } //end of game over function
