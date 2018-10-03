@@ -24,6 +24,9 @@ let canvas = document.getElementById('testCanvas');
 let canvasContext = canvas.getContext('2d');
 const MAX_ELLIPSES =10;
 const MAX_RECT = 10;
+let myScore;
+let gameover;
+//let startGame;
 
 
 let button = document.getElementById("GameButton");
@@ -82,7 +85,7 @@ function colorObject(r,g,b){
 
 
 
-function resetGame(){
+function resetGame(){ //start of reset game
    myEllipses = [];
   myRect = [];
   //start of arrays
@@ -98,7 +101,35 @@ function resetGame(){
 
   }
 
+} // end of reset game
+
+
+function myscore() { //start of startGame
+  //myGamePiece = new component(30, 30, "red", 10, 160);
+  myScore = new component("30px", "Consolas", "black", 280, 40, "text");
+  myScore.text="SCORE: " ;
+  //startGame();
+} //end of start game
+
+
+
+function gameover() { //start of game over function
+//when all shapes have been clicked
+myEllipses = [];
+myRect = [];
+for (let i =0; i< MAX_ELLIPSES;i++) {
+  myEllipses.push(new myRunningEllipse(i,i,27,colors[i%colors.length],(i%3)+7,(i%4)+5));
 }
+
+for (let i =0; i< MAX_RECT;i++){
+// A REMINDER - i+100 = x-axis, i+100 = y-axis 30,30 = w &h of rect, color , (i%5)+1,(i%2)+5) = speed of rect
+  myRect.push(new myRunningRect(i,i,60,60,colors[i%colors.length],(i%3)+2,(i%4)+1,i));
+
+}
+if myRunningEllipse() && myRunningRect() =
+gameover.text="YOU WON;" ;
+
+} //end of game over function
 
 requestAnimationFrame(runAni);
 
@@ -279,6 +310,10 @@ function myRunningEllipse(x,y,r,c,xSpeed,ySpeed, eid){
    }//end of FADE
 
     } //END OF RECT FUNCTION
+
+
+
+
 } //end window onload - EVERYTHING HAS TO BE INSIDE OF HERE
   </script>
 
