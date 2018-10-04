@@ -25,8 +25,11 @@ let canvasContext = canvas.getContext('2d');
 const MAX_ELLIPSES =10;
 const MAX_RECT = 10;
 let gameOver =false;
-//let myScore();
-//let myScorestart();
+let score = 0;
+let fps;
+
+
+
 
 
 
@@ -54,6 +57,13 @@ canvas.addEventListener("mousemove",function(event){
     myEllipses[i].hitTestOver(event); //knows that a shape was clicked
   }
 });
+
+//SCORE TEXT
+function (txt fnt, x,y, c){
+  context.fillStyle = c;
+  context.font = fnt;
+  context.fillText(txt,x,y);
+}
 
 //array
 let myEllipses = [];
@@ -114,9 +124,12 @@ function resetGame(){ //start of reset game
   //myScorestart();
 //} //end of start game
 requestAnimationFrame(runAni);
+//text("score" + Math.floor(score),"30px Comic Sans",0,50, "white"); //SCORE
 
 // this is our callback function (to simulate a loop ... )
 function runAni(){
+
+
 
 
   canvasContext.clearRect(0, 0, canvas.width, canvas.height);
@@ -204,7 +217,7 @@ function myRunningEllipse(x,y,r,c,xSpeed,ySpeed, eid){ //start of circle functio
 
       this.a = 0;
 
-
+let score =0;
 
     }
 
@@ -215,6 +228,10 @@ function myRunningEllipse(x,y,r,c,xSpeed,ySpeed, eid){ //start of circle functio
       canvasContext.fill(); // set the fill
       canvasContext.closePath(); //close a path ...
     }
+
+//score
+text("score" + Math.floor(score),"30px Comic Sans",0,50, "white"); //SCORE
+
   //member function for updating
   this.update = function(){
        if(this.xPos<100 || this.xPos>canvas.width-100){
