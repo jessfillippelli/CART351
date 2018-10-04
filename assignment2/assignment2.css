@@ -2,7 +2,7 @@ h2{
   text-align: center;
 	font-size: 90px;
 	margin: 0;
-  padding-left: 5%;
+  padding-left: 7.5%;
 	font-family: Gotham, "Helvetica Neue", Helvetica, Arial, "sans-serif";
 }
 
@@ -21,6 +21,8 @@ canvas{
   padding:0;
 }
 
+/* padding - space around the text */
+
 .button {
     background-color: #ffb3ff;
     border: none;
@@ -28,9 +30,10 @@ canvas{
     font-family: Gotham, "Helvetica Neue", Helvetica, Arial, "sans-serif";
     padding: 10px 20px;
     margin-top: 1%;
-    margin-left: 50%;
+margin-left: 50%;
+    margin-right: 100%;
     text-align: center;
-    font-size: 16px;
+    font-size: 20px;
     cursor: pointer;
 }
 
