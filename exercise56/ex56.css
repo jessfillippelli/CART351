@@ -1,7 +1,7 @@
 
 body{
   width:100%;
-  background-color: black;
+  background-color: grey;
 }
 .aCell {
   overflow: hidden;
@@ -19,27 +19,25 @@ img {
 }
 
 p{
-  width:75%;
   text-align: center;
+  font-size: 30px;
+  font-family: "Lucida" Grande, sans-serif;
+  font-weight: bold;
+
 
 }
 
 h1{
-  padding-left: 50%;
-  text-align: center;
+   text-align: center;
+   font-size: 30px;
+   font-family: "Lucida" Grande, sans-serif;
+   font-weight: bold;
+   padding-bottom: 0%;
 }
 
 
 
-.itemClass{
-  color:white;
-  background:#cdb2d7;
-  margin-left:25px;
-  padding:5%;
-  width:400px;
-  font-size:1em;
 
-}
 
 button {
   padding-left: 50%;
