@@ -17,9 +17,20 @@ img {
     height:auto;
 
 }
+
 p{
   width:75%;
+  text-align: center;
+
 }
+
+h1{
+  padding-left: 50%;
+  text-align: center;
+}
+
+
+
 .itemClass{
   color:white;
   background:#cdb2d7;
@@ -27,8 +38,13 @@ p{
   padding:5%;
   width:400px;
   font-size:1em;
+
 }
 
 button {
-  align-items: center;
+  padding-left: 50%;
+}
+
+input {
+
 }
