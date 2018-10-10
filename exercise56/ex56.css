@@ -1,6 +1,7 @@
 
 body{
   width:100%;
+  background-color: black;
 }
 .aCell {
   overflow: hidden;
@@ -8,6 +9,7 @@ body{
     max-width:450px;
     margin-bottom:2%;
     margin-left:25%;
+
 
 }
 img {
@@ -25,4 +27,8 @@ p{
   padding:5%;
   width:400px;
   font-size:1em;
+}
+
+button {
+  align-items: center;
 }
