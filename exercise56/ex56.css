@@ -1,0 +1,28 @@
+
+body{
+  width:100%;
+}
+.aCell {
+  overflow: hidden;
+    background:#9e66b4;
+    max-width:450px;
+    margin-bottom:2%;
+    margin-left:25%;
+
+}
+img {
+    width: 250px;
+    height:auto;
+
+}
+p{
+  width:75%;
+}
+.itemClass{
+  color:white;
+  background:#cdb2d7;
+  margin-left:25px;
+  padding:5%;
+  width:400px;
+  font-size:1em;
+}
