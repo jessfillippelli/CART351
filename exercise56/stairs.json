@@ -1,0 +1,28 @@
+{
+
+  "Stairs":
+  [
+    {
+      "Sound": "Steps 1.mp3",
+      "Day": "Monday"
+    },
+
+   {
+     "Sound": "Steps 1.mp3",
+       "Day": "Tuesday"
+
+   },
+
+   {
+     "Sound": "Steps 1.mp3",
+      "Day": "Wednesday"
+
+   },
+   {
+     "Sound": "Steps 1.mp3",
+      "Day": "Thursday"
+
+   }
+
+  ]
+}
