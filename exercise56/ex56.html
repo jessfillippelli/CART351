@@ -6,12 +6,48 @@
 <link rel="stylesheet" href="ex56.css">
 
 <script src = "jquery/jquery-3.3.1.min.js"></script>
+<script>
+
+$(document).ready(function(){
+
+
+$("#searchButton").click(function(event){
+	document.getElementById("stairSound").src = "";
+	let searchItem = $("#searchText").val();
+	console.log(searchItem);
+	$.getJSON('stairs.json',function(data) {
+ //success
+	 //step 1: console.log the result
+	 // console.log(data.Stairs[0].Sound);
+	 //console.log(data.Stairs[1].Sound);
+	// document.getElementById("stairSound").src = "sounds/"+data.Stairs[0].Sound;
+
+	for(let i=0; i< data.Stairs.length; i++){
+		if(data.Stairs[i].Day===searchItem){
+			document.getElementById("stairSound").src = "sounds/"+data.Stairs[i].Sound;
+		}
+	}
+ })
+ //fail
+ .fail(function() {
+	 console.log( "error" );
+ });
+
+
+
+}); //click
+
+
+
+
+});//ready
+</script>
 
 </head>
 <body>
 
 <h1>
-	Write something involved with...
+	Write something involved with the days of the week
 </h1>
 <div>
 <p>Search Sounds </p>
@@ -20,6 +56,10 @@
 </p>
 </div>
 <div id="images"></div>
+<audio id = "stairSound" controls>
+  <source src="" type="audio/mpeg">
+Your browser does not support the audio element.
+</audio>
 
 </body>
 </html>
