@@ -42,3 +42,14 @@ h1{
 button {
   align: center;
 }
+.Stairs{
+  padding-left: 50%;
+}
+
+.searchText{
+  align-items: center;
+}
+
+.searchButton{
+  align-items: center;
+}
