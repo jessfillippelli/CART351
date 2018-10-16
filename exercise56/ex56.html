@@ -19,14 +19,13 @@ $("#searchButton").click(function(event){
  //success
 	 //step 1: console.log the result
 	 // console.log(data.Stairs[0].Sound);
-	 //console.log(data.Stairs[1].Sound);
-	 document.getElementById("stairSound").src = "sounds/"+data.Stairs[0].Sound;
-	  document.getElementById("stairSound").src = "sounds/"+data.Stairs[1].Sound;
-		document.getElementById("stairSound").src = "sounds/"+data.Stairs[2].Sound;
-		document.getElementById("stairSound").src = "sounds/"+data.Stairs[3].Sound;
+
+	
 
 	for(let i=0; i< data.Stairs.length; i++){
-		if(data.Stairs[i].Day===searchItem){
+		console.log(data.Stairs[i].Day.toLowerCase()===searchItem.toLowerCase());
+		if(data.Stairs[i].Day.toLowerCase()===searchItem.toLowerCase()){
+
 			document.getElementById("stairSound").src = "sounds/"+data.Stairs[i].Sound;
 		}
 	}
@@ -50,19 +49,25 @@ $("#searchButton").click(function(event){
 <body>
 
 <h1>
-	Write something involved with the days of the week
+	Write something involved with the days of the week to search the sounds
 </h1>
 <div>
-<p>Search Sounds </p>
+<h1>Happy Listening </h1>
+
+<p>
 <input type="text" id="searchText" value="search Item" />
 <input type="button" value="Search!" id="searchButton" />
-</p>
-</div>
-<div id="images"></div>
+<br/>
 <audio id = "stairSound" controls>
-  <source src="" type="audio/mpeg">
+<source src="" type="audio/mpeg">
 Your browser does not support the audio element.
 </audio>
+</p>
+<h2> Click Search not the return key :p </h2>
+
+</div>
+<div id="images"></div>
+
 
 </body>
 </html>
