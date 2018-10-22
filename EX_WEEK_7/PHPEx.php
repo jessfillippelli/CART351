@@ -68,7 +68,7 @@ canvas{
 <div id = "b"><p>CLICK BUTTON</p></div>
 
 
-<canvas id="myCanvas" width=1000 height=1000></canvas>
+<canvas id="myCanvas" width=600 height=500></canvas>
 <!-- here we put our JQUERY -->
 <script>
 $(document).ready (function(){
