@@ -2,10 +2,11 @@
 //check if there has been something posted to the server to be processed
 if($_SERVER['REQUEST_METHOD'] == 'POST')
 {
-    $sampleDataAsIfInAFile = array("smarties","twix","snickers","maltesers","flake","wunderbar","mars");
+    $sampleDataAsIfInAFile =  array("square","circle","arc");
+    //$sampleDataAsIfInAFile =  array("smarties","twix","snickers","maltesers","flake","wunderbar","mars");
     $sampleDataAsIfInAFile2 = array("oranges","apples","peppers","carrots","grapes","grapefruits","kumquats");
     $sampleDataAsIfInAFile3 = array("batman","black widow","coffee","java","cake","mary","kevin");
-    $sampleDataAsIfInAFile4 = array("superman","pink","nothing","montreal","habs","heartbreak","backstreet boys ");
+    $sampleDataAsIfInAFile4 = array("superman","pink","nothing","montreal","habs","heartbreak","backstreet boys");
 // need to process -> we could save this data ...
  $xPos = $_POST['xpos'];
  $yPos = $_POST['ypos'];
@@ -54,6 +55,8 @@ canvas{
   margin:0;
   padding:0;
 }
+
+/* start of button*/
 #b{
   background:purple;
   color:white;
@@ -62,6 +65,8 @@ canvas{
   padding: 5px;
   width:10%;
 }
+/* end of button*/
+
 </style>
 </head>
 <body>
@@ -86,6 +91,7 @@ $(document).ready (function(){
   let theWord2 = "";
   let theWord3 = "";
   let theWord4 = "";
+  let shapeType = "";
   //start ani
   goAni();
   // when we click on the canvas somewhere and the collision detection returns true ...
@@ -143,6 +149,13 @@ $(document).ready (function(){
      data.append('ypos', y1);
    }
 
+   if(typeOfClick ==="theButton")
+   {
+    data.append('action', typeOfClick);
+    data.append('xpos', x1);
+    data.append('ypos', y1);
+  }
+
        $.ajax({
              type: "POST",
              enctype: 'multipart/form-data',
@@ -159,7 +172,9 @@ $(document).ready (function(){
              let parsedJSON = JSON.parse(response);
              console.log(parsedJSON);
              if(typeOfClick ==="theButton"){
-             theWord = parsedJSON.word;
+             //theWord = parsedJSON.word;
+             shapeType =parsedJSON.word;
+
            }
            else if(typeOfClick ==="theRect") {
               theWord2 = parsedJSON.word;
@@ -185,7 +200,7 @@ $(document).ready (function(){
       requestAnimationFrame(runAni);
 
 
-//DRAW THE
+//DRAW
      function runAni(){
      //need to reset the background :)
      // clear the canvas ...
@@ -199,14 +214,68 @@ $(document).ready (function(){
      xPos+= 0.2;
      x1+= 0.2;
      y1+=0.2;
-     //START OF RECT #1
+
+
+     // WHEN THE SHAPES POP UP ON THE SCREEN
+     if(shapeType ==="square"){
+       canvasContext.fillStyle = "#33B2FF";
+       canvasContext.fillRect(200,50,23,20);
+        console.log(shapeType);
+
+     }
+     if(shapeType ==="circle"){
+         console.log(shapeType);
+       //START OF arc
+       canvasContext.beginPath();
+
+
+       canvasContext.arc(200,50,radius,startAngle,Math.PI*2, true);
+       canvasContext.fillStyle = "#33B2FF";
+       canvasContext.fill();
+       canvasContext.lineWidth=2; //change stroke weight
+       canvasContext.strokeStyle = "#FFFF00"; // change the color we are using
+       canvasContext.stroke(); // set the outline
+
+      canvasContext.closePath();
+
+     }
+
+
+    if(shapeType ==="arc"){
+        //console.log(shapeType);
+        //canvasContext.fillStyle = "#FFC0CB";
+        //canvasContext.fillRect(xPos-50,yPos-50,radius*2,radius);
+
+         //START OF arc
+         canvasContext.beginPath();
+         // arc (x,y,radius, startAngle,endAngle,isCounterClockwise)
+         canvasContext.arc(xPos,yPos,radius,startAngle,endAngle - Math.PI, true);
+         console.log(shapeType);
+
+         canvasContext.lineWidth=2; //change stroke weight
+         canvasContext.strokeStyle = "#FFC0CB"; // change the color we are using
+         canvasContext.stroke(); // set the outline
+
+         canvasContext.closePath(); //close a path ...
+         // end arc
+
+   }
+
+
+    // END OF WHEN THE SHAPES POP UP ON THE SCREEN
+
+
+
+
+
+     //START OF RECT #1 (small)
      canvasContext.fillStyle = "#33B2FF";
      canvasContext.fillRect(x,y,20,20);
      canvasContext.fillStyle = "#FFFFFF";
      canvasContext.fillRect(x,y,1,1);
 
 
-     //START OF RECT #2
+     //START OF RECT #2 (big)
      canvasContext.lineWidth=2; //change stroke weight
      canvasContext.strokeStyle = "#FFFFFFs"; // change the color we are using
      //canvasContext.stroke(); // set the outline
@@ -217,7 +286,7 @@ $(document).ready (function(){
 
 
 // arc
-    canvasContext.fillStyle = "#FF0000";
+    canvasContext.fillStyle = "#000000";
     canvasContext.fillRect(xPos-50,yPos-50,radius*2,radius);
 
      //START OF arc
@@ -229,7 +298,7 @@ $(document).ready (function(){
 
 
      canvasContext.lineWidth=2; //change stroke weight
-     canvasContext.strokeStyle = "#8ED6FF"; // change the color we are using
+     canvasContext.strokeStyle = "#FFFF00"; // change the color we are using
      canvasContext.stroke(); // set the outline
 
      canvasContext.closePath(); //close a path ...
