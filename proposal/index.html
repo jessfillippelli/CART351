@@ -18,30 +18,40 @@
        	<section class="PAR">
         	<div class="HELLO">
                 <h4>Final Project Poposal </h4>
-                <h4> Link to websites I like </h4>
+
 
             </div>
 
-			        <h4>Final Project</h4>
-<p></p>
+
+<h4>Name: Still things about it.... </h4>
+
+<h5>QUESTION 1 </h5>
+<h2> What is your starting topic? What importance does it hold for you? For others? Why is it important to make this topic into an explorable networked space?</h2>
+<span><p>My starting topic is the holidays and bring happiness via a online environment. My starting topic is of importance to me because the holidays is normally a
+  happy time of the year that brings everyone together.
+ <span id="dots">...</span><span id="more">It is a time where everyone should put there difference aside and enjoy some good quality time with loved ones.
+    It is the one time of year that where people can go all out and show their love for the festive times and should not care about what other people think.
+  In other words it is supposed to be the most wonderful time of the year. I want to showcase that happiness through this final project via an online database advent calendar.
+The calendar is basically (almost) everything that someone would experience in real life but thought the internet.
+Every door has something surrounding the holiday happiness behind it weather it is a movie, song or christmas food recipes etc.
+It is important to make this topic an exploriable networked space because it can give someone who doesn't have the opportunity to spend it when anyone; a piece of what christmas happiness is.
+his project also adds the element of surprise when you open the doors and find something new each day. That along can being make someone happy. </span></p>
+<button  class ="test" id="myBtn">Read more</button></span>
 
 
-<h2>Read More Read Less Button</h2>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus imperdiet, nulla et dictum interdum, nisi lorem egestas vitae scel
-  <span id="dots">...</span><span id="more">erisque enim ligula venenatis dolor. Maecenas nisl est, ultrices nec congue eget, auctor vitae massa.
-    Fusce luctus vestibulum augue ut aliquet. Nunc sagittis dictum nisi, sed ullamcorper ipsum dignissim ac. In at libero sed nunc venenatis imperdiet sed ornare turpis.
-    Donec vitae dui eget tellus gravida venenatis. Integer fringilla congue eros non fermentum. Sed dapibus pulvinar nibh tempor porta.</span></p>
-<button onclick="myFunction()" id="myBtn">Read more</button>
-
-
-
-
-
-
-
-
-
-
+<h5>QUESTION 2 </h5>
+<h2>Think about the kind of relationship you wish to encourage between your users and this “space”. How can you use this “space” to destabilize the users and make them reflect on themselves,
+  their environment and society?</h2>
+<span><p>The type of relationship I wish that the users will have with this holiday space is a scene of happiness, joy and start to feel in the mood for the festive times.
+  <span id="dots">...</span><span id="more">Every door of the advent calendar will be a different aspect of what the holiday season is all about and with this element
+    hopefully it will bring a bit of joy to those who do not feel like they are in a joyful environment during the time of year that is supposed to be quite happy.
+  This advent calendar will bring the holiday spirit right at your fingertips, literally via the internet.
+This environment will help the users reflect on what they might consider happiness to be to them and if one user has a good relationship with this space,
+ they might share the advent calendar with other people and so forth.
+By sharing the calendar with other people they can than experience their own relationship with the space and have their own certain feeling towards the space as well.
+Having a space like this can make people relate on what is most important during the holidays and that is to be surrounded with good energy and reflect on what is truly important in life because.
+If there is one time a year where everyone should be feeling any kind of happiness and joy, that should be during the holiday season. </span></p>
+<button class ="test"id="myBtn">Read more</button></span>
 
 
 
@@ -57,26 +67,44 @@
  <p> CART 351 FINAL PROJECT  </p>
     </footer>
     <script>
-    function myFunction() {
-      var dots = document.getElementById("dots");
-      var moreText = document.getElementById("more");
-      var btnText = document.getElementById("myBtn");
+   window.onload = function() {
+    let btns =  document.getElementsByClassName("test");
 
-      if (dots.style.display === "none") {
-        dots.style.display = "inline";
-        btnText.innerHTML = "Read more";
-        moreText.style.display = "none";
-      } else {
-        dots.style.display = "none";
-        btnText.innerHTML = "Read less";
-        moreText.style.display = "inline";
-      }
+     for(let i=0; i< btns.length; i++){
+       btns[i].addEventListener("click", myFunction);
+     }
+
+  function myFunction() {
+
+    let pTag = this.parentNode.children[0];
+    let childrenOfpTag = pTag.children;
+
+    for(let i=0; i<childrenOfpTag.length; i++ ){
+      console.log(childrenOfpTag[i]);
+       if(childrenOfpTag[i].id ==="dots"){
+         var moreText = childrenOfpTag[i+1];
+         let dots = childrenOfpTag[i];
+
+         if (dots.style.display === "none") {
+           dots.style.display = "inline";
+           this.innerHTML = "Read more";
+           moreText.style.display = "none";
+         }
+         else {
+           dots.style.display = "none";
+           this.innerHTML = "Read less";
+          moreText.style.display = "inline";
+         }
+       }
+
     }
+
+  }
+}
+
     </script>
 
-    <style>
-#more {display: none;}
-</style>
+
 
 </div>
 </body>
