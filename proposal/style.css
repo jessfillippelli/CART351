@@ -2,37 +2,18 @@
 /* CSS Document */
 
 body {
-	background-color: #595959;
-
-    background-repeat: no-repeat;
+	  background-color: #595959;
     background-position: left bottom;
     margin-right: 5px;
     background-attachment: fixed;
 }
 
 
-
-
-h1 {
-	text-emphasis: 20px;
-	align-content: center;
-	letter-spacing: 5pt;
-	font-family: Impact, Haettenschweiler, "Franklin Gothic Bold", "Arial Black", "sans-serif";
-	font-size: 27px;
-	border-bottom:thick;
-	margin-bottom: auto;
-	color: #ffffff;
-
-
-}
-
-
-
 .content {
     max-width: 900px;
     margin: auto;
     background: #595959;
-    padding: 5px;
+    padding: 0px;
 }
 
 
@@ -45,29 +26,14 @@ h2 {
 	padding-left: 10px;
 	padding-top: 10px;
 	color: #000000;
-
-
 }
-
-h3 {
-	text-emphasis: 20px;
-	font-family: Impact, Haettenschweiler, "Franklin Gothic Bold", "Arial Black", "sans-serif";
-	letter-spacing: 5pt;
-	align-content: center;
-	border-bottom:thin;
-	margin-bottom: auto;
-	color: #ffffff;
-
-}
-
 
 h4 {
 	text-align: center;
 	font-size: 80px;
 	font-family: tahoma;
-	border: none;
-
 	color: #660000;
+	padding-top: 0%;
 }
 
 
@@ -76,30 +42,23 @@ h5 {
 	font-family: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", "DejaVu Sans", Verdana, "sans-serif";
 	font-size: 25px;
 	color: #660000;
-
 }
 
 
 p{
 	color: #000000;
 	padding-top: 0%;
+	font-family: "Lucida Grande";
 }
 
 
 
-
-.body {
-	color: #8c8c8c;
-	text-transform: uppercase;
-	text-align: center;
-
-
-
-}
 
 
 a{
 	text-decoration: none;
+	font-family: tahoma;
+	color: #000000;
 }
 
 
@@ -112,13 +71,3 @@ footer {
 }
 
 #more {display: none;}
-
-
-
-.PAR {
-
-
-
-	font-family: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", "DejaVu Sans", Verdana, "sans-serif";
-
-}
