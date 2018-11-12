@@ -1,0 +1,79 @@
+
+body{
+  background: #003366;
+}
+
+#sky {
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  z-index: 0;
+}
+
+h1{
+  font-family: tahoma;
+  font-size: 115px;
+  position: absolute;
+text-align: top;
+  z-index: 1;
+}
+
+#one{
+  top: 5%;
+  left: 10%;
+}
+
+#two{
+  top: 60%;
+  left: 25%;
+}
+
+#three{
+  top: 60%;
+  left: 85%;
+}
+
+#four{
+  top: 5%;
+  left: 65%;
+}
+
+#five{
+  top: 5%;
+  left: 85%;
+}
+
+#six{
+  top: 5%;
+  left: 25%;
+}
+
+#seven{
+  top: 33%;
+  left: 85%;
+}
+
+#eight{
+  top: 33%;
+  left: 10%;
+}
+
+#nine{
+  top: 60%;
+  left: 45%;
+}
+
+#ten{
+  top: 60%;
+  left: 9%;
+
+}
+#eleven{
+  top: 5%;
+  left: 43%;
+}
+
+#twelve{
+top: 60%;
+ left: 62%;
+}
