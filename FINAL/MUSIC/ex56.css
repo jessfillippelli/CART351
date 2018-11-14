@@ -14,22 +14,22 @@ body{
 } */
 .content {
     max-width: 900px;
-    margin-top: 250px;
+    margin-top: 50px;
     margin-left: 530px;
-    background: #004d00;
+    background: #FFFFFF;
     padding: 0px;
 }
 
-/* move audio */
-.audioElements{
-  padding-left: 50%;
-  padding-top: -1%;
+/* move image */
+#imageElements{
+  padding-left: 25%;
+  padding-top: 5%;
 }
 
-#audioElements div{
-padding-left:43%;
-padding-top: -1%;
+#imageElements div{
+margin-left:25%;
 }
+
 
 img {
     width: 250px;
@@ -50,26 +50,31 @@ p{
 
 h1{
    text-align: center;
-   font-size: 30px;
+   font-size: 35px;
    font-family: 'Mountains of Christmas', cursive;
    font-weight: bold;
    padding-bottom: 0%;
+
 }
 
 
 h2{
    text-align: center;
-   font-size: 20px;
+   font-size: 25px;
    font-family: 'Mountains of Christmas', cursive;
    font-weight: bold;
-   padding-top: 1px;
-   margin-left: 20px;
+   padding-bottom: 0%;
+   padding-top: 5%;
+
 }
+
+
+
 
 
 .Stairs{
   padding-left: 50%;
-  padding-top: 50%;
+  padding-top: 5%;
 }
 
 .searchText{
@@ -79,21 +84,6 @@ h2{
 }
 
 
-.button {
-    background-color: #000000;
-    border: none;
-    color: white;
-    font-family: 'Mountains of Christmas', cursive;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-
-    margin-left: 39%;
-    margin-top: 3%;
-    cursor: pointer;
-}
 
 .searchButton{
   align-items: center;
@@ -106,6 +96,9 @@ input{
   align-items: center;
   padding-top: 5px;
   padding-bottom: 5px;
+}
+.buttonWrapper{
+  margin-left:40%;
 }
 
 /* see other input and home button */
@@ -120,6 +113,8 @@ input{
     font-size: 16px;
     margin: 4px 20px;
     cursor: pointer;
+    font-family: 'Mountains of Christmas', cursive;
+
 }
 
 /* home */
@@ -127,7 +122,7 @@ input{
     background-color: white;
     color: black;
     border: 2px solid #4CAF50;
-    margin: 4px 400px;
+    /*margin: 4px 400px;*/
 }
 .button1:hover {
     background-color: #4CAF50;

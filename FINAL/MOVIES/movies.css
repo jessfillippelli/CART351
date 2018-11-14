@@ -98,7 +98,7 @@ input{
   padding-bottom: 5px;
 }
 .buttonWrapper{
-  margin-left:45%;
+  margin-left:40%;
 }
 
 /* see other input and home button */
@@ -111,7 +111,7 @@ input{
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
-    /*margin: 4px 40px;*/
+    margin: 4px 20px;
     cursor: pointer;
     font-family: 'Mountains of Christmas', cursive;
 

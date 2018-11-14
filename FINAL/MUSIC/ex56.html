@@ -14,8 +14,8 @@ $(document).ready(function(){
 
 
 $("#searchButton").click(function(event){
-	//document.getElementById("stairSound").src = "";
 	let searchItem = $("#searchText").val();
+		$("#imageElements").empty();
 	console.log(searchItem);
 	$.getJSON('music.json',function(data) {
  //success
@@ -55,10 +55,10 @@ $("#searchButton").click(function(event){
 <h1> Today's activite is listenng to some Christmas music.  </h1>
 <h1> Type in a song you want to listen to and see if the database agrees with you. </h1>
 <h1> Happy Listening </h1>
-
+<div class = "buttonWrapper">
 <button type="FINAL/index.html"class="button button1">HOME</button>
 <button type="#" class="button button2">SEE OTHER USERS INPUT</button>
-
+</div>
 <h2> Click Search not the return key</h2>
 
 
