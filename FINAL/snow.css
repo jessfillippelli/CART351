@@ -13,8 +13,10 @@ body{
 h1{
   font-family: tahoma;
   font-size: 115px;
+  color: black;
   position: absolute;
-text-align: top;
+  text-align: top;
+  text-decoration: none;
   z-index: 1;
 }
 
