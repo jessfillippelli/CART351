@@ -12,13 +12,13 @@ body{
 
 
 }
-.content {
+/* .content {
     max-width: 900px;
     margin-top: 250px;
     margin-left: 530px;
     background: #8b0000;
     padding: 0px;
-}
+} */
 
 #imageElements{
   padding-left: 25px;
@@ -39,30 +39,31 @@ img {
 p{
   text-align: center;
   font-size: 30px;
-  font-family: "Lucida" Grande, sans-serif;
+  font-family: 'Mountains of Christmas', cursive;
   font-weight: bold;
-  padding-top: 15%;
+  padding-top: 5%;
 
 
 }
 
 h1{
    text-align: center;
-   font-size: 30px;
-   font-family: Helvetica;
+   font-size: 35px;
+   font-family: 'Mountains of Christmas', cursive;
    font-weight: bold;
    padding-bottom: 0%;
+
 }
 
 
 h2{
    text-align: center;
-   font-size: 20px;
-   font-family: "Lucida" Grande, sans-serif;
+   font-size: 25px;
+   font-family: 'Mountains of Christmas', cursive;
    font-weight: bold;
    padding-bottom: 0%;
-   margin-top: 0%;
-  margin-left: 20px;
+   margin-top: 5%;
+  margin-left: 25px;
 }
 
 
@@ -90,22 +91,7 @@ h2{
   align-items: center;
 }
 
-/* input button */
-.button {
-    background-color: #000000;
-    border: none;
-    color: white;
-    font-family: "Helvetica";
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
 
-    margin-left: 39%;
-    margin-top: 3%;
-    cursor: pointer;
-}
 
 .searchButton{
   align-items: center;
@@ -113,4 +99,33 @@ h2{
 
 input{
   align-items: center;
+}
+
+/* see other input */
+.button {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 200px 700px;
+    /* -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+    position: center;
+}
+
+.button3 {
+    background-color: white;
+    color: black;
+    border: 2px solid #f44336;
+
+}
+
+.button3:hover {
+    background-color: #f44336;
+    color: white;
 }
