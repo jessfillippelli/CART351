@@ -84,7 +84,7 @@ h2{
   align-items: center;
 }
 
-/* input button */
+
 .button {
     background-color: #000000;
     border: none;
@@ -128,7 +128,7 @@ input{
     background-color: white;
     color: black;
     border: 2px solid #4CAF50;
-    margin: 4px 400px;
+  margin: 4px 400px;
 }
 .button1:hover {
     background-color: #4CAF50;
@@ -141,9 +141,7 @@ input{
     color: black;
     border: 2px solid #008CBA;
 }
-.button2 {
-    background-color: white;
-    color: black;
-    border: 2px solid #008CBA;
-    margin: 4px 200px;
+.button2:hover {
+    background-color: #008CBA;
+    color: white;
 }
