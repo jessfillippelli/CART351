@@ -20,9 +20,11 @@ body{
     padding: 0px;
 }
 
+/* move image */
 #imageElements{
-  padding-left: 25px;
-  margin-left: 25px;
+  padding-left: 20%;
+  padding-top: -1%;
+  /* margin-left: 25px; */
   /* background:blue; */
 }
 #imageElements div{

@@ -2,8 +2,12 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<link rel="stylesheet" type="text/css" href="style.css">
-
+<style>
+canvas {
+    border:1px solid #d3d3d3;
+    background-color: #f1f1f1;
+}
+</style>
 </head>
 <body onload="startGame()">
 <script>
@@ -11,7 +15,7 @@
 var myGamePiece;
 
 function startGame() {
-    myGamePiece = new component(200, 200, "images/santa.png", 10, 120, "image");
+    myGamePiece = new component(100, 100, "images/santa.png", 10, 120, "image");
     myGameArea.start();
 }
 
@@ -22,14 +26,17 @@ var myGameArea = {
         this.canvas.height = window.innerHeight;
         this.context = this.canvas.getContext("2d");
         document.body.insertBefore(this.canvas, document.body.childNodes[0]);
-        this.frameNo = 0;
         this.interval = setInterval(updateGameArea, 20);
-        },
-    clear : function() {
-        this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
+        window.addEventListener('keydown', function (e) {
+            myGameArea.keys = (myGameArea.keys || []);
+            myGameArea.keys[e.keyCode] = true;
+        })
+        window.addEventListener('keyup', function (e) {
+            myGameArea.keys[e.keyCode] = false;
+        })
     },
-    stop : function() {
-        clearInterval(this.interval);
+    clear : function(){
+        this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
     }
 }
 
@@ -64,9 +71,15 @@ function component(width, height, color, x, y, type) {
 }
 
 function updateGameArea() {
-    myGameArea.clear();
-    myGamePiece.newPos();
-    myGamePiece.update();
+   myGameArea.clear();
+   myGamePiece.speedX = 0;
+   myGamePiece.speedY = 0;
+   if (myGameArea.keys && myGameArea.keys[37]) {myGamePiece.speedX = -1; }
+   if (myGameArea.keys && myGameArea.keys[39]) {myGamePiece.speedX = 1; }
+   if (myGameArea.keys && myGameArea.keys[38]) {myGamePiece.speedY = -1; }
+   if (myGameArea.keys && myGameArea.keys[40]) {myGamePiece.speedY = 1; }
+   myGamePiece.newPos();
+   myGamePiece.update();
 }
 
 function moveup() {
@@ -90,14 +103,10 @@ function clearmove() {
     myGamePiece.speedY = 0;
 }
 </script>
-<div style="text-align:center;width:480px;">
-  <button onmousedown="moveup()" onmouseup="clearmove()" ontouchstart="moveup()">UP</button><br><br>
-  <button onmousedown="moveleft()" onmouseup="clearmove()" ontouchstart="moveleft()">LEFT</button>
-  <button onmousedown="moveright()" onmouseup="clearmove()" ontouchstart="moveright()">RIGHT</button><br><br>
-  <button onmousedown="movedown()" onmouseup="clearmove()" ontouchstart="movedown()">DOWN</button>
+
 </div>
 
-<p>The component constructor uses the built-in image object to draw images onto the canvas.</p>
+<p>words</p>
 
 </body>
 </html>
