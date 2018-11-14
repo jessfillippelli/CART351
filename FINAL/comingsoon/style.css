@@ -4,21 +4,14 @@ body, html {
 }
 
 .bgimg {
-    /* Background image */
-    background-image: url('/images/ComingSoonSign.png');
-    /* Full-screen */
+
+    background-image: url('comingsoon/images/ComingSoonSign.png');
     height: 100%;
-    /* Center the background image */
     background-position: center;
-    /* Scale and zoom in the image */
     background-size: cover;
-    /* Add position: relative to enable absolutely positioned elements inside the image (place text) */
     position: relative;
-    /* Add a white text color to all elements inside the .bgimg container */
     color: black;
-    /* Add a font */
-   font-family: 'Mountains of Christmas', cursive;
-    /* Set the font-size to 25 pixels */
+    font-family: 'Mountains of Christmas', cursive;
     font-size: 25px;
 }
 
