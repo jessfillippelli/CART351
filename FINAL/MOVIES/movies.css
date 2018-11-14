@@ -12,13 +12,13 @@ body{
 
 
 }
-/* .content {
+.content {
     max-width: 900px;
-    margin-top: 250px;
+    margin-top: 50px;
     margin-left: 530px;
-    background: #8b0000;
+    background: #FFFFFF;
     padding: 0px;
-} */
+}
 
 #imageElements{
   padding-left: 25px;
@@ -62,33 +62,23 @@ h2{
    font-family: 'Mountains of Christmas', cursive;
    font-weight: bold;
    padding-bottom: 0%;
-   margin-top: 5%;
-  margin-left: 25px;
+   padding-top: 5%;
+
 }
 
 
 
-
-.button {
-    background-color: #4CAF50;
-    border: none;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    cursor: pointer;
-}
 
 
 .Stairs{
   padding-left: 50%;
+  padding-top: 5%;
 }
 
 .searchText{
   align-items: center;
+  padding-left: 50%;
+  padding-top: 0%;
 }
 
 
@@ -111,7 +101,7 @@ input{
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
-    margin: 200px 700px;
+    margin: 10px 905px;
     /* -webkit-transition-duration: 0.4s; /* Safari */
     transition-duration: 0.4s;
     cursor: pointer;
