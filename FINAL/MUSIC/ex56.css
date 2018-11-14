@@ -20,6 +20,7 @@ body{
     padding: 0px;
 }
 
+/* move audio */
 .audioElements{
   padding-left: 50%;
   padding-top: -1%;
@@ -108,7 +109,7 @@ input{
 
 /* see other input and home button */
 .button {
-    background-color: #4CAF50; /* Green */
+    background-color: #4CAF50;
     border: none;
     color: white;
     padding: 15px 32px;
@@ -125,7 +126,7 @@ input{
     background-color: white;
     color: black;
     border: 2px solid #4CAF50;
-  margin: 4px 400px;
+    margin: 4px 400px;
 }
 .button1:hover {
     background-color: #4CAF50;
