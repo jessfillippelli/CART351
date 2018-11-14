@@ -32,9 +32,9 @@ if (!$result) die("Cannot execute query."); //count how many people have that us
 while($row = $result->fetchArray(SQLITE3_ASSOC))
 { //start1
  foreach ($row as $entry){ //start2
-   echo($entry);
-   if($entry == 0){
-     $queryInsert ="INSERT INTO usersTable(username)VALUES ('$users_es')";
+   //echo($entry);
+   if($entry == 0){ //if start
+     $queryInsert ="INSERT INTO usersTable(username)VALUES ('$user_es')";
 // again we do error checking when we try to execute our SQL statement on the db
 $ok1 = $db->exec($queryInsert);
  //:: error messages WILL be sent back to JQUERY success function .....
@@ -42,9 +42,13 @@ if (!$ok1) {
  die("Cannot execute statement.");
 exit;
 }
- send back success...
- echo "success"; // now we are enserting into the database
-   }
+ //send back success...
+ echo ($user_es); // now we are enserting into the database
+  exit;
+} //if end
+else{
+  echo($user_es);
+}
 
  }//end2
 } //end1
@@ -86,6 +90,7 @@ exit;
 </form>
 </div>
 <script>
+let user ="";
 <!-- here we put our JQUERY -->
 $("#insertUser").ready (function(){
     $("#insertUser").submit(function(event) {
@@ -105,6 +110,7 @@ $("#insertUser").ready (function(){
              timeout: 600000,
              success: function (response) {
              console.log(response);
+             user = response;
             },
             error:function(){
            console.log("error occurred");
