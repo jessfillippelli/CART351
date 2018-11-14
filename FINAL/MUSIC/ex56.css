@@ -21,9 +21,16 @@ body{
 }
 
 .audioElements{
-  padding-left: 25%;
-  margin-left: 25px;
+  padding-left: 50%;
+  padding-top: -1%;
 }
+
+#audioElements div{
+/* margin:25%; */
+padding-left:43%;
+padding-top: -1%;
+}
+
 img {
     width: 250px;
     height:auto;
