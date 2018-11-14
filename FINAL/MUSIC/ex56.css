@@ -41,7 +41,8 @@ p{
   font-size: 30px;
   font-family: 'Mountains of Christmas', cursive;
   font-weight: bold;
-  padding-top: 15%;
+  padding-top: 2%;
+  padding-left: 2%;
 
 
 }
@@ -60,7 +61,7 @@ h2{
    font-size: 20px;
    font-family: 'Mountains of Christmas', cursive;
    font-weight: bold;
-   padding-top: 5%;
+   padding-top: 1px;
    margin-left: 20px;
 }
 
