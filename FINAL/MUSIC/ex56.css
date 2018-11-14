@@ -109,7 +109,7 @@ input{
   align-items: center;
 }
 
-/* see other input */
+/* see other input and home button */
 .button {
     background-color: #4CAF50; /* Green */
     border: none;
@@ -119,20 +119,23 @@ input{
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
-    margin: 4px 2px;
+    margin: 4px 20px;
     cursor: pointer;
 }
 
+/* HOME */
 .button1 {
     background-color: white;
     color: black;
     border: 2px solid #4CAF50;
+    margin: 4px 400px;
 }
 .button1:hover {
     background-color: #4CAF50;
     color: white;
 }
 
+/* SEE OTHER USERS INPUT */
 .button2 {
     background-color: white;
     color: black;
@@ -142,4 +145,5 @@ input{
     background-color: white;
     color: black;
     border: 2px solid #008CBA;
+    margin: 4px 200px;
 }
