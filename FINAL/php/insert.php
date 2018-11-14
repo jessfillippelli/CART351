@@ -17,60 +17,30 @@ catch(Exception $e)
 }
 
 //check if there has been something posted to the server to be processed
-if($_SERVER['REQUEST_METHOD'] == 'POST')
+if($_SERVER['REQUEST_METHOD'] == 'POST') //THE USER HIT SBMIT
 {
 // need to process
-$artist = $_POST['a_name'];
-$title = $_POST['a_title'];
-$loc = $_POST['a_geo_loc'];
-$description = $_POST['a_descript'];
-$creationDate = $_POST['a_date'];
-if($_FILES)
-{
-  //echo "file name: ".$_FILES['filename']['name'] . "<br />";
-  //echo "path to file uploaded: ".$_FILES['filename']['tmp_name']. "<br />";
- $fname = $_FILES['filename']['name'];
- move_uploaded_file($_FILES['filename']['tmp_name'], "images/".$fname);
-  //echo "done";
-  //package the data and echo back...
-//  $myPackagedData=new stdClass();
-//  $myPackagedData->artist = $artist ;
-//  $myPackagedData->title = $title ;
-//  $myPackagedData->location = $loc ;
-//  $myPackagedData->description = $description ;
-//  $myPackagedData->creation_Date = $creationDate ;
-//  $myPackagedData->fileName = $fname ;
-   // Now we want to JSON encode these values to send them to $.ajax success.
-//  $myJSONObj = json_encode($myPackagedData);
-//  echo $myJSONObj;
-  //exit;
-  // NEW:: add into our db ....
-//The data from the text box is potentially unsafe; 'tainted'.
-//We use the sqlite_escape_string.
-//It escapes a string for use as a query parameter.
-//This is common practice to avoid malicious sql injection attacks.
-$artist_es =$db->escapeString($artist);
-$title_es = $db->escapeString($title);
-$loc_es =$db->escapeString($loc);
-$description_es =$db->escapeString($description);
-$creationDate_es =$db->escapeString($creationDate);
-// the file name with correct path
-$imageWithPath= "images/".$fname;
-// for the new column
-$time = date("Y-m-d",time());
-$queryInsert ="INSERT INTO artCollection(artist, title, creationDate, geoLoc, descript, image,current_time)VALUES ('$artist_es', '$title_es','$loc_es','$description_es','$creationDate_es','$imageWithPath','$time')";
+$user = $_POST['u_name'];
+
+
+$user_es =$db->escapeString($user);
+$sql_select="SELECT COUNT(username)* FROM userTable WHERE username='$user_es'";
+// the result set
+$result = $db->query($sql_select);
+if (!$result) die("Cannot execute query."); //count how many people have that user name
+//echo($user_es); //test
+//$queryInsert ="INSERT INTO artCollection(artist, title, creationDate, geoLoc, descript, image,current_time)VALUES ('$artist_es', '$title_es','$loc_es','$description_es','$creationDate_es','$imageWithPath','$time')";
 // again we do error checking when we try to execute our SQL statement on the db
-$ok1 = $db->exec($queryInsert);
-// NOTE:: error messages WILL be sent back to JQUERY success function .....
-if (!$ok1) {
- die("Cannot execute statement.");
- exit;
- }
+//$ok1 = $db->exec($queryInsert);
+/// :: error messages WILL be sent back to JQUERY success function .....
+//if (!$ok1) {
+// die("Cannot execute statement.");
+// exit;
+// }
  //send back success...
- echo "success";
+ //echo "success";
  exit;
 
-}//FILES
 }//POST
 //use the JSON .parse function to convert the JSON string into a Javascript object
    //let parsedJSON = JSON.parse(response);
@@ -96,33 +66,29 @@ if (!$ok1) {
 
 <div class= "formContainer">
 <!--form done using more current tags... -->
-<form id="insertGallery" action="" enctype ="multipart/form-data">
+<form id="insertUser" action="" enctype ="multipart/form-data">
 <!-- group the related elements in a form -->
 <h3> SUBMIT AN ART WORK :) </h3>
 <fieldset>
-<p><label>Artist:</label><input type="text" size="24" maxlength = "40" name = "a_name" required></p>
-<p><label>Title:</label><input type = "text" size="24" maxlength = "40"  name = "a_title" required></p>
-<p><label>Geographic Location:</label><input type = "text" size="24" maxlength = "40" name = "a_geo_loc" required></p>
-<p><label>Creation Date (DD-MM-YYYY):</label><input type="date" name="a_date" required></p>
-<p><label>Description:</label><textarea type = "text" rows="4" cols="50" name = "a_descript" required></textarea></p>
-<p><label>Upload Image:</label> <input type ="file" name = 'filename' size=10 required/></p>
+<p><label> user name </label><input type="text" size="24" maxlength = "40" name = "u_name" required></p>
+
 <p class = "sub"><input type = "submit" name = "submit" value = "submit my info" id ="buttonS" /></p>
  </fieldset>
 </form>
 </div>
 <script>
 <!-- here we put our JQUERY -->
-$(document).ready (function(){
-    $("#insertGallery").submit(function(event) {
+$("#insertUser").ready (function(){
+    $("#insertUser").submit(function(event) {
        //stop submit the form, we will post it manually. PREVENT THE DEFAULT behaviour ...
       event.preventDefault();
      console.log("button clicked");
-     let form = $('#insertGallery')[0];
+     let form = $('#insertUser')[0];
      let data = new FormData(form);
      $.ajax({
              type: "POST",
              enctype: 'multipart/form-data',
-             url: "insertGalleryAJAX_DB.php",
+             url: "insert.php",
              data: data,
              processData: false,//prevents from converting into a query string
              contentType: false,
