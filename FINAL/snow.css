@@ -3,6 +3,11 @@ body{
   background: #003366;
 }
 
+.formContainer{
+  position: absolute;
+  z-index:100;
+}
+
 #sky {
   position: absolute;
   top: 0%;
