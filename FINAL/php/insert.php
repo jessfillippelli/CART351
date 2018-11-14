@@ -22,23 +22,32 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') //THE USER HIT SBMIT
 // need to process
 $user = $_POST['u_name'];
 
-
+//asking it a question
 $user_es =$db->escapeString($user);
-$sql_select="SELECT COUNT(username)* FROM userTable WHERE username='$user_es'";
+$sql_select="SELECT COUNT(username) FROM usersTable WHERE username='$user_es'";
 // the result set
 $result = $db->query($sql_select);
 if (!$result) die("Cannot execute query."); //count how many people have that user name
 //echo($user_es); //test
-//$queryInsert ="INSERT INTO artCollection(artist, title, creationDate, geoLoc, descript, image,current_time)VALUES ('$artist_es', '$title_es','$loc_es','$description_es','$creationDate_es','$imageWithPath','$time')";
+while($row = $result->fetchArray(SQLITE3_ASSOC))
+{ //start1
+ foreach ($row as $entry){ //start2
+   echo($entry);
+   if($entry == 0){
+     $queryInsert ="INSERT INTO usersTable(username)VALUES ('$users_es')";
 // again we do error checking when we try to execute our SQL statement on the db
-//$ok1 = $db->exec($queryInsert);
-/// :: error messages WILL be sent back to JQUERY success function .....
-//if (!$ok1) {
-// die("Cannot execute statement.");
-// exit;
-// }
- //send back success...
- //echo "success";
+$ok1 = $db->exec($queryInsert);
+ //:: error messages WILL be sent back to JQUERY success function .....
+if (!$ok1) {
+ die("Cannot execute statement.");
+exit;
+}
+ send back success...
+ echo "success"; // now we are enserting into the database
+   }
+
+ }//end2
+} //end1
  exit;
 
 }//POST
