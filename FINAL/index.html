@@ -1,8 +1,11 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <!-- get JQUERY -->
+      <script src = "libs/jquery/jquery-3.3.1.min.js"></script>
   <script src ="snow.js"></script>
 <link rel="stylesheet" type="text/css" href="snow.css">
+<link rel="stylesheet" type="text/css" href="username.css">
     <title> Final </title>
 
   </head>
@@ -20,6 +23,51 @@
 <h1 id="ten"> 10 </h1>
 <h1 id="eleven"> 11 </h1>
 <a href = "comingsoon/index.html"> <h1 id="twelve"> 12 </h1> <a/>
+
+
+
+  <div class= "formContainer">
+  <!--form done using more current tags... -->
+  <form id="insertUser" action="" enctype ="multipart/form-data">
+  <!-- group the related elements in a form -->
+  <h3> ENTER USER </h3>
+  <fieldset>
+  <p><label> user name </label><input type="text" size="24" maxlength = "40" name = "u_name" required></p>
+
+  <p class = "sub"><input type = "submit" name = "submit" value = "submit my info" id ="buttonS" /></p>
+   </fieldset>
+  </form>
+  </div>
+  <script>
+  let user ="";
+  <!-- here we put our JQUERY -->
+  $("#insertUser").ready (function(){
+      $("#insertUser").submit(function(event) {
+         //stop submit the form, we will post it manually. PREVENT THE DEFAULT behaviour ...
+        event.preventDefault();
+       console.log("button clicked");
+       let form = $('#insertUser')[0];
+       let data = new FormData(form);
+       $.ajax({
+               type: "POST",
+               enctype: 'multipart/form-data',
+               url: "php/insertHome.php",
+               data: data,
+               processData: false,//prevents from converting into a query string
+               contentType: false,
+               cache: false,
+               timeout: 600000,
+               success: function (response) {
+               console.log(response);
+               user = response;
+              },
+              error:function(){
+             console.log("error occurred");
+           }
+         });
+       });
+  });
+  </script>
 
   </body>
 </html>
