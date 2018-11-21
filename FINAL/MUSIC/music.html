@@ -11,17 +11,39 @@
 <script>
 
 $(document).ready(function(){
+$("#getUserSearch").click(function(event){
+	event.preventDefault();
+	$.ajax({
+					type: "POST",
+					enctype: 'multipart/form-data',
+					url: "../php/retrievePost.php",
+					data: "",
+					processData: false,//prevents from converting into a query string
+					contentType: false,
+					cache: false,
+					timeout: 600000,
+					success: function (response) {
+					//console.log(response);
+
+					let parsedJSON = JSON.parse(response);
+					 console.log(parsedJSON);
+				 },
+				 error:function(){
+				console.log("error occurred");
+			}
+		});
+	});
 
 
 $("#searchButton").click(function(event){
 	let searchItem = $("#searchText").val();
 		$("#imageElements").empty();
 	console.log(searchItem);
-	$.getJSON('MUSIC/music.json',function(data) {
+	$.getJSON('music.json',function(data) {
  //success
 
 
-
+console.log(data);
 
 	for(let i=0; i< data.Stairs.length; i++){
 		console.log(data.Stairs[i].Day.toLowerCase()===searchItem.toLowerCase());
@@ -38,6 +60,28 @@ $("#searchButton").click(function(event){
 
 		}
 	}
+	//store item into array ...
+		let dataSearch  = new FormData();
+		dataSearch.append('userSearch',  searchItem);
+
+       $.ajax({
+               type: "POST",
+               enctype: 'multipart/form-data',
+               url: "../php/insertPost.php",
+               data: dataSearch,
+               processData: false,//prevents from converting into a query string
+               contentType: false,
+               cache: false,
+               timeout: 600000,
+               success: function (response) {
+               console.log(response);
+               user = response;
+               //activateLinks();
+              },
+              error:function(){
+             console.log("error occurred");
+           }
+         });
  })
  //fail
  .fail(function() {
@@ -57,7 +101,7 @@ $("#searchButton").click(function(event){
 <h1> Happy Listening </h1>
 <div class = "buttonWrapper">
 <button type="FINAL/index.html"class="button button1">HOME</button>
-<button type="#" class="button button2">SEE OTHER USERS INPUT</button>
+<button id = "getUserSearch" type="#" class="button button2">SEE OTHER USERS INPUT</button>
 </div>
 <h2> Click Search not the return key</h2>
 
