@@ -1,0 +1,357 @@
+<html>
+<head>
+  <title> Jessica's ASSIGNMENT 2 </title>
+  <link rel="stylesheet" type="text/css" href="assignment2.css">
+  </head>
+  <body>
+    <h2> ASSIGNMENT 2  </h2>
+    <h2>  Are You Not Entertained? </h2>
+
+<button class="button" id="GameButton"> Restart Game? </button>
+
+
+
+  <canvas id="testCanvas" width="1000" height="1000">
+
+  </canvas>
+  </body>
+
+  <script>
+
+
+  window.onload = function(){
+
+let canvas = document.getElementById('testCanvas');
+let canvasContext = canvas.getContext('2d');
+const MAX_ELLIPSES =10;
+const MAX_RECT = 10;
+let gameOver =false;
+let score = 0; //amount of time played
+//let startTime = new Date().getSeconds(); // for the score timer
+let startTime = new Date().getTime(); // for the score timer
+
+
+
+
+
+
+
+let button = document.getElementById("GameButton");
+button.addEventListener("mousedown", resetGame);
+//event listerer for rect
+canvas.addEventListener("mousedown",function(event){
+  console.log("canvas mouse clicked"); //part ONE
+
+  for(let i=0; i<myRect.length; i++){
+    myRect[i].hitTest(event);
+}
+for(let i=0; i<myEllipses.length; i++){
+  myEllipses[i].hitTest(event);
+}
+});
+
+canvas.addEventListener("mousemove",function(event){
+  console.log("mouse was moved"); //part ONE
+  for(let i=0; i<myRect.length; i++){
+  myRect[i].hitTestOver(event); //knows that a shape was clicked
+  }
+  console.log("mouse was moved"); //part ONE
+  for(let i=0; i<myEllipses.length; i++){
+    myEllipses[i].hitTestOver(event); //knows that a shape was clicked
+  }
+});
+
+//SCORE TEXT FUNCTION
+function scoretext (txt, fnt, x, y, c){
+ canvasContext.fillStyle = c;
+ canvasContext.font = fnt;
+ canvasContext.fillText(txt,x,y);
+}
+
+//array
+let myEllipses = [];
+let myRect = [];
+
+let colors = [];
+colors.push(new colorObject(217,179,255)); //purple
+colors.push(new colorObject(255,179,217)); //pink
+colors.push(new colorObject(100,100,128)); //yellow
+colors.push(new colorObject(204,255,179)); //green
+colors.push(new colorObject(255,224,179)); //orange
+colors.push(new colorObject(179,198,255)); //blue
+colors.push(new colorObject(255,179,179)); //red
+colors.push(new colorObject(255,179,247)); //mangatia
+colors.push(new colorObject(185,249,203)); //lime green
+colors.push(new colorObject(247,187,204)); //light pink
+
+resetGame();
+
+
+
+function colorObject(r,g,b){
+  this.r =r;
+  this.g =g;
+  this.b = b;
+  this.a =1.0;
+
+}
+
+
+
+
+function resetGame(){ //start of reset game - what you want to go when the game is done
+   myEllipses = [];
+  myRect = [];
+  //start of arrays
+  for (let i =0; i< MAX_ELLIPSES;i++){
+
+  // A REMINDER - i = x-axis, i = y-axis 15 = size of ball, color , (i%3)+9, (i%8)+7 = speed of ball
+    myEllipses.push(new myRunningEllipse(250,200,27,colors[i%colors.length],(i%3)+7,(i%4)+5,i));
+  }
+
+  for (let i =0; i< MAX_RECT;i++){
+  // A REMINDER - i+100 = x-axis, i+100 = y-axis 30,30 = w &h of rect, color , (i%5)+1,(i%2)+5) = speed of rect
+    myRect.push(new myRunningRect(Math.random()*1000,Math.random()*-100,60,60,colors[i%colors.length],(i%10)+2,(i%26)+1,i));
+
+  }
+  gameOver = false;
+  //startTime = new Date().getSeconds(); // restart timer just took out the "let"
+  startTime = new Date().getTime(); // restart timer just took out the "let"
+
+} // end of reset game
+
+
+
+//} //end of start game
+requestAnimationFrame(runAni);
+
+
+// this is our callback function (to simulate a loop ... )
+function runAni(){
+
+  canvasContext.clearRect(0, 0, canvas.width, canvas.height);
+if(gameOver ===false){
+  //score = new Date().getSeconds() - startTime;
+  score = (new Date().getTime()-startTime)/1000;
+  console.log("score" +score);
+
+  for (let i =0; i< myEllipses.length;i++){
+    myEllipses[i].update();
+    myEllipses[i].render();
+
+  }
+  //console.log("ellipse array length:: "+myEllipses.length);
+  //console.log("rect array length:: "+myRect.length);
+  for (let i =myEllipses.length-1; i>=0;i--){
+
+  if(  myEllipses[i].a ===0)
+  {
+    myEllipses.splice(i,1);
+  }
+}
+
+  for (let i =myRect.length-1; i>=0;i--){ //start of play game
+  if(  myRect[i].a <=0.25)
+  {
+    myRect.splice(i,1);
+  }
+
+}
+
+if(myEllipses.length ===0 && myRect.length===0 )
+{
+  console.log("GAME OVER");
+  gameOver =true;
+
+}
+
+  for (let i =0; i< myRect.length;i++){
+    myRect[i].update();
+    myRect[i].render();
+
+  }
+  //score
+  scoretext("Time: " + Math.floor(score),"100px gotham sans serif",40,105, "black"); //SCORE
+} //end of play game
+else if (gameOver ===true) //start of game over
+{
+  let fontString = "130px gotham sans serif";
+   let xPos = 115;
+   let yPos = 500;
+
+  canvasContext.font = fontString;
+  canvasContext.fillStyle = "#ffffff";
+  canvasContext.fillText("GAME OVER",xPos,yPos);
+    scoretext("Time: " + Math.floor(score),"100px gotham sans serif",40,105, "black"); //SCORE
+} // end of game over
+
+
+  // recursive call ...
+  requestAnimationFrame(runAni);
+}
+
+
+function myRunningEllipse(x,y,r,c,xSpeed,ySpeed, eid){ //start of circle function
+  //member variables
+  this.xPos = x;
+  this.yPos = y;
+  this.radius = r;
+
+//color for ball
+  this.r =c.r;
+  this.g =c.g;
+  this.b=c.b;
+  this.a=c.a;
+  this.isOver=false;
+
+  this.eID = eid;
+
+  // new for updating
+  this.xSpeed = xSpeed;
+  this.ySpeed =ySpeed;
+
+
+
+
+
+//member function
+  this.render =function(){
+    if(this.isOver ===true){
+      this.a = 0;
+      let score =0;
+    }
+
+    this.ellipseColor= "rgba("+this.r+","+this.g+","+this.b+","+this.a+")";
+      canvasContext.fillStyle = this.ellipseColor;// change the color we are using
+      canvasContext.beginPath();
+      canvasContext.arc(this.xPos,this.yPos,this.radius,0, Math.PI * 2, true);
+      canvasContext.fill(); // set the fill
+      canvasContext.closePath(); //close a path ...
+    }
+
+
+
+  //member function for updating
+  this.update = function(){
+       if(this.xPos<100 || this.xPos>canvas.width-100){
+         this.xSpeed*=-1;
+       }
+       if(this.yPos<100 || this.yPos>canvas.height-100){
+         this.ySpeed*=-1;
+       }
+       this.xPos+=this.xSpeed;
+       this.yPos+=this.ySpeed;
+     }
+
+     //event listerner
+                this.hitTest = function(event){
+                  if(Math.sqrt(Math.pow((event.clientX-this.xPos),2)+Math.pow((event.clientY-this.yPos),2))<this.radius){
+                    //console.log("rect Pressed::: " + this.eID);
+                    this.isPressed = !this.Pressed;
+
+                  }
+                }
+
+                // FADE
+                    this.hitTestOver = function(event){
+
+                     //need 3 lines of code becasue the canava was not at (0,0)
+                      let c = canvas.getBoundingClientRect();
+                      let mouseY = event.clientY -c.top;
+                      let mouseX = event.clientX -c.left;
+
+
+                      if(Math.sqrt(Math.pow((mouseX-this.xPos),2)+Math.pow((mouseY-this.yPos),2))<this.radius){
+                      //  console.log("ball over::: " + this.eID);
+
+                        this.isOver=true;
+                      }
+                      else{
+                        this.isOver = false;
+                      }
+        } //end of FADE
+
+
+  } // end of circle FUNCTION
+
+//start of rect FUNCTION
+  function myRunningRect(x, y, w, h, c, xSpeed,ySpeed,eid) {
+      this.x = x;
+      this.y = y;
+      this.w = w;
+      this.h = h;
+      this.isOver=false;
+
+      this.eID = eid;
+
+      //color of rect
+      this.r =c.r;
+      this.g =c.g;
+      this.b=c.b;
+      this.a=c.a;
+
+
+      this.xSpeed = xSpeed;
+      this.ySpeed =ySpeed;
+
+      this.render = function(){
+         if(this.isOver ===true){
+           //console.log(this.a);
+           this.a = this.a - 0.1;
+         }
+
+
+
+          this.rectColor= "rgba("+this.r+","+this.g+","+this.b+","+this.a+")";
+          canvasContext.fillStyle = this.rectColor;
+          canvasContext.fillRect(this.x,this.y,this.w, this.h);
+
+        }
+
+        this.update = function(){
+             if(this.x<0 || this.x>canvas.width){
+               this.xSpeed*=-1;
+             }
+             if(this.y<-100 || this.y>canvas.height){
+               this.ySpeed*=-1;
+             }
+             this.x+=this.xSpeed;
+             this.y+=this.ySpeed;
+           }
+
+//event listerner
+           this.hitTest = function(event){
+             if(Math.sqrt(Math.pow((event.clientX-this.x),2)+Math.pow((event.clientY-this.y),2))<this.w/2){
+               //console.log("rect Pressed::: " + this.eID);
+               this.isPressed = !this.Pressed;
+
+             }
+           }
+
+           // FADE
+               this.hitTestOver = function(event){ //start of FADE
+
+                //need 3 lines of code becasue the canava was not at (0,0)
+                 let c = canvas.getBoundingClientRect();
+                 let mouseY = event.clientY -c.top;
+                 let mouseX = event.clientX -c.left;
+
+                 //console.log(Math.sqrt(Math.pow((event.clientX-this.x),2)+Math.pow((event.clientY-this.y),2)));
+                 if(Math.sqrt(Math.pow((mouseX-this.x),2)+Math.pow((mouseY-this.y),2))<this.w/2){
+                //   console.log("rect over::: " + this.eID);
+                   //this.a -=0.01;
+                   this.isOver=true;
+                 }
+                 else{
+                   this.isOver = false;
+                 }
+   }//end of FADE
+
+    } //END OF RECT FUNCTION
+
+
+} //end window onload - EVERYTHING HAS TO BE INSIDE OF HERE
+  </script>
+
+
+</html>
