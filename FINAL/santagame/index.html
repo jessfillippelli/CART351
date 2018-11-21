@@ -2,18 +2,16 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<style>
-canvas {
-    border:1px solid #d3d3d3;
-    background-color: #f1f1f1;
-}
-</style>
+<link rel="stylesheet" type="text/css" href="style.css">
+
 </head>
 <body onload="startGame()">
+  <h1>words</h1>
 <script>
 
 var myGamePiece;
 var myObstacle;
+//var myObstacletwo;
 
 
 function startGame() {
@@ -21,18 +19,19 @@ function startGame() {
     myGamePiece = new component(100, 100, "images/santa.png", 10, 120, "image");
      //myObstacle = new component(10, 200, "green", 300, 120 );
   myObstacle = new component(200, 200, "images/CandyCane.png", 300, 120, "image");
+    //myObstacle = new component(200, 200, "/images/candycane2.png", 400, 200, "image");
+    //myObstacle = new component(200, 200, "/images/candycane3.png", 450, 350, "image");
 
 }
 
 var myGameArea = {
     canvas: document.createElement("canvas"),
     start : function() {
-      //this.canvas.width = W;
-    //  this.canvas.height = H;
       this.canvas.width = window.innerWidth;
       this.canvas.height = window.innerHeight;
         this.context = this.canvas.getContext("2d");
         document.body.insertBefore(this.canvas, document.body.childNodes[0]);
+        this.frameNo = 0; // multople canady canes
         this.interval = setInterval(updateGameArea, 20);
         window.addEventListener('keydown', function (e) {
             myGameArea.keys = (myGameArea.keys || []);
@@ -49,6 +48,12 @@ var myGameArea = {
         clearInterval(this.interval);
     }
 }// end game area
+
+function everyinterval(n) {
+    if ((myGameArea.frameNo / n) % 1 == 0) {return true;}
+    return false;
+}
+
 
 function component(width, height, path, x, y, type) {
     this.type = type;
@@ -69,10 +74,8 @@ function component(width, height, path, x, y, type) {
                 this.x,
                 this.y,
                 this.width, this.height);
-        } //else {
-          //  ctx.fillStyle = color;
-          //  ctx.fillRect(this.x, this.y, this.width, this.height);
-      //  }
+        }
+
     }
     this.newPos = function() {
         this.x += this.speedX;
@@ -99,11 +102,12 @@ function component(width, height, path, x, y, type) {
 } //end obj
 
 
-function updateGameArea() {
-  if (myGamePiece.crashWith(myObstacle)) {
-       myGameArea.stop();
-   } else {
+function updateGameArea() { //start of update game
+  //if (myGamePiece.crashWith(myObstacle)) {
+     //myGameArea.stop();
+//  } else {
 
+   myObstacle.x += -1; //getting the candy canes to move
    myGameArea.clear();
    myGamePiece.speedX = 0;
    myGamePiece.speedY = 0;
@@ -114,8 +118,8 @@ function updateGameArea() {
    myGamePiece.newPos();
    myGamePiece.update();
    myObstacle.update();
- }
-}
+ //}
+} //end of update game
 
  // function moveup() {
  //     myGamePiece.speedY = -1;
@@ -138,19 +142,11 @@ function updateGameArea() {
  //    myGamePiece.speedY = 0;
  // }
 
-
 window.onresize = function(event) {
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
+  this.canvas.width = window.innerWidth;
+  this.canvas.height = window.innerHeight;
 };
 
-
-
 </script>
-
-</div>
-
-<p>words</p>
-
 </body>
 </html>
