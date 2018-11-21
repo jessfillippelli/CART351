@@ -10,18 +10,30 @@
 <script>
 
 var myGamePiece;
+//ADD MORE Obstacles
 var myObstacle;
 var myObstacletwo;
-//var myObstacletwo;
+var myObstaclethree;
+var myObstaclefour;
+var myObstaclefive;
+var myObstaclesix;
+var myObstacleseven;
+var myObstacleeight;
+var myObstaclenine;
 
 
 function startGame() {
     myGameArea.start();
     myGamePiece = new component(100, 100, "images/santa.png", 10, 120, "image");
-     //myObstacle = new component(10, 200, "green", 300, 120 );
-  myObstacle = new component(200, 200, "images/CandyCane.png", 300, 120, "image");
-    myObstacletwo = new component(200, 200, "images/candycane2.png", 400, 200, "image");
-  //  myObstacle = new component(200, 200, "/images/candycane3.png", 450, 350, "image");
+    myObstacle = new component(200, 200, "images/CandyCane1.png", 900, 120, "image"); //GOOD
+    myObstacletwo = new component(200, 200, "images/candycane2.png", 500, 200, "image");
+    myObstaclethree = new component(200, 200, "images/candycane3.png", 820, 600, "image");
+    myObstaclefour = new component(200, 200, "images/candycane5.png", 2000, 400, "image");
+    myObstaclefive = new component(200, 200, "images/candy4.png", 1200, 600, "image");
+    myObstaclesix = new component(200, 200, "images/candy4.png", 1760, 100, "image");
+    myObstacleseven = new component(200, 200, "images/candy6.png", 1300, 160, "image");
+    myObstacleeight = new component(200, 200, "images/candy6.png", 1600, 160, "image");
+    myObstaclenine = new component(200, 200, "images/CandyCane1.png", 900, 120, "image");
 
 }
 
@@ -104,12 +116,22 @@ function component(width, height, path, x, y, type) {
 
 
 function updateGameArea() { //start of update game
-  if (myGamePiece.crashWith(myObstacle)) {
+  if (myGamePiece.crashWith(myObstacle, myObstacletwo, myObstaclethree, myObstaclefour, myObstaclefive, myObstaclesix, myObstacleseven, myObstacleeight, myObstaclenine )) {
      myGameArea.stop();
 } else {
 
+  //ADDED MORE Obstacles
    myObstacle.x += -1; //getting the candy canes to move
-   myObstacletwo.x+=-1;
+   myObstacletwo.x+= -1;
+   myObstaclethree.x+= -1;
+   myObstaclefour.x+= -1;
+   myObstaclefive.x+= -1;
+   myObstaclesix.x+= -1;
+   myObstacleseven.x+= -1;
+   myObstaclenine.x+= -1;
+   myObstacleeight.x+= -1;
+
+
    myGameArea.clear();
    myGamePiece.speedX = 0;
    myGamePiece.speedY = 0;
@@ -123,32 +145,20 @@ function updateGameArea() { //start of update game
 //adding more  Obstacles
    myObstacle.update();
    myObstacletwo.update();
+   myObstaclethree.update();
+   myObstaclefour.update();
+   myObstaclefive.update();
+   myObstaclesix.update();
+   myObstacleseven.update();
+   myObstacleeight.update();
+   myObstaclenine.update();
  }
 } //end of update game
 
- // function moveup() {
- //     myGamePiece.speedY = -1;
- // }
- //
- // function movedown() {
- //     myGamePiece.speedY = 1;
- // }
- //
- // function moveleft() {
- //   myGamePiece.speedX = -1;
- // }
- //
- // function moveright() {
- //     myGamePiece.speedX = 1;
- // }
- //
- // function clearmove() {
- //    myGamePiece.speedX = 0;
- //    myGamePiece.speedY = 0;
- // }
+
 
 window.onresize = function(event) {
-  console.log("resize");
+  //console.log("resize");
   myGameArea.canvas.width = window.innerWidth;
   myGameArea.canvas.height = window.innerHeight;
 };
