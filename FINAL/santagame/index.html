@@ -11,6 +11,7 @@
 
 var myGamePiece;
 var myObstacle;
+var myObstacletwo;
 //var myObstacletwo;
 
 
@@ -19,8 +20,8 @@ function startGame() {
     myGamePiece = new component(100, 100, "images/santa.png", 10, 120, "image");
      //myObstacle = new component(10, 200, "green", 300, 120 );
   myObstacle = new component(200, 200, "images/CandyCane.png", 300, 120, "image");
-    //myObstacle = new component(200, 200, "/images/candycane2.png", 400, 200, "image");
-    //myObstacle = new component(200, 200, "/images/candycane3.png", 450, 350, "image");
+    myObstacletwo = new component(200, 200, "images/candycane2.png", 400, 200, "image");
+  //  myObstacle = new component(200, 200, "/images/candycane3.png", 450, 350, "image");
 
 }
 
@@ -103,11 +104,12 @@ function component(width, height, path, x, y, type) {
 
 
 function updateGameArea() { //start of update game
-  //if (myGamePiece.crashWith(myObstacle)) {
-     //myGameArea.stop();
-//  } else {
+  if (myGamePiece.crashWith(myObstacle)) {
+     myGameArea.stop();
+} else {
 
    myObstacle.x += -1; //getting the candy canes to move
+   myObstacletwo.x+=-1;
    myGameArea.clear();
    myGamePiece.speedX = 0;
    myGamePiece.speedY = 0;
@@ -117,8 +119,11 @@ function updateGameArea() { //start of update game
    if (myGameArea.keys && myGameArea.keys[40]) {myGamePiece.speedY = 1; }
    myGamePiece.newPos();
    myGamePiece.update();
+
+//adding more  Obstacles
    myObstacle.update();
- //}
+   myObstacletwo.update();
+ }
 } //end of update game
 
  // function moveup() {
@@ -143,8 +148,9 @@ function updateGameArea() { //start of update game
  // }
 
 window.onresize = function(event) {
-  this.canvas.width = window.innerWidth;
-  this.canvas.height = window.innerHeight;
+  console.log("resize");
+  myGameArea.canvas.width = window.innerWidth;
+  myGameArea.canvas.height = window.innerHeight;
 };
 
 </script>

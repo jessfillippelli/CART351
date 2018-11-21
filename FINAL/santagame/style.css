@@ -2,9 +2,15 @@ canvas {
     /* border:1px solid #d3d3d3; */
     background-color: #003366;
     z-index: 1;
+    position:absolute;
+    top:0;
+    left:0;
 }
 
 h1{
   z-index: 5;
   padding-top: 5%;
+  position:absolute;
+  top:0;
+  left:0;
 }
