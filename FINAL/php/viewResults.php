@@ -2,7 +2,7 @@
 // put required html mark up
 echo"<html>\n";
 echo"<head>\n";
-echo"<title> Output from the Grafitti Gallery Database </title> \n";
+echo"<title> 12 days(ish) of databases  </title> \n";
 //include CSS Style Sheet
 echo "<link rel='stylesheet' type='text/css' href='css/galleryStyle.css'>";
 echo"</head>\n";

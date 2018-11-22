@@ -1,20 +1,24 @@
 <html>
 <head>
-  <title> Jessica's ASSIGNMENT 2 </title>
+  <title> elf game DOOR 4 </title>
   <link rel="stylesheet" type="text/css" href="elfgame.css">
+  <link href="https://fonts.googleapis.com/css?family=Mountains+of+Christmas" rel="stylesheet">
   </head>
   <body>
-    <h2> ASSIGNMENT 2  </h2>
-    <h2>  Are You Not Entertained? </h2>
+    <h2> DAY 4  </h2>
+    <h2>  See if you can click all the elf heads off the screen faster than other users! </h2>
 
 <button class="button" id="GameButton"> Restart Game? </button>
 
 
 
   <canvas id="testCanvas" width="1000" height="1000">
+    <img id="scream" width="220" height="277"
+    src="images/elfgameimage.png" alt="elfgameimage">
+
 
   </canvas>
-  </body>
+
 
   <script>
 
@@ -22,13 +26,17 @@
   window.onload = function(){
 
 let canvas = document.getElementById('testCanvas');
-let canvasContext = canvas.getContext('2d');
-const MAX_ELLIPSES =10;
-const MAX_RECT = 10;
+let ctx = canvas.getContext('2d');
+let img = let img = document.getElementById("elfgameimage");
+ctx.drawImage(img, 5, 5);
+//const MAX_ELLIPSES =10;
+//const MAX_RECT = 10;
 let gameOver =false;
 let score = 0; //amount of time played
 //let startTime = new Date().getSeconds(); // for the score timer
 let startTime = new Date().getTime(); // for the score timer
+let img = document.getElementById("elfgameimage");
+
 
 
 
@@ -352,6 +360,6 @@ function myRunningEllipse(x,y,r,c,xSpeed,ySpeed, eid){ //start of circle functio
 
 } //end window onload - EVERYTHING HAS TO BE INSIDE OF HERE
   </script>
-
+</body>
 
 </html>

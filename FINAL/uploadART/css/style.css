@@ -1,0 +1,45 @@
+div
+{
+  width: 200px;
+  height: 200px;
+  margin: 2px;
+  padding: 4px;
+  border-width:2px;
+  border-style:solid;
+  border-color:#ccc;
+  background-color:#98bf21;
+  font-size:14px;
+  color:#111111;
+  font-family:arial;
+
+}
+
+#divWithSpecificStyle
+{
+  width: 200px;
+  height: 200px;
+  margin: 2px;
+  padding: 4px;
+  border-width:2px;
+  border-style:solid;
+  border-color:#ccc;
+  background-color:#3ad7ff;
+  font-size:14px;
+  color:#333333;
+  font-family:arial;
+ }
+
+ #divWithExtStyle
+{
+  width: 200px;
+  height: 200px;
+  margin: 2px;
+  padding: 4px;
+  border-width:2px;
+  border-style:solid;
+  border-color:#ccc;
+  background-color:#000000;
+  font-size:14px;
+  color:#ffffff;
+  font-family:arial;
+ }
