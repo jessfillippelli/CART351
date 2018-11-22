@@ -1,52 +1,125 @@
-
+<!doctype html>
 <html>
 <head>
-<body>
-  <img id="scream" width="220" height="277"
-src="images/cup.png" alt="elf">
-  <title> elf game </title>
- <link rel="stylesheet" type="text/css" href="elf.css">
-  <script>
+<meta charset="utf-8">
+<title>  Christmas Music  </title>
+<link rel="stylesheet" href="music.css">
+<link href="https://fonts.googleapis.com/css?family=Mountains+of+Christmas" rel="stylesheet">
+<!-- <script src ="snow.js"></script> -->
+
+<script src = "jquery/jquery-3.3.1.min.js"></script>
+<script>
+
+$(document).ready(function(){
+$("#getUserSearch").click(function(event){
+	event.preventDefault();
+	$.ajax({
+					type: "POST",
+					enctype: 'multipart/form-data',
+					url: "../php/retrievePost.php",
+					data: "",
+					processData: false,//prevents from converting into a query string
+					contentType: false,
+					cache: false,
+					timeout: 600000,
+					success: function (response) {
+					//console.log(response);
+
+					let parsedJSON = JSON.parse(response);
+					 console.log(parsedJSON);
+				 },
+				 error:function(){
+				console.log("error occurred");
+			}
+		});
+	});
 
 
-
-  window.onload = function(){
-
-
-
-    // step 1 access the canvas element && the graphics context....
-    let canvas = document.getElementById('myCanvas');
-    let ctx = canvas.getContext('2d');
-    let img = document.getElementById("cup");
-    ctx.drawImage(img, 10, 10);
-    let W = window.innerWidth;
-    let H = window.innerHeight;
-    canvas.width = W;
-    canvas.height = H;
+$("#searchButton").click(function(event){
+	let searchItem = $("#searchText").val();
+		$("#imageElements").empty();
+	console.log(searchItem);
+	$.getJSON('music.json',function(data) {
+ //success
 
 
+console.log(data);
+
+	for(let i=0; i< data.Stairs.length; i++){
+		console.log(data.Stairs[i].Day.toLowerCase()===searchItem.toLowerCase());
+		if(data.Stairs[i].Day.toLowerCase().includes(searchItem.toLowerCase())){
+			console.log("test");
+			let audioTagContainer= document.createElement("div");
+      let audioTag= document.createElement("audio");
+			 audioTag.src = "sounds/"+data.Stairs[i].Sound;
+			 audioTag.type = "audio/mpeg";
+			 audioTag.controls = 'controls';
+			 audioTagContainer.appendChild(audioTag);
+			 document.getElementById("audioElements").appendChild(audioTagContainer);
 
 
+		}
+	}
+	//store item into array ...
+		let dataSearch  = new FormData();
+		dataSearch.append('userSearch',  searchItem);
 
+       $.ajax({
+               type: "POST",
+               enctype: 'multipart/form-data',
+               url: "../php/insertPost.php",
+               data: dataSearch,
+               processData: false,//prevents from converting into a query string
+               contentType: false,
+               cache: false,
+               timeout: 600000,
+               success: function (response) {
+               console.log(response);
+               user = response;
+               //activateLinks();
+              },
+              error:function(){
+             console.log("error occurred");
+           }
+         });
+ })
+ //fail
+ .fail(function() {
+	 console.log( "error" );
+ });
 
-
-
-
-  window.onresize = function(event) {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-  };
-}
-
-
+}); //click
+});//ready
 </script>
+
 </head>
+<body>
 
-<!-- <div class = " Home button"><a href="index.html">  Home </a></div> -->
+<h1>Welcome to 12 Days of Databases door one. </h1>
+<h1> Today's activite is listenng to some Christmas music.  </h1>
+<h1> Type in a song you want to listen to and see if the database agrees with you. </h1>
+<h1> Happy Listening </h1>
+<div class = "buttonWrapper">
+<button type="FINAL/index.html"class="button button1">HOME</button>
+<button id = "getUserSearch" type="#" class="button button2">SEE OTHER USERS INPUT</button>
+</div>
+<h2> Click Search not the return key</h2>
 
-<div id="text"> </div>
-<canvas id="myCanvas" width="2500" height="1100">
 
-</canvas>
+
+<p>
+<input type="text" id="searchText" value="search Item" />
+<input type="button" value="Search!" id="searchButton" />
+
+<br/>
+<div id = "audioElements"></div>
+
+</p>
+
+<!-- <div id = "container">
+</div> -->
+<div id="images"></div>
+
+
 </body>
 </html>
