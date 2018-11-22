@@ -1,0 +1,52 @@
+
+<html>
+<head>
+<body>
+  <img id="scream" width="220" height="277"
+src="images/cup.png" alt="elf">
+  <title> elf game </title>
+ <link rel="stylesheet" type="text/css" href="elf.css">
+  <script>
+
+
+
+  window.onload = function(){
+
+
+
+    // step 1 access the canvas element && the graphics context....
+    let canvas = document.getElementById('myCanvas');
+    let ctx = canvas.getContext('2d');
+    let img = document.getElementById("cup");
+    ctx.drawImage(img, 10, 10);
+    let W = window.innerWidth;
+    let H = window.innerHeight;
+    canvas.width = W;
+    canvas.height = H;
+
+
+
+
+
+
+
+
+
+  window.onresize = function(event) {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  };
+}
+
+
+</script>
+</head>
+
+<!-- <div class = " Home button"><a href="index.html">  Home </a></div> -->
+
+<div id="text"> </div>
+<canvas id="myCanvas" width="2500" height="1100">
+
+</canvas>
+</body>
+</html>
