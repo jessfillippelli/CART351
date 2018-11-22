@@ -1,0 +1,293 @@
+
+<html>
+<head>
+
+  <title> DAY 7 - COMING SOON </title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <link href="https://fonts.googleapis.com/css?family=Mountains+of+Christmas" rel="stylesheet">
+
+
+  <script>
+
+
+
+  window.onload = function(){
+    let i=0, text;
+    text = "Sorry :( it is not time to get what is behind this door. Come back another time!)"
+    //text2 = "only answer to the question can be I WANT HELP"
+
+    function typing(){
+      if(i<text.length){
+        document.getElementById("text" ).innerHTML += text.charAt(i);
+        // , "text2"
+        i++;
+      setTimeout(typing, 50);
+      }
+  }
+
+    typing();
+
+
+    // step 1 access the canvas element && the graphics context....
+    let canvas = document.getElementById('testCanvas');
+    let canvasContext = canvas.getContext('2d');
+    let W = window.innerWidth;
+    let H = window.innerHeight;
+    canvas.width = W;
+    canvas.height = H;
+    //let letterList = [];
+    let wordList  = [];
+    let xVal =canvas.width/2;
+    let wordTyped = "";
+    let escapeBoxScreen =0;
+    let backgroundWords = [];
+    let backgroundWordsOne = [];
+    let rain = [];
+
+   backgroundWords.push(new backGroundWord("DAY 7",600,750));
+
+
+    // rain.push(new backGroundWord("Sadness",815,600));
+
+
+
+
+
+
+
+    requestAnimationFrame(runAni);
+
+    function runAni(){ //START
+      //need to reset the background :)
+      // clear the canvas ...
+      canvasContext.clearRect(0, 0, canvas.width, canvas.height);
+
+// black screen
+      if(escapeBoxScreen ==0)
+      {
+        document.getElementById("text").style.display ="block";
+        displayWord();
+        for (let i =0; i< wordList.length;i++){
+          wordList[i].renderWord();
+          wordList[i].updateLetter();
+          wordList[i].fillColor='#ff0000';
+         }
+
+// GO THROUGH  BOUNCING BACKGROUND WORDS
+     for (let i =0; i< backgroundWords.length;i++){
+      // console.log(backgroundWords[i].xPos);
+      // console.log( backgroundWords[i].word);
+       backgroundWords[i].renderWord();
+       backgroundWords[i].updateLetter();
+     }
+
+     for (let i =0; i< rain.length;i++){
+       rain[i].renderWord();
+       rain[i].updateLetter();
+       rain[i].fillColor='#ff0000'; //red
+
+      }
+   }
+
+
+
+  // recursive call ...
+      requestAnimationFrame(runAni);
+  } //END
+
+  function displayWord(){ //START
+    canvasContext.globalAlpha = 1.0;
+    canvasContext.font = "40px impact";
+    canvasContext.fillStyle = "#FF0000";
+    canvasContext.fillText(wordTyped,canvas.width/2,canvas.height/2);
+  }
+
+      function myWord(word,x,y){
+        this.fontString = "40px impact";
+        this.word = word;
+        this.xPos = x;
+        this.yPos = y;
+//speed of word that is being typed
+        this.xspeed = 1;
+        this.yspeed = 2;
+        this.fillColor = "#ff69b4";
+
+
+        this.renderWord = function(){
+        canvasContext.globalAlpha = 1.0;
+        canvasContext.font = this.fontString;
+        canvasContext.fillStyle = this.fillColor;
+        canvasContext.fillText(this.word,this.xPos,this.yPos);
+      } //END
+
+//MAKE IT BOUNCE
+      this.updateLetter =function(){
+        //this.xPos +=5;
+        //this.yPos +=5;
+if(this.xPos+20*this.word.length> canvas.width || this.xPos < 0){
+  this.xspeed*= -1;
+
+}
+if(this.yPos > canvas.height || this.yPos < 20){
+  this.yspeed*= -1;
+
+}
+    this.xPos= this.xspeed+this.xPos;
+    this.yPos= this.yspeed+this.yPos;
+
+      }//end function
+    } //end letter object
+
+
+    function backGroundWord(word,x,y){ //START OF BACKGROUND WORD
+      this.fontString = "100px impact"; //CHNGAE THE SIZE OF "DAY 7"
+      this.word = word;
+      this.xPos = x;
+      this.yPos = y;
+    //  speed of word that is being bouncing around
+      this.xspeed = 1;
+      this.yspeed = 2;
+      this.fillColor = "#0000FF"; // CHANGE COLOR OF "DAY 7"
+
+
+      this.renderWord = function(){
+      canvasContext.globalAlpha = 1.0;
+      canvasContext.font = this.fontString;
+      canvasContext.fillStyle = this.fillColor;
+      canvasContext.fillText(this.word,this.xPos,this.yPos);
+    }
+
+//MAKE IT BOUNCE
+    this.updateLetter =function(){
+      //this.xPos +=5;
+      //this.yPos +=5;
+if(this.xPos+20*this.word.length > canvas.width || this.xPos < 0){
+this.xspeed*= -1;
+
+}
+if(this.yPos > canvas.height || this.yPos < 20){
+this.yspeed*= -1;
+
+}
+  this.xPos= this.xspeed+this.xPos;
+  this.yPos= this.yspeed+this.yPos;
+
+    }//end function
+  } //END OF BACKGROUND WORD
+
+
+
+  function backGroundWordOne(word,x,y){ //START OF BACKGROUND WORD ONE
+    this.fontString = "40px Arial";
+    this.word = word;
+    this.xPos = x;
+    this.yPos = y;
+    this.xspeed = 1;
+    this.yspeed = 2;
+    this.fillColor = "#ff69b4";
+
+
+
+    this.renderWord = function(){
+    canvasContext.globalAlpha = 1.0;
+    canvasContext.font = this.fontString;
+    canvasContext.fillStyle = this.fillColor;
+    canvasContext.fillText(this.word,this.xPos,this.yPos);
+  }
+
+  //MAKE IT BOUNCE
+  this.updateLetter =function(){
+    //this.xPos +=5;
+    //this.yPos +=5;
+  if(this.xPos+20*this.word.length > canvas.width || this.xPos < 0){
+  this.xspeed*= -1;
+
+  }
+  if(this.yPos > canvas.height || this.yPos < 20){
+  this.yspeed*= -1;
+
+  }
+  this.xPos= this.xspeed+this.xPos;
+  this.yPos= this.yspeed+this.yPos;
+
+  }//end function
+} // END OF BACKGROUND WORD ONE
+
+
+//start or letters
+  function letters(word,x,y){
+    this.fontString = "40px impact";
+    this.word = letter;
+    this.xPos = x;
+    this.yPos = y;
+    this.xspeed = 1;
+    this.yspeed = 2;
+    this.fillColor = "#FFFFFF"; //black screen
+
+
+    this.renderWord = function(){
+    canvasContext.globalAlpha = 1.0;
+    canvasContext.font = this.fontString;
+    canvasContext.fillStyle = this.fillColor;
+    canvasContext.fillText(this.word,this.xPos,this.yPos);
+  }
+
+  this.updateLetter =function(){
+    //this.xPos +=5;
+    //this.yPos +=5;
+  if(this.xPos+20*this.word.length > canvas.width || this.xPos < 0){
+  this.xspeed*= -1;
+
+  }
+  if(this.yPos > canvas.height || this.yPos < 20){
+  this.yspeed*= -1;
+
+  }
+  this.xPos= this.xspeed+this.xPos;
+  this.yPos= this.yspeed+this.yPos;
+
+}//end function
+
+}
+
+
+  window.onresize = function(event) {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  };
+}
+
+
+</script>
+</head>
+<body>
+  <ul id ="wire">
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+
+
+  </ul>
+<!-- <div class = " Home button"><a href="index.html">  Home </a></div> -->
+
+<div id="text"> </div>
+<canvas id="testCanvas" width="2500" height="1100">
+
+</canvas>
+</body>
+</html>
