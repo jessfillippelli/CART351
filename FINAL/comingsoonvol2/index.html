@@ -3,7 +3,8 @@
   <head>
     <meta charset="utf-8">
     <title> Day 10 </title>
-    <link rel="stylesheet" type="text/css" href="style.css">
+<link rel="stylesheet" type="text/css" href="style.css">
+  <link href="https://fonts.googleapis.com/css?family=Mountains+of+Christmas" rel="stylesheet">
   </head>
   <body>
 <div class="container">
@@ -13,24 +14,58 @@
   <div class="count">
       <div class="countd">
         <span id="days">00</span>
-        days
+        DAYS
       </div>
 
       <div class="countd">
         <span id="hours">00</span>
-        hours
+        HOURS
       </div>
 
       <div class="countd">
         <span id="minutes">00</span>
-        minutes
+        MINUTES
       </div>
 
       <div class="countd">
         <span id="seconds">00</span>
-        seconds
+        SECONDS
       </div>
   </div>
 </div>
+
+<script type="text/javascript">
+
+var count = new Date ("dec 10, 2018 00:00:00").getTime();
+var x = setInterval(function(){
+    var now = new Date().getTime();
+    var d = count - now;
+
+    var days = Math.floor(d/(1000*60*60*24));
+    var hours = Math.floor((d%(1000*60*60*24))/(1000*60*60));
+    var minutes = Math.floor((d&(1000*60*60))/(1000*60));
+    var seconds = Math.floor((d%(1000*60))/1000);
+
+    document.getElementById("days").innerHTML = days;
+    document.getElementById("hours").innerHTML = hours;
+    document.getElementById("minutes").innerHTML = minutes;
+    document.getElementById("seconds").innerHTML = seconds;
+
+    if(d <= 0){
+      clearInterval(x);
+    }
+
+},1000);
+
+
+</script>
+
+
+
+
+
+
+
+
   </body>
 </html>
