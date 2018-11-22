@@ -3,6 +3,23 @@ body{
   width:100%;
   background-color: #8b0000;
 }
+#bodyContainer{
+  position: absolute;
+  top:0;
+  left:0;
+  z-index:1;
+}
+
+#userInfo{
+  position: absolute;
+  top:50px;
+  left:50px;
+  z-index:5;
+  width:500px;
+  height:500px;
+  background-color:purple;
+  display:none;
+}
 /* .aCell {
   overflow: hidden;
     background:#9e66b4;

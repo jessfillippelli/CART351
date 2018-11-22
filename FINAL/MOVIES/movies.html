@@ -11,12 +11,26 @@
 <script>
 
 $(document).ready(function(){
+
+	function displayUserInfo(parsedJSON){
+ 	document.getElementById("userInfo").style.display = "block";
+ 	for(let i =0; i< parsedJSON.length; i++){
+ 		console.log(parsedJSON[i].searchtext+i);
+		let currentObject = parsedJSON[i];
+		 // go through each property in the current object ....
+		 for (let property in currentObject) {
+				 let para = $('<p>');
+				 $(para).text(currentObject[property]);
+				 $(para).appendTo("#userInfo");
+				}
+  }
+} //display info
 	$("#getUserSearch").click(function(event){
 		event.preventDefault();
 		$.ajax({
 						type: "POST",
 						enctype: 'multipart/form-data',
-						url: "../php/retrievePostmusic.php",
+						url: "../php/retrievePostmovies.php",
 						data: "",
 						processData: false,//prevents from converting into a query string
 						contentType: false,
@@ -26,14 +40,14 @@ $(document).ready(function(){
 						//console.log(response);
 
 						let parsedJSON = JSON.parse(response);
-						 console.log(parsedJSON);
+						 //console.log(parsedJSON);
+						 displayUserInfo(parsedJSON);
 					 },
 					 error:function(){
 					console.log("error occurred");
 				}
 			});
-		});
-
+		}); //getUserSearch
 
 $("#searchButton").click(function(event){
 	let searchItem = $("#searchText").val();
@@ -41,12 +55,9 @@ $("#searchButton").click(function(event){
 	console.log(searchItem);
 	$.getJSON('movies.json',function(data) {
  //success
-	;
-	console.log(data);
+console.log(data);
 
-
-
-	for(let i=0; i< data.Stairs.length; i++){
+for(let i=0; i< data.Stairs.length; i++){
 		console.log(data.Stairs[i].Day.toLowerCase()===searchItem.toLowerCase());
 		if(data.Stairs[i].Day.toLowerCase().includes(searchItem.toLowerCase())){
 			console.log("test");
@@ -60,7 +71,6 @@ $("#searchButton").click(function(event){
 
 		}
 	}
- })
  //store item into array ...
 	 let dataSearch  = new FormData();
 	 dataSearch.append('userSearch',  searchItem);
@@ -68,7 +78,7 @@ $("#searchButton").click(function(event){
 			 $.ajax({
 							 type: "POST",
 							 enctype: 'multipart/form-data',
-							 url: "../php/insertPostmovies.php",
+							 url: "../php/insertPostMovies.php",
 							 data: dataSearch,
 							 processData: false,//prevents from converting into a query string
 							 contentType: false,
@@ -94,7 +104,7 @@ $("#searchButton").click(function(event){
 
 </head>
 <body>
-
+<div id = "bodyContainer">
 <h1>Welcome to 12 Days of Databases door two. </h1>
 <h1> Today's activite is watching some Christmas movies  </h1>
 <h1> Type in a movie you want to watch to and see if the database agrees with you. </h1>
@@ -118,7 +128,8 @@ $("#searchButton").click(function(event){
 
 
 <div id="images"></div>
-
-
+</div>
+<!-- for user search result -->
+<div id = "userInfo"></div>
 </body>
 </html>

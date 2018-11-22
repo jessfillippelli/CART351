@@ -19,26 +19,21 @@ catch(Exception $e)
 //check if there has been something posted to the server to be processed
 if($_SERVER['REQUEST_METHOD'] == 'POST') //THE USER HIT SBMIT
 {
-      $sql_select='SELECT searchtext FROM moviesTable';
-      $result = $db->query($sql_select);
-      if (!$result) die("Cannot execute query.");
+// need to process
+$post = $_POST['userSearch'];
+//echo($post);
 
-// get a row...
-// MAKE AN ARRAY::
-$res = array();
-$i=0;
-while($row = $result->fetchArray(SQLITE3_ASSOC))
-{
-  // note the result from SQL is ALREADy ASSOCIATIVE
- $res[$i] = $row;
- $i++;
-}//end while
-// endcode the resulting array as JSON
-$myJSONObj = json_encode($res);
-echo $myJSONObj;
+// //asking it a question
+$post_es =$db->escapeString($post);
+$queryInsert ="INSERT INTO moviesTable(searchtext)VALUES ('$post_es')";
+// // again we do error checking when we try to execute our SQL statement on the db
+$ok1 = $db->exec($queryInsert);
+//  //:: error messages WILL be sent back to JQUERY success function .....
+ if (!$ok1) {
+ die("Cannot execute statement.");
  exit;
-
-//  echo("retrieveing");
+ }
+echo("success");
 
 }//POST
 //use the JSON .parse function to convert the JSON string into a Javascript object
