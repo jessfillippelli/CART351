@@ -11,16 +11,38 @@
 <script>
 
 $(document).ready(function(){
+	$("#getUserSearch").click(function(event){
+		event.preventDefault();
+		$.ajax({
+						type: "POST",
+						enctype: 'multipart/form-data',
+						url: "../php/retrievePostmusic.php",
+						data: "",
+						processData: false,//prevents from converting into a query string
+						contentType: false,
+						cache: false,
+						timeout: 600000,
+						success: function (response) {
+						//console.log(response);
+
+						let parsedJSON = JSON.parse(response);
+						 console.log(parsedJSON);
+					 },
+					 error:function(){
+					console.log("error occurred");
+				}
+			});
+		});
 
 
 $("#searchButton").click(function(event){
-
 	let searchItem = $("#searchText").val();
 	$("#imageElements").empty();
 	console.log(searchItem);
 	$.getJSON('movies.json',function(data) {
  //success
 	;
+	console.log(data);
 
 
 
@@ -39,18 +61,34 @@ $("#searchButton").click(function(event){
 		}
 	}
  })
+ //store item into array ...
+	 let dataSearch  = new FormData();
+	 dataSearch.append('userSearch',  searchItem);
+
+			 $.ajax({
+							 type: "POST",
+							 enctype: 'multipart/form-data',
+							 url: "../php/insertPostmovies.php",
+							 data: dataSearch,
+							 processData: false,//prevents from converting into a query string
+							 contentType: false,
+							 cache: false,
+							 timeout: 600000,
+							 success: function (response) {
+							 console.log(response);
+							 user = response;
+							 //activateLinks();
+							},
+							error:function(){
+						 console.log("error occurred");
+					 }
+				 });
+ })
  //fail
  .fail(function() {
 	 console.log( "error" );
  });
-
-
-
 }); //click
-
-
-
-
 });//ready
 </script>
 
@@ -63,7 +101,7 @@ $("#searchButton").click(function(event){
 <h1> Happy watching </h1>
 <div class = "buttonWrapper">
 <button type="FINAL/index.html"class="button button1">HOME</button>
-<button type="#" class="button button2">SEE OTHER USERS INPUT</button>
+<button id = "getUserSearch" type="#" class="button button2">SEE OTHER USERS INPUT</button>
 </div>
 <h2> Click Search not the return key</h2>
 
