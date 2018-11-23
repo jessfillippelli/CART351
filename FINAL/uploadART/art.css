@@ -1,0 +1,153 @@
+
+body{
+  width:100%;
+  background-color: #004d00;
+}
+/* start of view results*/
+#bodyContainer{
+  position: absolute;
+  top:0;
+  left:25%;
+  z-index:1;
+}
+
+#userInfo{
+  position: absolute;
+  top:50px;
+  left:20%;
+  z-index:5;
+  width:500px;
+  height:500px;
+  background-color:red;
+  display:none;
+  box-shadow: 5px 10px #FF7F7F;
+}
+/* end of view results*/
+
+.content {
+    max-width: 900px;
+    margin-top: 50px;
+    margin-left: 530px;
+    background: #FFFFFF;
+    padding: 0px;
+}
+
+/* move image */
+#imageElements{
+  padding-left: 25%;
+  padding-top: 5%;
+}
+
+#imageElements div{
+margin-left:25%;
+}
+
+
+img {
+    width: 250px;
+    height:auto;
+
+}
+
+p{
+  text-align: center;
+  font-size: 30px;
+  font-family: 'Mountains of Christmas', cursive;
+  font-weight: bold;
+  padding-top: 2%;
+  padding-left: 2%;
+
+
+}
+
+h1{
+   text-align: center;
+   font-size: 35px;
+   font-family: 'Mountains of Christmas', cursive;
+   font-weight: bold;
+   padding-bottom: 0%;
+
+}
+
+
+h2{
+   text-align: center;
+   font-size: 25px;
+   font-family: 'Mountains of Christmas', cursive;
+   font-weight: bold;
+   padding-bottom: 0%;
+   padding-top: 5%;
+
+}
+
+
+
+
+
+.Stairs{
+  padding-left: 50%;
+  padding-top: 5%;
+}
+
+.searchText{
+  align-items: center;
+  padding-top: 50%;
+  font-size: 15px;
+}
+
+
+
+.searchButton{
+  align-items: center;
+  padding-top: 50%;
+  margin: 5px 5px 5px 5px;
+}
+
+/* change size of type box */
+input{
+  align-items: center;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+.buttonWrapper{
+  margin-left:40%;
+}
+
+/* see other input and home button */
+.button {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 20px;
+    cursor: pointer;
+    font-family: 'Mountains of Christmas', cursive;
+
+}
+
+/* home */
+.button1 {
+    background-color: white;
+    color: black;
+    border: 2px solid #4CAF50;
+    /*margin: 4px 400px;*/
+}
+.button1:hover {
+    background-color: #4CAF50;
+    color: white;
+}
+
+/* SEE OTHER USERS INPUT */
+.button2 {
+    background-color: white;
+    color: black;
+    border: 2px solid #008CBA;
+}
+.button2:hover {
+    background-color: #008CBA;
+    color: white;
+}
