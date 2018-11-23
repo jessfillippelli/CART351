@@ -20,9 +20,12 @@ $(document).ready(function(){
 		 // go through each property in the current object ....
 		 for (let property in currentObject) {
 				 let para = $('<p>');
+
+				 	if(currentObject[property] !==null && currentObject[property] !==" "){
 				 $(para).text(currentObject[property]);
 				 $(para).appendTo("#userInfo");
 				}
+			}
   }
 } //display info
 	$("#getUserSearch").click(function(event){
@@ -110,7 +113,7 @@ for(let i=0; i< data.Stairs.length; i++){
 <h1> Type in a movie you want to watch to and see if the database agrees with you. </h1>
 <h1> Happy watching </h1>
 <div class = "buttonWrapper">
-<button type="FINAL/index.html"class="button button1">HOME</button>
+<button type="FINAL/index.html" class="button button1">HOME</button>
 <button id = "getUserSearch" type="#" class="button button2">SEE OTHER USERS INPUT</button>
 </div>
 <h2> Click Search not the return key</h2>
