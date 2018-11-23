@@ -3,6 +3,26 @@ body{
   width:100%;
   background-color: #004d00;
 }
+/* start of view results*/
+#bodyContainer{
+  position: absolute;
+  top:0;
+  left:25%;
+  z-index:1;
+}
+
+#userInfo{
+  position: absolute;
+  top:50px;
+  left:20%;
+  z-index:5;
+  width:500px;
+  height:500px;
+  background-color:red;
+  display:none;
+  box-shadow: 5px 10px #FF7F7F;
+}
+/* end of view results*/
 
 .content {
     max-width: 900px;
