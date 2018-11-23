@@ -14,7 +14,11 @@ padding-bottom: 100;
 
 canvas{
   background-color: #003366;
-padding-left: 5%;
+  margin-left: 27%;
+margin-right: 19%;
+margin-top: 1.5%;
+padding:0;
+
 }
 
 /* padding - space around the text */
