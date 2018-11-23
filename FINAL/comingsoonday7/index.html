@@ -13,7 +13,7 @@
 
   window.onload = function(){
     let i=0, text;
-    text = "Sorry :( it is not time to get what is behind this door. Come back another time!)"
+    text = "Sorry :( it is not time to get what is behind this door. Come back another time! :)"
     //text2 = "only answer to the question can be I WANT HELP"
 
     function typing(){
@@ -31,6 +31,8 @@
     // step 1 access the canvas element && the graphics context....
     let canvas = document.getElementById('testCanvas');
     let canvasContext = canvas.getContext('2d');
+  //  let headerH = document.getElementById("header").offsetHeight;
+    //console.log(headerH);
     let W = window.innerWidth;
     let H = window.innerHeight;
     canvas.width = W;
@@ -44,7 +46,7 @@
     let backgroundWordsOne = [];
     let rain = [];
 
-   backgroundWords.push(new backGroundWord("DAY 7",600,750));
+   backgroundWords.push(new backGroundWord("DAY 7",600,H-200));
 
 
     // rain.push(new backGroundWord("Sadness",815,600));
@@ -97,13 +99,13 @@
 
   function displayWord(){ //START
     canvasContext.globalAlpha = 1.0;
-    canvasContext.font = "40px impact";
+    canvasContext.font = "40px 'Mountains of Christmas', cursive"
     canvasContext.fillStyle = "#FF0000";
     canvasContext.fillText(wordTyped,canvas.width/2,canvas.height/2);
   }
 
       function myWord(word,x,y){
-        this.fontString = "40px impact";
+        this.fontString = "40px 'Mountains of Christmas', cursive"
         this.word = word;
         this.xPos = x;
         this.yPos = y;
@@ -140,7 +142,7 @@ if(this.yPos > canvas.height || this.yPos < 20){
 
 
     function backGroundWord(word,x,y){ //START OF BACKGROUND WORD
-      this.fontString = "100px impact"; //CHNGAE THE SIZE OF "DAY 7"
+      this.fontString = "100px 'Mountains of Christmas'"; //CHNGAE THE SIZE OF "DAY 7"
       this.word = word;
       this.xPos = x;
       this.yPos = y;
@@ -261,6 +263,7 @@ this.yspeed*= -1;
 </script>
 </head>
 <body>
+  <div id = "header">
   <ul id ="wire">
     <li></li>
     <li></li>
@@ -286,6 +289,7 @@ this.yspeed*= -1;
 <!-- <div class = " Home button"><a href="index.html">  Home </a></div> -->
 
 <div id="text"> </div>
+</div>
 <canvas id="testCanvas" width="2500" height="1100">
 
 </canvas>

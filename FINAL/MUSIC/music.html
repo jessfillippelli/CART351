@@ -16,14 +16,19 @@ $(document).ready(function(){
  	document.getElementById("userInfo").style.display = "block";
  	for(let i =0; i< parsedJSON.length; i++){
  		console.log(parsedJSON[i].searchtext+i);
+
 		let currentObject = parsedJSON[i];
 		 // go through each property in the current object ....
 		 for (let property in currentObject) {
 				 let para = $('<p>');
+
+				 	if(currentObject[property] !==null && currentObject[property] !==" "){
 				 $(para).text(currentObject[property]);
 				 $(para).appendTo("#userInfo");
 				}
-  }
+			}
+			}
+
 } //display info
 
 
@@ -129,13 +134,14 @@ console.log(data);
 
 <br/>
 <div id = "audioElements"></div>
-</div>
+
 </p>
 
 <!-- <div id = "container">
 </div> -->
 <div id="images"></div>
-
-
+</div>
+<!-- for user search result -->
+<div id = "userInfo"></div>
 </body>
 </html>
