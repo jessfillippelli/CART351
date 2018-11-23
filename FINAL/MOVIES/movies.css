@@ -4,6 +4,7 @@ body{
   background-color: #8b0000;
 }
 /* start of view results*/
+/* move the text*/
 #bodyContainer{
   position: absolute;
   top:0;
@@ -11,10 +12,11 @@ body{
   z-index:1;
 }
 
+/* move the reults box*/
 #userInfo{
   position: absolute;
-  top:50px;
-  left:20%;
+  top:45%;
+  left:37%;
   z-index:5;
   width:500px;
   height:500px;
@@ -83,9 +85,6 @@ h2{
 }
 
 
-
-
-
 .Stairs{
   padding-left: 50%;
   padding-top: 5%;
@@ -96,8 +95,6 @@ h2{
   padding-top: 50%;
   font-size: 15px;
 }
-
-
 
 .searchButton{
   align-items: center;

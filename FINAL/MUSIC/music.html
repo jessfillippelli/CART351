@@ -49,7 +49,7 @@ $("#getUserSearch").click(function(event){
 				console.log("error occurred");
 			}
 		});
-	});
+	}); //getusersearch
 
 
 $("#searchButton").click(function(event){
@@ -58,9 +58,8 @@ $("#searchButton").click(function(event){
 	console.log(searchItem);
 	$.getJSON('music.json',function(data) {
  //success
-
-
 console.log(data);
+
 
 	for(let i=0; i< data.Stairs.length; i++){
 		console.log(data.Stairs[i].Day.toLowerCase()===searchItem.toLowerCase());
