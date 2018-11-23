@@ -80,10 +80,6 @@ h2{
 
 }
 
-
-
-
-
 .Stairs{
   padding-left: 50%;
   padding-top: 5%;
@@ -118,12 +114,13 @@ input{
     background-color: #4CAF50;
     border: none;
     color: white;
+    /* PADDING = SPACE AROUND TEXT */
     padding: 15px 32px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
-    margin: 4px 20px;
+    margin: 4px 5px;
     cursor: pointer;
     font-family: 'Mountains of Christmas', cursive;
 
@@ -134,7 +131,7 @@ input{
     background-color: white;
     color: black;
     border: 2px solid #4CAF50;
-    /*margin: 4px 400px;*/
+
 }
 .button1:hover {
     background-color: #4CAF50;
