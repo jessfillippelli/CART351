@@ -1,0 +1,76 @@
+html{
+  background-color: #8b0000;
+}
+
+body{
+  font-family: 'Mountains of Christmas', cursive;
+  color: white;
+    text-align: center;
+    margin-left: 10px;
+}
+/* START of BALL 1 */
+
+.ball-wrapper {
+  float: left;
+  margin: 0 80px;
+}
+
+.ball{
+  background-color: white;
+  border-radius: 50%;
+  height: 150px;
+  width: 150px;
+  position: relative;
+  left: 3px;
+}
+
+.topper{
+  height: 22px;
+  width: 30px;
+  background-color:#FFD700;
+  position: relative;
+  left: 65px;
+  top: 7px;
+  border-radius: 4px;
+}
+
+.ring{
+  height: 15px;
+  width: 5px;
+  border: 2px solid #f99d24;
+  border-radius: 45%;
+  position: relative;
+  left: 76.4px;
+  top: 12px;
+}
+
+.string{
+  width: 1.5px;
+  position: relative;
+  background-color: #f99d24;
+  height: 100px;
+  left: 80px;
+  top: 12.4px;
+  margin-top: -80px;
+}
+
+.two{
+  margin-left: 15%;
+  padding-left: 5%;
+  
+
+}
+
+.three{
+  margin-left: 30%;
+  padding-left: 9%;
+  margin-top: 0;
+
+}
+
+.four{
+  margin-left: 50%;
+  padding-left: 20%;
+  margin-top: 0;
+
+}
