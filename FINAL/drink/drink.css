@@ -2,9 +2,7 @@
 /* CSS Document */
 
 body {
-	background-color: #8b0000;
-
-
+	  background-color: #8b0000;
     margin-right: 4px;
     background-attachment: fixed;
 }
@@ -12,47 +10,18 @@ body {
 
 
 img{
-  padding-left: 21%;
+  padding-left: 35%;
 }
 
 
 
-.content {
-    max-width: 900px;
-    margin: auto;
-    background: #8b0000;
-    padding: 5px;
-}
-
-
-h2 {
-	align-content: center;
-  font-family: 'Mountains of Christmas', cursive;
-	font-size: 20px;
-	border-bottom:thin;
-	margin-bottom: auto;
-	padding-left: 10px;
-	padding-top: 10px;
-	color: #ffffff;
-
-}
-
-h3 {
-	text-emphasis: 20px;
-	font-family: 'Mountains of Christmas', cursive;
-	letter-spacing: 5pt;
-	align-content: center;
-	border-bottom:thin;
-	margin-bottom: auto;
-	color: #ffffff;
-
-}
 
 
 h4 {
 	text-align: center;
+
 	font-size: 20px;
-font-family: 'Mountains of Christmas', cursive;
+  font-family: 'Mountains of Christmas', cursive;
 	border: none;
 	padding-bottom: 0pt;
 	color: #ffffff;
@@ -65,7 +34,7 @@ p{
 
 /* home button */
 .button {
-    background-color: #4CAF50;
+    background-color: #8b0000;
     border: none;
     color: white;
     padding: 15px 32px;
@@ -73,7 +42,7 @@ p{
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
-    margin: 1% 40%;
+    margin: 1% 45%;
     cursor: pointer;
     font-family: 'Mountains of Christmas', cursive;
 
@@ -81,12 +50,12 @@ p{
 
 /* home */
 .button1 {
-    background-color: white;
+    background-color: #8b0000;
     color: black;
-    border: 2px solid #4CAF50;
+    border: 2px solid #8b0000;
     /*margin: 4px 400px;*/
 }
 .button1:hover {
-    background-color: #4CAF50;
-    color: white;
+    background-color: white;
+    color: black;
 }
