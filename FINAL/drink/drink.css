@@ -10,7 +10,7 @@ body {
 
 
 img{
-  padding-left: 35%;
+  padding-left: 36%;
 }
 
 
@@ -19,7 +19,7 @@ img{
 
 h4 {
 	text-align: center;
-
+	padding-left: 2%;
 	font-size: 20px;
   font-family: 'Mountains of Christmas', cursive;
 	border: none;
@@ -31,18 +31,23 @@ p{
 	color: #ffffff;
 }
 
+.buttonWrapper{
+  margin-left:45%;
+}
 
 /* home button */
 .button {
-    background-color: #8b0000;
+    background-color: white;
     border: none;
     color: white;
+    /* PADDING = SPACE AROUND TEXT */
     padding: 15px 32px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
-    margin: 1% 45%;
+    margin-top: 4px;
+    margin-left: 1%;
     cursor: pointer;
     font-family: 'Mountains of Christmas', cursive;
 
@@ -50,12 +55,12 @@ p{
 
 /* home */
 .button1 {
-    background-color: #8b0000;
-    color: black;
-    border: 2px solid #8b0000;
-    /*margin: 4px 400px;*/
-}
-.button1:hover {
     background-color: white;
     color: black;
+    border: 2px solid #8b0000;
+
+}
+.button1:hover {
+    background-color: #003366;
+    color: white;
 }
