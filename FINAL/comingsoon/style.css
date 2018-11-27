@@ -24,9 +24,8 @@ body, html {
 
 /* Position text in the bottom-left corner */
 .bottomleft {
-    position: absolute;
-    bottom: 0;
-    left: 16px;
+    padding-left: 50%;
+    padding-top: 35%;
 }
 
 /* Position text in the middle */
@@ -48,17 +47,19 @@ P{
   font-size: 100px;
 }
 
-/* home button */
+/* see other input and home button */
 .button {
-    background-color: #4CAF50;
+    background-color: white;
     border: none;
     color: white;
+    /* PADDING = SPACE AROUND TEXT */
     padding: 15px 32px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
-    margin: 50% 45%;
+    margin-top: 4px;
+    margin-left: 1%;
     cursor: pointer;
     font-family: 'Mountains of Christmas', cursive;
 
@@ -68,10 +69,10 @@ P{
 .button1 {
     background-color: white;
     color: black;
-    border: 2px solid #4CAF50;
-    /*margin: 4px 400px;*/
+    border: 2px solid #004d00;
+
 }
 .button1:hover {
-    background-color: #4CAF50;
+    background-color: #000000;
     color: white;
 }
