@@ -115,15 +115,17 @@ input{
 
 /* see other input and home button */
 .button {
-    background-color: #4CAF50;
+    background-color: white;
     border: none;
     color: white;
+    /* PADDING = SPACE AROUND TEXT */
     padding: 15px 32px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
-    margin: 4px 20px;
+    margin-top: 4px;
+    margin-left: 1%;
     cursor: pointer;
     font-family: 'Mountains of Christmas', cursive;
 
