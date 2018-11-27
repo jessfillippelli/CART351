@@ -108,8 +108,9 @@ input{
   padding-top: 5px;
   padding-bottom: 5px;
 }
+
 .buttonWrapper{
-  margin-left:40%;
+  margin-left:30%;
 }
 
 /* see other input and home button */
@@ -122,7 +123,8 @@ input{
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
-    margin: 4px 20px;
+    margin-top: 4px;
+    margin-left: 1%;
     cursor: pointer;
     font-family: 'Mountains of Christmas', cursive;
 
@@ -132,11 +134,11 @@ input{
 .button1 {
     background-color: white;
     color: black;
-    border: 2px solid #4CAF50;
+    border: 2px solid #8b0000;
     /*margin: 4px 400px;*/
 }
 .button1:hover {
-    background-color: #4CAF50;
+    background-color: #004d00;
     color: white;
 }
 
@@ -144,9 +146,9 @@ input{
 .button2 {
     background-color: white;
     color: black;
-    border: 2px solid #008CBA;
+    border: 2px solid #8b0000;
 }
 .button2:hover {
-    background-color: #008CBA;
+    background-color: #003366;
     color: white;
 }
