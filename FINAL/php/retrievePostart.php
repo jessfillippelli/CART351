@@ -19,7 +19,7 @@ catch(Exception $e)
 //check if there has been something posted to the server to be processed
 if($_SERVER['REQUEST_METHOD'] == 'POST') //THE USER HIT SBMIT
 {
-      $sql_select='SELECT searchtext FROM uploadArt';
+      $sql_select='SELECT image FROM uploadArt';
       $result = $db->query($sql_select);
       if (!$result) die("Cannot execute query.");
 

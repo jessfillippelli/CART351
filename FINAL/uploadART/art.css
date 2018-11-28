@@ -17,7 +17,7 @@ body{
   left:45%;
   z-index:5;
   width:500px;
-  height:500px;
+  /*height:500px;*/
   background-color:red;
   display:none;
   box-shadow: 5px 10px #FF7F7F;

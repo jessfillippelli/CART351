@@ -16,18 +16,21 @@
    	function displayUserInfo(parsedJSON){
     	document.getElementById("userInfo").style.display = "block";
     	for(let i =0; i< parsedJSON.length; i++){
-    		console.log(parsedJSON[i].searchtext+i);
+        let imageC = $('<img>');
+        $(imageC).attr("src","../php/"+parsedJSON[i].image);
+         $(imageC).appendTo("#userInfo");
+    	//	console.log(parsedJSON[i].image+i);
 
-   		let currentObject = parsedJSON[i];
+   	//	let currentObject = parsedJSON[i];
    		 // go through each property in the current object ....
-   		 for (let property in currentObject) {
-   				 let para = $('<p>');
-
-   				 	if(currentObject[property] !==null && currentObject[property] !==" "){
-   				 $(para).text(currentObject[property]);
-   				 $(para).appendTo("#userInfo");
-   				}
-   			}
+   		// for (let property in currentObject) {
+   				// let para = $('<p>');
+//
+   				 //	if(currentObject[property] !==null && currentObject[property] !==" "){
+   				 //$(para).text(currentObject[property]);
+   				 //$(para).appendTo("#userInfo");
+   			//	}
+   		//	}
       }
 
    } //display info
@@ -48,14 +51,14 @@
    					//console.log(response);
 
    					let parsedJSON = JSON.parse(response);
-   					 //console.log(parsedJSON);
+   					 console.log(parsedJSON);
    					 displayUserInfo(parsedJSON);
    				 },
    				 error:function(){
    				console.log("error occurred");
    			}
    		});
-      displayUserInfo();
+    //  displayUserInfo();
       console.log("user clicked");
    	}); //getusersearch
 
