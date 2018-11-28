@@ -13,14 +13,14 @@ try
    $db = new MyDB();
    echo ("Opened or created graffitiGallery data base successfully<br \>");
    $queryArray = array(
-     "INSERT INTO artCollection (artist, title, creationDate, geoLoc, descript, image) VALUES ('Martha', 'Elephants','1998-03-04','Montreal','Description for the arts','images/alternative-paris-tours.jpg')",
-	   "INSERT INTO artCollection (artist, title, creationDate, geoLoc, descript, image) VALUES ('Sarah', 'Hippos','2002-06-12','Montreal','Description for the arts','images/Artists-Lane-2.jpg')",
-	   "INSERT INTO artCollection (artist, title, creationDate, geoLoc, descript, image) VALUES ('Harold', 'Untitled', '2012-10-21','New York','Description for the arts','images/gorod-stena-grafiti-4927.jpg')",
- 	   "INSERT INTO artCollection (artist, title, creationDate, geoLoc, descript, image) VALUES ('Stephen', 'Scotland','1999-07-18','Edinborough','Description for the arts','images/graffiti-artist-scotland.jpg')",
- 	   "INSERT INTO artCollection (artist, title, creationDate, geoLoc, descript, image) VALUES ('Martha', 'Tigers','2017-08-21','Paris','Description for the arts','images/maxresdefault.jpg')",
-	   "INSERT INTO artCollection (artist, title, creationDate, geoLoc, descript, image) VALUES ('Sarah', 'WIndow','2005-06-13','Toronto','Description for the arts','images/windows.jpg')",
-	   "INSERT INTO artCollection (artist, title, creationDate, geoLoc, descript, image) VALUES ('Sarah', 'Untitled', '2003-03-19','Halifax','Description for the arts','images/work-50.jpg')",
- 	   "INSERT INTO artCollection (artist, title, creationDate, geoLoc, descript, image) VALUES ('Stephen', 'Zoo','2000-05-06','London','Description for the arts','images/multi.jpg')"
+     "INSERT INTO uploadArt (artist, title, creationDate, geoLoc, descript, image) VALUES ('Martha', 'Elephants','1998-03-04','Montreal','Description for the arts','images/alternative-paris-tours.jpg')",
+	   "INSERT INTO uploadArt (artist, title, creationDate, geoLoc, descript, image) VALUES ('Sarah', 'Hippos','2002-06-12','Montreal','Description for the arts','images/Artists-Lane-2.jpg')",
+	   "INSERT INTO uploadArt (artist, title, creationDate, geoLoc, descript, image) VALUES ('Harold', 'Untitled', '2012-10-21','New York','Description for the arts','images/gorod-stena-grafiti-4927.jpg')",
+ 	   "INSERT INTO uploadArt (artist, title, creationDate, geoLoc, descript, image) VALUES ('Stephen', 'Scotland','1999-07-18','Edinborough','Description for the arts','images/graffiti-artist-scotland.jpg')",
+ 	   "INSERT INTO uploadArt (artist, title, creationDate, geoLoc, descript, image) VALUES ('Martha', 'Tigers','2017-08-21','Paris','Description for the arts','images/maxresdefault.jpg')",
+	   "INSERT INTO uploadArt (artist, title, creationDate, geoLoc, descript, image) VALUES ('Sarah', 'WIndow','2005-06-13','Toronto','Description for the arts','images/windows.jpg')",
+	   "INSERT INTO uploadArt (artist, title, creationDate, geoLoc, descript, image) VALUES ('Sarah', 'Untitled', '2003-03-19','Halifax','Description for the arts','images/work-50.jpg')",
+ 	   "INSERT INTO uploadArt (artist, title, creationDate, geoLoc, descript, image) VALUES ('Stephen', 'Zoo','2000-05-06','London','Description for the arts','images/multi.jpg')"
  	  );
     // go through each entry in the array and execute the INSERT query statement....
     for($i =0; $i< count($queryArray); $i++)
