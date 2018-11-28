@@ -14,7 +14,7 @@
 {
    function __construct()
    {
-      $this->open('../db/graffitiGallery.db');
+      $this->open('../db/xmasart.db');
    }
 }
 try
@@ -32,7 +32,6 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 // need to process
  $artist = $_POST['a_name'];
  $title = $_POST['a_title'];
- $loc = $_POST['a_geo_loc'];
  $description = $_POST['a_descript'];
  $creationDate = $_POST['a_date'];
  if($_FILES)
@@ -68,7 +67,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
  $imageWithPath= "images/".$fname;
  // for the new column
  //$time = date("Y-m-d",time());
- $queryInsert ="INSERT INTO artCollection(artist, title, creationDate, geoLoc, descript, image)VALUES ('$artist_es', '$title_es','$loc_es','$description_es','$creationDate_es','$imageWithPath')";
+ $queryInsert ="INSERT INTO uploadArt(artist, title, creationDate, descript, image)VALUES ('$artist_es', '$title_es','$description_es','$creationDate_es','$imageWithPath')";
  // again we do error checking when we try to execute our SQL statement on the db
  $ok1 = $db->exec($queryInsert);
  // NOTE:: error messages WILL be sent back to JQUERY success function .....

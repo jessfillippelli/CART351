@@ -7,89 +7,41 @@
 <link href="https://fonts.googleapis.com/css?family=Mountains+of+Christmas" rel="stylesheet">
 <!-- <script src ="snow.js"></script> -->
 
-<script src = "jquery/jquery-3.3.1.min.js"></script>
+<script src = "libs/jquery/jquery-3.3.1.min.js"></script>
 <script>
+ $(document).ready(function(){
 
-$(document).ready(function(){
-$("#getUserSearch").click(function(event){
+$("#insertGallery").submit(function(event) {
+	 //stop submit the form, we will post it manually. PREVENT THE DEFAULT behaviour ...
 	event.preventDefault();
-	$.ajax({
-					type: "POST",
-					enctype: 'multipart/form-data',
-					url: "../php/retrievePost.php",
-					data: "",
-					processData: false,//prevents from converting into a query string
-					contentType: false,
-					cache: false,
-					timeout: 600000,
-					success: function (response) {
-					//console.log(response);
-
-					let parsedJSON = JSON.parse(response);
-					 console.log(parsedJSON);
-				 },
-				 error:function(){
-				console.log("error occurred");
-			}
-		});
-	});
-
-
-$("#searchButton").click(function(event){
-	let searchItem = $("#searchText").val();
-		$("#imageElements").empty();
-	console.log(searchItem);
-	$.getJSON('music.json',function(data) {
- //success
-
-
-console.log(data);
-
-	for(let i=0; i< data.Stairs.length; i++){
-		console.log(data.Stairs[i].Day.toLowerCase()===searchItem.toLowerCase());
-		if(data.Stairs[i].Day.toLowerCase().includes(searchItem.toLowerCase())){
-			console.log("test");
-			let audioTagContainer= document.createElement("div");
-      let audioTag= document.createElement("audio");
-			 audioTag.src = "sounds/"+data.Stairs[i].Sound;
-			 audioTag.type = "audio/mpeg";
-			 audioTag.controls = 'controls';
-			 audioTagContainer.appendChild(audioTag);
-			 document.getElementById("audioElements").appendChild(audioTagContainer);
-
-
-		}
-	}
-	//store item into array ...
-		let dataSearch  = new FormData();
-		dataSearch.append('userSearch',  searchItem);
-
-       $.ajax({
-               type: "POST",
-               enctype: 'multipart/form-data',
-               url: "../php/insertPost.php",
-               data: dataSearch,
-               processData: false,//prevents from converting into a query string
-               contentType: false,
-               cache: false,
-               timeout: 600000,
-               success: function (response) {
-               console.log(response);
-               user = response;
-               //activateLinks();
-              },
-              error:function(){
-             console.log("error occurred");
-           }
-         });
- })
- //fail
- .fail(function() {
-	 console.log( "error" );
+ console.log("button clicked");
+ let form = $('#insertGallery')[0];
+ let data = new FormData(form);
+ $.ajax({
+				 type: "POST",
+				 enctype: 'multipart/form-data',
+				 url: "../php/insertGalleryAJAX_DB.php",
+				 data: data,
+				 processData: false,//prevents from converting into a query string
+				 contentType: false,
+				 cache: false,
+				 timeout: 600000,
+				 success: function (response) {
+				 console.log(response);
+				},
+				error:function(){
+			 console.log("error occurred");
+		 }
+	 });
  });
 
-}); //click
 });//ready
+
+
+
+
+
+
 </script>
 
 </head>
@@ -100,7 +52,7 @@ console.log(data);
 <h1> draw your favorite christmas memoery and upload it to the database :) </h1>
 <h1> Happy Drawing </h1>
 <div class = "buttonWrapper">
-<button onclick = "window.location.href='../index.html'" class="button button1">Back to calander </button>
+<button onclick = "window.location.href='../index.html'" class="button button1">BACK TO CALENDAR </button>
 <button id = "getUserSearch" type="#" class="button button2">SEE OTHER USERS INPUT</button>
 </div>
 <!-- <h2> Click Search not the return key</h2> -->
@@ -112,7 +64,20 @@ console.log(data);
 <input type="button" value="Search!" id="searchButton" />
 
 <br/>
-<div id = "audioElements"></div>
+<div class= "formContainer">
+<!--form done using more current tags... -->
+<form id="insertGallery" action="" enctype ="multipart/form-data">
+<!-- group the related elements in a form -->
+<h3> SUBMIT AN ART WORK :) </h3>
+<fieldset>
+<p><label>Artist:</label><input type="text" size="24" maxlength = "40" name = "a_name" required></p>
+<p><label>Title:</label><input type = "text" size="24" maxlength = "40"  name = "a_title" required></p>
+<p><label>Description:</label><textarea type = "text" rows="4" cols="50" name = "a_descript" required></textarea></p>
+<p><label>Upload Image:</label> <input type ="file" name = 'filename' size=10 required/></p>
+<p class = "sub"><input type = "submit" name = "submit" value = "submit my info" id ="buttonS" /></p>
+ </fieldset>
+</form>
+</div>
 
 </p>
 
