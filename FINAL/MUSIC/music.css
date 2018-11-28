@@ -13,14 +13,14 @@ body{
 
 #userInfo{
   position: absolute;
-  top:50px;
-  left:20%;
+  top:40%;
+  left:67%;
   z-index:5;
   width:500px;
-  height:500px;
-  background-color:red;
+  /*height:500px;*/
+  background-color:#8b0000;
   display:none;
-  box-shadow: 5px 10px #FF7F7F;
+  box-shadow: 10px 8px 10px #888888;
 }
 /* end of view results*/
 
@@ -55,6 +55,7 @@ p{
 
 h1{
    text-align: center;
+   padding-left: 10%;
    font-size: 35px;
    font-family: 'Mountains of Christmas', cursive;
    font-weight: bold;

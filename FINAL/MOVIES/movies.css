@@ -15,14 +15,13 @@ body{
 /* move the reults box*/
 #userInfo{
   position: absolute;
-  top:45%;
-  left:37%;
+  top:40%;
+  left:67%;
   z-index:5;
   width:500px;
-  height:500px;
-  background-color:red;
+  background-color:#004d00;
   display:none;
-  box-shadow: 5px 10px #FF7F7F;
+  box-shadow:  10px 8px 10px #888888;
 }
 /* end of view results*/
 
