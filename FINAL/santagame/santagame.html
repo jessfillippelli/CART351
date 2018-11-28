@@ -120,9 +120,50 @@ function component(width, height, path, x, y, type) {
 
 
 function updateGameArea() { //start of update game
-  if (myGamePiece.crashWith(myObstacle, myObstacletwo, myObstaclethree, myObstaclefour, myObstaclefive, myObstaclesix, myObstacleseven, myObstacleeight, myObstaclenine )) {
+  if (myGamePiece.crashWith(myObstacle)) {
      myGameArea.stop();
-} else {
+}
+else if(myGamePiece.crashWith(myObstacletwo)){
+  console.log("test");
+     myGameArea.stop();
+
+}
+else if(myGamePiece.crashWith(myObstaclethree)){
+  console.log("test");
+     myGameArea.stop();
+
+}
+else if(myGamePiece.crashWith(myObstaclefour)){
+  console.log("test");
+     myGameArea.stop();
+
+}
+else if(myGamePiece.crashWith(myObstaclefive)){
+  console.log("test");
+     myGameArea.stop();
+
+}
+else if(myGamePiece.crashWith(myObstaclesix)){
+  console.log("test");
+     myGameArea.stop();
+
+}
+else if(myGamePiece.crashWith(myObstacleseven)){
+  console.log("test");
+     myGameArea.stop();
+
+}
+else if(myGamePiece.crashWith(myObstacleeight)){
+  console.log("test");
+     myGameArea.stop();
+
+}
+else if(myGamePiece.crashWith(myObstaclenine)){
+  console.log("test");
+     myGameArea.stop();
+
+}
+else {
 
   //ADDED MORE Obstacles
    myObstacle.x += -1; //getting the candy canes to move
