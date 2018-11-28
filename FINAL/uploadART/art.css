@@ -13,8 +13,8 @@ body{
 
 #userInfo{
   position: absolute;
-  top:50px;
-  left:20%;
+  top:30px;
+  left:40%;
   z-index:5;
   width:500px;
   height:500px;
@@ -111,7 +111,7 @@ input{
 }
 .buttonWrapper{
   margin-left:38%;
-  
+
 }
 
 /* see other input and home button */

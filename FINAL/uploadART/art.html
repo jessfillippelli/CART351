@@ -12,6 +12,54 @@
 <script>
  $(document).ready(function(){
 
+
+   	function displayUserInfo(parsedJSON){
+    	document.getElementById("userInfo").style.display = "block";
+    	for(let i =0; i< parsedJSON.length; i++){
+    		console.log(parsedJSON[i].searchtext+i);
+
+   		let currentObject = parsedJSON[i];
+   		 // go through each property in the current object ....
+   		 for (let property in currentObject) {
+   				 let para = $('<p>');
+
+   				 	if(currentObject[property] !==null && currentObject[property] !==" "){
+   				 $(para).text(currentObject[property]);
+   				 $(para).appendTo("#userInfo");
+   				}
+   			}
+      }
+
+   } //display info
+
+
+   $("#getUserSearch").click(function(event){
+   	event.preventDefault();
+   	$.ajax({
+   					type: "POST",
+   					enctype: 'multipart/form-data',
+   					url: "../php/retrievePostart.php",
+   					data: "",
+   					processData: false,//prevents from converting into a query string
+   					contentType: false,
+   					cache: false,
+   					timeout: 600000,
+   					success: function (response) {
+   					//console.log(response);
+
+   					let parsedJSON = JSON.parse(response);
+   					 //console.log(parsedJSON);
+   					 displayUserInfo(parsedJSON);
+   				 },
+   				 error:function(){
+   				console.log("error occurred");
+   			}
+   		});
+      displayUserInfo();
+      console.log("user clicked");
+   	}); //getusersearch
+
+
 $("#insertGallery").submit(function(event) {
 	 //stop submit the form, we will post it manually. PREVENT THE DEFAULT behaviour ...
 	event.preventDefault();
@@ -84,7 +132,8 @@ $("#insertGallery").submit(function(event) {
 
 <!-- <div id = "container">
 </div> -->
-<div id="images"></div>
+<div id="images"></div><!-- for user search result -->
+<div id = "userInfo"></div>
 
 
 </body>

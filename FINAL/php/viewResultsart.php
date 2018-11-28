@@ -14,14 +14,14 @@ class MyDB extends SQLite3
    {
       function __construct()
       {
-          $this->open('../db/graffitiGallery.db');
+          $this->open('../db/xmasart.db');
       }
    }
 
 try
 {
    $db = new MyDB();
-   $sql_select='SELECT * FROM artCollection';
+   $sql_select='SELECT * FROM uploadArt';
   // $sql_select_one="SELECT * FROM artCollection WHERE creationDate >=Date('2002-01-01') AND artist = 'Sarah'"; //only one artwork
    //$sql_selectA = "SELECT artist, COUNT(*) FROM artCollection GROUP BY artist"; //ONLY A particular ITEM
 // the result set
