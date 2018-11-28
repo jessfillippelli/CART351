@@ -3,10 +3,15 @@ html{
 }
 
 body{
-  font-family: 'Mountains of Christmas', cursive;
   color: white;
-    text-align: center;
-    margin-left: 10px;
+  text-align: center;
+  margin-left: 10px;
+}
+
+h1{
+  font-size: 50px;
+  font-family: 'Mountains of Christmas', cursive;
+  margin-left: 1px;
 }
 /* START of BALL 1 */
 
@@ -66,6 +71,7 @@ body{
 /* home button */
 .button {
     background-color: #4CAF50;
+
     border: none;
     color: white;
     padding: 15px 32px;
@@ -75,7 +81,7 @@ body{
     font-size: 16px;
     cursor: pointer;
     font-family: 'Mountains of Christmas', cursive;
-    margin-left: 45%;
+    margin-left: 1px;
 
 }
 

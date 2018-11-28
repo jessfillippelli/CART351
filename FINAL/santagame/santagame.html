@@ -9,9 +9,35 @@
 <body onload="startGame()">
   <h1>move the santa head through the canady canes with the arrows </h1>
 
-<button class="button button2" id="GameButton"> Restart Game? </button>
-  <button onclick = "window.location.href='../index.html'" class="button button1">BACK TO CALENDAR</button>
+
 <script>
+
+//event listerer for rect
+//canvas.addEventListener("mousedown",function(event){
+  //console.log("canvas mouse clicked");
+
+//for(let )
+
+//});
+var gameOver =false;
+
+function scoretext (txt, fnt, x, y, c){
+ canvasContext.fillStyle = c;
+ canvasContext.font = fnt;
+ canvasContext.fillText(txt,x,y);
+}
+
+//resetGame();
+
+function resetGame(){ //start of reset game - what you want to go when the game is done
+  //console.log("in reset");
+  startGame();
+
+  gameOver = false;
+  //startTime = new Date().getSeconds(); // restart timer just took out the "let"
+  startTime = new Date().getTime(); // restart timer just took out the "let"
+
+}
 
 var myGamePiece;
 //ADD MORE Obstacles
@@ -38,6 +64,8 @@ function startGame() {
     myObstacleseven = new component(200, 200, "images/candy6.png", 1300, 160, "image");
     myObstacleeight = new component(200, 200, "images/candy6.png", 1515, 600, "image");
     myObstaclenine = new component(200, 200, "images/CandyCane1.png", 200, 530, "image");
+    var button = document.getElementById("GameButton");
+    button.addEventListener("mousedown", resetGame);
 
 }
 
@@ -126,37 +154,47 @@ function updateGameArea() { //start of update game
 else if(myGamePiece.crashWith(myObstacletwo)){
   console.log("test");
      myGameArea.stop();
+      gameOver=true;
 
 }
 else if(myGamePiece.crashWith(myObstaclethree)){
      myGameArea.stop();
+        gameOver=true;
 
 }
 else if(myGamePiece.crashWith(myObstaclefour)){
      myGameArea.stop();
+        gameOver=true;
 
 }
 else if(myGamePiece.crashWith(myObstaclefive)){
      myGameArea.stop();
+     gameOver=true;
 
 }
 else if(myGamePiece.crashWith(myObstaclesix)){
      myGameArea.stop();
+        gameOver=true;
 
 }
 else if(myGamePiece.crashWith(myObstacleseven)){
      myGameArea.stop();
+        gameOver=true;
 
 }
 else if(myGamePiece.crashWith(myObstacleeight)){
      myGameArea.stop();
+        gameOver=true;
 
 }
 else if(myGamePiece.crashWith(myObstaclenine)){
      myGameArea.stop();
+     gameOver=true;
 
 }
-else {
+else if(gameOver ===false)  {
+//  console.log(gameOver);
+//  if myGameArea.stop(); = "gameover";
 
   //ADDED MORE Obstacles
    myObstacle.x += -1; //getting the candy canes to move
@@ -191,6 +229,12 @@ else {
    myObstacleeight.update();
    myObstaclenine.update();
  }
+if(gameOver ===true){
+console.log("gameOver");
+var fontString = "130px gotham sans serif";
+ var xPos = 115;
+ var yPos = 500;
+}
 } //end of update game
 
 
@@ -202,5 +246,7 @@ window.onresize = function(event) {
 };
 
 </script>
+<button class="button button2" id="GameButton"> RESTART GAME? </button>
+  <button onclick = "window.location.href='../index.html'" class="button button1">BACK TO CALENDAR</button>
 </body>
 </html>
