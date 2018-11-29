@@ -7,10 +7,10 @@
   <body>
     <h2> DAY 4  </h2>
     <h2>  See if you can click all the elf heads off the screen faster than other users! </h2>
-
-<button class="button button2" id="GameButton"> Restart Game? </button>
-<button onclick = "window.location.href='../index.html'" class="button button1">Back to calander </button>
-
+<div class = "buttonWrapper">
+<button class="button button2" id="GameButton"> RESTART GAME? </button>
+<button onclick = "window.location.href='../index.html'" class="button button1">BACK TO CALENDAR </button>
+</div>
 <!-- <button onclick = "window.location.href='../index.html'" class="button button1">BACK TO CALENDAR  </button>
 <button id = "getUserSearch" type="#" class="button button2">SEE OTHER USERS INPUT</button> -->
 
@@ -149,7 +149,7 @@ else if (gameOver ===true) //start of game over
   canvasContext.font = fontString;
   canvasContext.fillStyle = "#ffffff";
   canvasContext.fillText("GAME OVER",xPos,yPos);
-    scoretext("Time: " + Math.floor(score),"100px Mountains of Christmas cursive",40,105, "black"); //SCORE
+    scoretext("Time: " + Math.floor(score),"100px 'Mountains of Christmas' cursive",40,105, "black"); //SCORE
 } // end of game over
 
 
