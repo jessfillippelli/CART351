@@ -6,7 +6,7 @@
 <link rel="stylesheet" href="art.css">
 <link rel="stylesheet" href="uploadform.css">
 <link href="https://fonts.googleapis.com/css?family=Mountains+of+Christmas" rel="stylesheet">
-<!-- <script src ="snow.js"></script> -->
+
 
 <script src = "libs/jquery/jquery-3.3.1.min.js"></script>
 <script>
@@ -21,16 +21,6 @@
          $(imageC).appendTo("#userInfo");
     	//	console.log(parsedJSON[i].image+i);
 
-   	//	let currentObject = parsedJSON[i];
-   		 // go through each property in the current object ....
-   		// for (let property in currentObject) {
-   				// let para = $('<p>');
-//
-   				 //	if(currentObject[property] !==null && currentObject[property] !==" "){
-   				 //$(para).text(currentObject[property]);
-   				 //$(para).appendTo("#userInfo");
-   			//	}
-   		//	}
       }
 
    } //display info
@@ -101,7 +91,7 @@ $("#insertGallery").submit(function(event) {
 
 <h1>Welcome to 12 Days of Databases door six. </h1>
 <h1> Today's activite is drawing  </h1>
-<h1> draw your favorite christmas memoery and upload it to the database :) </h1>
+<h1> Draw your favorite christmas memoery and upload it to the database :) </h1>
 <h1> Happy Drawing </h1>
 <div class = "buttonWrapper">
 <button onclick = "window.location.href='../index.html'" class="button button1">BACK TO CALENDAR </button>
@@ -112,15 +102,14 @@ $("#insertGallery").submit(function(event) {
 
 
 <p>
-<!-- <input type="text" id="searchText" value="search Item" />
-<input type="button" value="Search!" id="searchButton" /> -->
+
 
 <br/>
 <div class= "formContainer">
-<!--form done using more current tags... -->
+
 <form id="insertGallery" action="" enctype ="multipart/form-data">
 <!-- group the related elements in a form -->
-<h3> SUBMIT AN ART WORK :) </h3>
+<h3> SUBMIT YOUR IMAGE </h3>
 <fieldset>
 <p><label>Artist:</label><input type="text" size="24" maxlength = "40" name = "a_name" required></p>
 <p><label>Title:</label><input type = "text" size="24" maxlength = "40"  name = "a_title" required></p>
