@@ -20,7 +20,7 @@ canvas{
   padding:0;
 
 }
-#scoretext{
+.scoretext{
   font-family: 'Mountains of Christmas', cursive;
 }
 .buttonWrapper{

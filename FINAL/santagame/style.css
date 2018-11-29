@@ -16,7 +16,9 @@ h1{
   padding-left: 32%;
   margin-top: 1px;
 }
-
+.buttonWrapper{
+  margin-left:35%;
+}
 /* Restart game and back to calander */
 .button {
     background-color: white;
@@ -30,7 +32,6 @@ h1{
     display: inline-block;
     font-size: 16px;
     margin-top: 4px;
-
     cursor: pointer;
     font-family: 'Mountains of Christmas', cursive;
     position:absolute;
@@ -43,7 +44,7 @@ h1{
     background-color: white;
     color: black;
     border: 2px solid #003366;
-      margin-left: 1%;
+    margin-right: 1%;
     /*margin: 4px 400px;*/
 }
 .button1:hover {
