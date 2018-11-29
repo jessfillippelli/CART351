@@ -22,11 +22,26 @@
 
 //});
 var gameOver =false;
+var gameOverScreen = new GameOverText();
 
 function scoretext (txt, fnt, x, y, c){
  canvasContext.fillStyle = c;
  canvasContext.font = fnt;
  canvasContext.fillText(txt,x,y);
+}
+
+function GameOverText (){
+  this.x =115;
+  this.y=500;
+  this.c ="#8B0000";
+  this.fontString = "130px gotham sans serif";
+  //  var this.x = 115;
+  //  var this.y = 500;
+  this.display = function(canvasContext){
+ canvasContext.fillStyle = this.c;
+ canvasContext.font = this.fontString;
+ canvasContext.fillText("GAME OVER", this.x,this.y);
+}
 }
 
 //resetGame();
@@ -232,10 +247,11 @@ else if(gameOver ===false)  {
    myObstaclenine.update();
  }
 if(gameOver ===true){
-console.log("gameOver");
-var fontString = "130px gotham sans serif";
- var xPos = 115;
- var yPos = 500;
+  gameOverScreen.display(myGameArea.context);
+// console.log("gameOver");
+//  var fontString = "130px gotham sans serif";
+//  var this.x = 115;
+//  var this.y = 500;
 }
 } //end of update game
 
