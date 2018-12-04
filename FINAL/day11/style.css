@@ -18,6 +18,14 @@ body{
   font-size: 60px;
 }
 
+h2{
+    font-family: 'Mountains of Christmas', cursive;
+    font-size: 60px;
+    margin: 50px 0;
+      text-align: center;
+        color: white;
+}
+
 @keyframes bganimation {
   0% {
     background-position: 0% 50%;
