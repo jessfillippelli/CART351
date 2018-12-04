@@ -32,9 +32,11 @@ body{
 }
 
 #imageElements div{
-margin-left:25%;
+margin-left:55%;
 }
-
+#audioElements{
+  padding-left: 35%;
+}
 
 img {
     width: 250px;
