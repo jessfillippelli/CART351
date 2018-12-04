@@ -8,8 +8,8 @@
 
 </head>
 <body onload="startGame()">
-  <h2>Welcome to 12 Days of Databases Door 3. </h2>
-  <h1>Move the santa head through the canady canes with the arrows </h1>
+  <h2>Welcome to 12 Days of Databases Door Three. </h2>
+  <h1>Move the santa head through the canady canes with the arrows on the keyboard </h1>
 
 
 <script>
@@ -31,7 +31,7 @@ function scoretext (txt, fnt, x, y, c){
 }
 
 function GameOverText (){
-  this.x =710;
+  this.x =660;
   this.y=500;
   this.c ="#8B0000";
   this.fontString = "100px gotham sans serif";
@@ -211,7 +211,7 @@ else if(myGamePiece.crashWith(myObstaclenine)){
 }
 else if(gameOver ===false)  {
 //  console.log(gameOver);
-//  if myGameArea.stop(); = "gameover";
+
 
   //ADDED MORE Obstacles
    myObstacle.x += -1; //getting the candy canes to move
@@ -248,10 +248,7 @@ else if(gameOver ===false)  {
  }
 if(gameOver ===true){
   gameOverScreen.display(myGameArea.context);
-// console.log("gameOver");
-//  var fontString = "130px gotham sans serif";
-//  var this.x = 115;
-//  var this.y = 500;
+
 }
 } //end of update game
 
