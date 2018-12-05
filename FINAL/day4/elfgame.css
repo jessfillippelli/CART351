@@ -21,6 +21,7 @@ canvas{
 
 }
 .scoretext{
+  font-size: 15px;
   font-family: 'Mountains of Christmas', cursive;
 }
 .buttonWrapper{
