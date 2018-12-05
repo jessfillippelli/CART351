@@ -138,18 +138,18 @@ if(myEllipses.length ===0 )
 }
 
   //score
-  scoretext("Time: " + Math.floor(score),"100px Mountains of Christmas cursive",40,105, "#8b0000"); //SCORE
+  scoretext("Time: " + Math.floor(score),"100px Mountains of Christmas",40,105, "#8b0000"); //SCORE
 } //end of play game
 else if (gameOver ===true) //start of game over
 {
-  let fontString = "130px Mountains of Christmas' cursive";
-   let xPos = 250;
+  let fontString = "130px Mountains of Christmas";
+   let xPos = 270;
    let yPos = 500;
 
   canvasContext.font = fontString;
   canvasContext.fillStyle = "#8b0000";
   canvasContext.fillText("YOU WON",xPos,yPos);
-    scoretext("Time: " + Math.floor(score),"100px 'Mountains of Christmas' cursive",45,105, "red"); //SCORE
+    scoretext("Time: " + Math.floor(score),"100px Mountains of Christmas",45,105, "red"); //SCORE
 } // end of game over
 
 
