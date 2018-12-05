@@ -9,14 +9,14 @@
 </head>
 <body onload="startGame()">
   <h2>Welcome to 12 Days of Databases Door Three. </h2>
-  <h1>Move the santa head through the canady canes with the arrows on the keyboard </h1>
+  <h1>Move the santa head through the candy cane forest with the arrows on the keyboard to win the game </h1>
 
 
 <script>
 
 
 
-//});
+
 var gameOver =false;
 var gameWon =false;
 var gameOverScreen = new GameOverText();
@@ -33,12 +33,10 @@ function GameOverText (){
   this.y=500;
   this.c ="#8B0000";
   this.fontString = "100px Mountains of Christmas";
-  //  var this.x = 115;
-  //  var this.y = 500;
   this.display = function(canvasContext){
- canvasContext.fillStyle = this.c;
- canvasContext.font = this.fontString;
- canvasContext.fillText("GAME OVER", this.x,this.y);
+  canvasContext.fillStyle = this.c;
+  canvasContext.font = this.fontString;
+  canvasContext.fillText("GAME OVER", this.x,this.y);
 }
 }
 
@@ -47,25 +45,18 @@ function YouWonText (){
   this.y=500;
   this.c ="#8B0000";
   this.fontString = "100px Mountains of Christmas";
-  //  var this.x = 115;
-  //  var this.y = 500;
   this.display = function(canvasContext){
- canvasContext.fillStyle = this.c;
- canvasContext.font = this.fontString;
- canvasContext.fillText("YOU WON", this.x,this.y);
+  canvasContext.fillStyle = this.c;
+  canvasContext.font = this.fontString;
+  canvasContext.fillText("YOU WON", this.x,this.y);
 }
 }
 
 
 
-// function YouWontext(){
-//   this.x =755;
-//   this.y=500;
-//   this.c ="#8B0000";
-//   this.fontString = "100px gotham sans serif";
-// }
 
-//resetGame();
+
+//resetGame
 
 function resetGame(){ //start of reset game - what you want to go when the game is done
   //console.log("in reset");
@@ -73,7 +64,6 @@ function resetGame(){ //start of reset game - what you want to go when the game 
 
   gameOver = false;
   gameWon =false;
-  //startTime = new Date().getSeconds(); // restart timer just took out the "let"
   startTime = new Date().getTime(); // restart timer just took out the "let"
 
 }
@@ -171,7 +161,7 @@ function component(width, height, path, x, y, type) {
         gameOver =true;
 
       }
-        this.x += 5;
+        this.x += 2;
         this.y += this.speedY;
     }
     this.crashWith = function(otherobj) {
@@ -280,10 +270,12 @@ else if(gameOver ===false)  {
    myObstacleeight.update();
    myObstaclenine.update();
  }
+ //if u lose
 if(gameOver ===true && gameWon ===false){
   gameOverScreen.display(myGameArea.context);
 
 }
+//if win the game
 else if(gameOver ===true && gameWon ===true){
     youWonScreen.display(myGameArea.context);
 }
