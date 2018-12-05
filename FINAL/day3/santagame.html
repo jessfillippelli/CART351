@@ -18,8 +18,9 @@
 
 //});
 var gameOver =false;
+var gameWon =false;
 var gameOverScreen = new GameOverText();
-//var youWonScreen = new YouWontext();
+var youWonScreen = new YouWonText();
 
 function scoretext (txt, fnt, x, y, c){
  canvasContext.fillStyle = c;
@@ -41,6 +42,22 @@ function GameOverText (){
 }
 }
 
+function YouWonText (){
+  this.x =755;
+  this.y=500;
+  this.c ="#8B0000";
+  this.fontString = "100px Mountains of Christmas";
+  //  var this.x = 115;
+  //  var this.y = 500;
+  this.display = function(canvasContext){
+ canvasContext.fillStyle = this.c;
+ canvasContext.font = this.fontString;
+ canvasContext.fillText("YOU WON", this.x,this.y);
+}
+}
+
+
+
 // function YouWontext(){
 //   this.x =755;
 //   this.y=500;
@@ -55,6 +72,7 @@ function resetGame(){ //start of reset game - what you want to go when the game 
   startGame();
 
   gameOver = false;
+  gameWon =false;
   //startTime = new Date().getSeconds(); // restart timer just took out the "let"
   startTime = new Date().getTime(); // restart timer just took out the "let"
 
@@ -147,7 +165,13 @@ function component(width, height, path, x, y, type) {
 
     }
     this.newPos = function() {
-        this.x += this.speedX;
+        cnvs= myGameArea.canvas;
+      if(this.x+this.width>cnvs.width){
+        gameWon =true;
+        gameOver =true;
+
+      }
+        this.x += 5;
         this.y += this.speedY;
     }
     this.crashWith = function(otherobj) {
@@ -256,9 +280,12 @@ else if(gameOver ===false)  {
    myObstacleeight.update();
    myObstaclenine.update();
  }
-if(gameOver ===true){
+if(gameOver ===true && gameWon ===false){
   gameOverScreen.display(myGameArea.context);
 
+}
+else if(gameOver ===true && gameWon ===true){
+    youWonScreen.display(myGameArea.context);
 }
 
 
