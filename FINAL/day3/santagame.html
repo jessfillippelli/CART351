@@ -19,6 +19,7 @@
 //});
 var gameOver =false;
 var gameOverScreen = new GameOverText();
+//var youWonScreen = new YouWontext();
 
 function scoretext (txt, fnt, x, y, c){
  canvasContext.fillStyle = c;
@@ -30,7 +31,7 @@ function GameOverText (){
   this.x =755;
   this.y=500;
   this.c ="#8B0000";
-  this.fontString = "100px gotham sans serif";
+  this.fontString = "100px Mountains of Christmas";
   //  var this.x = 115;
   //  var this.y = 500;
   this.display = function(canvasContext){
@@ -39,6 +40,13 @@ function GameOverText (){
  canvasContext.fillText("GAME OVER", this.x,this.y);
 }
 }
+
+// function YouWontext(){
+//   this.x =755;
+//   this.y=500;
+//   this.c ="#8B0000";
+//   this.fontString = "100px gotham sans serif";
+// }
 
 //resetGame();
 
@@ -252,6 +260,9 @@ if(gameOver ===true){
   gameOverScreen.display(myGameArea.context);
 
 }
+
+
+
 } //end of update game
 
 
