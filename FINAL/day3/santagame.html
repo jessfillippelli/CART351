@@ -108,12 +108,13 @@ var myGameArea = {
     }
 }// end game area
 
+//game over
 function everyinterval(n) {
     if ((myGameArea.frameNo / n) % 1 == 0) {return true;}
     return false;
 }
 
-
+//object on canavas
 function component(width, height, path, x, y, type) {
     this.type = type;
     if (type == "image") {
@@ -160,10 +161,10 @@ function component(width, height, path, x, y, type) {
              crash = false;
           }
           return crash;
-      }
+      } //end of crash
 } //end obj
 
-
+//crash elemnst for all the canady canes
 function updateGameArea() { //start of update game
   if (myGamePiece.crashWith(myObstacle)) {
      myGameArea.stop();
@@ -228,6 +229,7 @@ else if(gameOver ===false)  {
    myGameArea.clear();
    myGamePiece.speedX = 0;
    myGamePiece.speedY = 0;
+   //the arrows
    if (myGameArea.keys && myGameArea.keys[37]) {myGamePiece.speedX = -1; }
    if (myGameArea.keys && myGameArea.keys[39]) {myGamePiece.speedX = 1; }
    if (myGameArea.keys && myGameArea.keys[38]) {myGamePiece.speedY = -1; }
