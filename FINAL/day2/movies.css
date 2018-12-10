@@ -27,13 +27,13 @@ body{
 
 
 
-.content {
+/* .content {
     max-width: 900px;
     margin-top: 50px;
     margin-left: 530px;
     background: #FFFFFF;
     padding: 0px;
-}
+} */
 
 /* move image */
 #imageElements{
@@ -51,14 +51,14 @@ img {
     height:auto;
 
 }
-
+/* to move the search box */
 p{
   text-align: center;
   font-size: 30px;
   font-family: 'Mountains of Christmas', cursive;
   font-weight: bold;
   padding-top: 2%;
-  padding-left: 2%;
+  padding-left: 15%;
 
 
 }
@@ -69,6 +69,7 @@ h1{
    font-family: 'Mountains of Christmas', cursive;
    font-weight: bold;
    padding-bottom: 0%;
+   padding-left: 15%;
 
 }
 
@@ -80,6 +81,7 @@ h2{
    font-weight: bold;
    padding-bottom: 0%;
    padding-top: 5%;
+   padding-left: 15%;
 
 }
 
@@ -109,7 +111,7 @@ input{
 }
 
 .buttonWrapper{
-  margin-left:30%;
+  margin-left:35%;
 }
 
 /* see other input and home button */
