@@ -19,11 +19,10 @@ img{
 
 h4 {
 	text-align: center;
-	padding-left: 2%;
+	margin-left: 2%;
 	font-size: 35px;
   font-family: 'Mountains of Christmas', cursive;
 	border: none;
-	padding-bottom: 0pt;
 	color: #000000;
 }
 
@@ -33,6 +32,7 @@ p{
 
 .buttonWrapper{
   margin-left:45%;
+	margin-bottom: 1%;
 }
 
 /* home button */
