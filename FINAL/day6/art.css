@@ -7,7 +7,8 @@ body{
 #bodyContainer{
   position: absolute;
   top:0;
-  left:25%;
+  margin-left: 27%;
+  margin-right: 27%;
   z-index:1;
 }
 
@@ -23,13 +24,7 @@ body{
 }
 /* end of view results*/
 
-.content {
-    max-width: 900px;
-    margin-top: 50px;
-    margin-left: 530px;
-    background: #FFFFFF;
-    padding: 0px;
-}
+
 
 /* move image */
 #imageElements{
@@ -53,29 +48,25 @@ p{
   font-size: 30px;
   font-family: 'Mountains of Christmas', cursive;
   font-weight: bold;
-  padding-top: 2%;
-  padding-left: 2%;
-
-
 }
 
 h1{
-   text-align: center;
-   font-size: 35px;
-   font-family: 'Mountains of Christmas', cursive;
-   font-weight: bold;
-   padding-bottom: 0%;
+  text-align: center;
+  font-size: 35px;
+  font-family: 'Mountains of Christmas', cursive;
+  font-weight: bold;
+  padding-bottom: 0%;
 
 }
 
 
 h2{
-   text-align: center;
-   font-size: 25px;
-   font-family: 'Mountains of Christmas', cursive;
-   font-weight: bold;
-   padding-bottom: 0%;
-   padding-top: 5%;
+  text-align: center;
+  font-size: 25px;
+  font-family: 'Mountains of Christmas', cursive;
+  font-weight: bold;
+  padding-bottom: 0%;
+  padding-top: 5%;
 
 }
 
