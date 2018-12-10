@@ -57,6 +57,7 @@ $("#insertGallery").submit(function(event) {
 	 //stop submit the form, we will post it manually. PREVENT THE DEFAULT behaviour ...
 	event.preventDefault();
  console.log("button clicked");
+ $("#buttonS").hide();
  let form = $('#insertGallery')[0];
  let data = new FormData(form);
  $.ajax({
