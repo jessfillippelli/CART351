@@ -3,6 +3,8 @@
 
 body {
 	  background-color: #8b0000;
+		height: 85%;
+		width:auto;s
     margin-right: 4px;
     background-attachment: fixed;
 }
@@ -12,10 +14,6 @@ body {
 img{
   margin-left: 36%;
 }
-
-
-
-
 
 h4 {
 	text-align: center;

@@ -27,7 +27,7 @@ body{
 .container h1{
   text-transform: uppercase;
   font-size: 80px;
-  margin: 0px;
+  margin: 0;
   letter-spacing: 10px;
 }
 
@@ -35,7 +35,7 @@ body{
   margin: 0;
   font-size: 30px;
   font-weight: 500;
-  /* font-style: cursive; */
+
 
 }
 
@@ -43,7 +43,7 @@ body{
   margin: 40px 0;
 }
 
-/* CHANGE THE SIZR OF THE BOXES (W) */
+/* CHANGE THE SIZE OF THE BOXES (W) */
 .countd{
   display: inline-block;
   width: 145px;
