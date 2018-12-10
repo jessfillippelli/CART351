@@ -6,7 +6,9 @@ body,html{
 }
 
 body{
-  background: url(images/goldtree.png) 100% 100%;
+  background: url(images/goldtree.png);
+  height: 100%;
+  width:auto;
   background-size: cover;
   font-family: 'Mountains of Christmas', cursive;
 }
