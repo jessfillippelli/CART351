@@ -8,8 +8,9 @@ body{
 #bodyContainer{
   position: absolute;
   top:0;
-  left:25%;
   z-index:1;
+  margin-left: 27%;
+  margin-right: 27%;
 }
 
 /* move the reults box*/
@@ -25,15 +26,6 @@ body{
 }
 /* end of view results*/
 
-
-
-/* .content {
-    max-width: 900px;
-    margin-top: 50px;
-    margin-left: 530px;
-    background: #FFFFFF;
-    padding: 0px;
-} */
 
 /* move image */
 #imageElements{
@@ -57,31 +49,25 @@ p{
   font-size: 30px;
   font-family: 'Mountains of Christmas', cursive;
   font-weight: bold;
-  padding-top: 2%;
-  padding-left: 15%;
-
-
 }
 
 h1{
-   text-align: center;
-   font-size: 35px;
-   font-family: 'Mountains of Christmas', cursive;
-   font-weight: bold;
-   padding-bottom: 0%;
-   padding-left: 15%;
+  text-align: center;
+  font-size: 35px;
+  font-family: 'Mountains of Christmas', cursive;
+  font-weight: bold;
+  padding-bottom: 0%;
 
 }
 
 
 h2{
-   text-align: center;
-   font-size: 25px;
-   font-family: 'Mountains of Christmas', cursive;
-   font-weight: bold;
-   padding-bottom: 0%;
-   padding-top: 5%;
-   padding-left: 15%;
+  text-align: center;
+  font-size: 25px;
+  font-family: 'Mountains of Christmas', cursive;
+  font-weight: bold;
+  padding-bottom: 0%;
+  padding-top: 5%;
 
 }
 
@@ -111,7 +97,7 @@ input{
 }
 
 .buttonWrapper{
-  margin-left:35%;
+  margin-left:25%;
 }
 
 /* see other input and home button */
