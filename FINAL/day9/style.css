@@ -18,7 +18,7 @@ h1{
 .flex-container {
   display: flex;
   flex-direction: row;
-  margin-left: 12%;
+  margin-left: 20%;
 }
 .ballwrapper{
   margin:70px;
