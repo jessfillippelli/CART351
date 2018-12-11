@@ -6,7 +6,7 @@ body, html {
 .image {
 
     background-image: url('images/image2.png');
-     height: 90%;
+     height: 100%;
      width:auto;
     background-position: center;
     background-size: cover;
@@ -18,13 +18,9 @@ body, html {
 
 
 
-/* Position text in the bottom-left corner */
-.bottomleft {
-    padding-left: 3%;
-    padding-top: 40%;
-}
 
-/* Position text in the middle */
+
+
 .text {
     position: absolute;
     top: 50%;
@@ -33,11 +29,7 @@ body, html {
     text-align: center;
 }
 
-/* Style the <hr> element */
-hr {
-    margin: auto;
-    width: 40%;
-}
+
 
 P{
   font-size: 50px;
