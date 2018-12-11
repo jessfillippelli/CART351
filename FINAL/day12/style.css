@@ -3,7 +3,7 @@ body, html {
     height: 100%
 }
 
-.bgimg {
+.image {
 
     background-image: url('images/image2.png');
      height: 90%;
@@ -25,7 +25,7 @@ body, html {
 }
 
 /* Position text in the middle */
-.middle {
+.text {
     position: absolute;
     top: 50%;
     left: 50%;
