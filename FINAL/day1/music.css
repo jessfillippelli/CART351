@@ -50,6 +50,7 @@ p{
   font-size: 30px;
   font-family: 'Mountains of Christmas', cursive;
   font-weight: bold;
+  color: white;
 }
 
 h1{
@@ -58,6 +59,7 @@ h1{
    font-family: 'Mountains of Christmas', cursive;
    font-weight: bold;
    padding-bottom: 0%;
+   color: white;
 
 }
 
@@ -69,6 +71,7 @@ h2{
    font-weight: bold;
    padding-bottom: 0%;
    padding-top: 5%;
+   color: white;
 
 
 }
@@ -101,7 +104,7 @@ input{
 
 /* move the  buttons together */
 .buttonWrapper{
-  margin-left:25%;
+  margin-left:22%;
 }
 
 /* see other input and home button */
